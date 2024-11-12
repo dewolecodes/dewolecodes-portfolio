@@ -21,8 +21,27 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Nabeels Portfolio",
-  description: "A personal portfolio website",
+  title: "Nabeel's Portfolio | Frontend Developer",
+  description:
+    "Explore Nabeel's portfolio showcasing innovative web development and design projects. Discover skills in React, Next.js, and UI/UX design.",
+  keywords: [
+    "Nabeel",
+    "portfolio",
+    "web developer",
+    "web designer",
+    "Software Engineer",
+    "Software Developer",
+    "Frontend Developer",
+    "Full Stack Developer",
+    "React Developer",
+    "Next.js Developer",
+  ],
+  authors: {
+    name: "Nabeel",
+    url: "https://nabeelhassan.dev",
+  },
+  viewport: "width=device-width, initial-scale=1.0",
+  robots: "index, follow",
 };
 
 export default function RootLayout({

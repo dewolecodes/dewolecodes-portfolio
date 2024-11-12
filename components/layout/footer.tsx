@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { navigationItems } from "@/lib/data";
 import { RiCodeSSlashLine, RiArrowUpLine } from "react-icons/ri";
+import ScrollToTopButton from "../ui/scroll-to-top-button";
 
 export function Footer() {
   return (
@@ -14,13 +15,7 @@ export function Footer() {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]" />
 
       {/* Scroll to Top Button */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="absolute right-8 top-3 -translate-y-1/2 rounded-xl border border-primary-base/10 bg-background-base/80 p-3 text-primary-base backdrop-blur-sm transition-colors hover:border-primary-base/20 hover:text-accent-base dark:border-primary-base-dark/10 dark:bg-background-base-dark/80 dark:text-primary-base-dark dark:hover:border-primary-base-dark/20 dark:hover:text-accent-base-dark"
-      >
-        <RiArrowUpLine className="h-5 w-5" />
-      </motion.button>
+      <ScrollToTopButton />
 
       <div className="relative mx-auto max-w-7xl px-4">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
