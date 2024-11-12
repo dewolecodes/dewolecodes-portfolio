@@ -92,7 +92,7 @@ export function Footer() {
             <span className="text-primary-base-dark">
               &copy; {new Date().getFullYear()}
             </span>{" "}
-            <span className="text-default-base dark:text-default-base-dark/60">
+            <span className="text-default-base dark:text-default-base-dark/90">
               All rights reserved
             </span>
           </motion.div>
