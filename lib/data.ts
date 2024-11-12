@@ -28,9 +28,10 @@ import {
   NavItem,
   AboutContent,
   SkillsContent,
-  Project,
   ExperienceContent,
   ContactContent,
+  ProjectSection,
+  ProjectData,
 } from "./types";
 
 export const navigationItems: NavItem[] = [
@@ -93,12 +94,16 @@ export const heroContent: HeroContent = {
 export const aboutContent: AboutContent = {
   title: "About Me",
   subtitle: "hello",
+  terminalInfo: {
+    command: "whoami",
+    flag: "info",
+    content: "Turning ideas into reality through code",
+  },
   image: {
     src: "/images/nabeel.webp",
     alt: "Hassan Umar Hassan",
   },
   description: {
-    intro: "Turning ideas into reality through code",
     details: [
       "Hey there! I'm Hassan (Nabeel), a developer who believes in the power of technology to create meaningful experiences. My journey into tech began with a simple curiosity about how things work on the web, and it quickly turned into a passion for creating beautiful, functional solutions.",
 
@@ -132,7 +137,11 @@ export const aboutContent: AboutContent = {
 export const skillsContent: SkillsContent = {
   title: "Skills",
   subtitle: "tech stack",
-  description: "Technologies and tools I work with to bring ideas to life",
+  terminalInfo: {
+    command: "skill",
+    flag: "list",
+    content: "Technologies and tools I work with to bring ideas to life",
+  },
   groups: [
     {
       title: "Core Technologies",
@@ -169,7 +178,17 @@ export const skillsContent: SkillsContent = {
   ],
 };
 
-export const projectsData: Project[] = [
+export const projectsSection: ProjectSection = {
+  title: "Projects",
+  subtitle: "portfolio",
+  terminalInfo: {
+    command: "projects",
+    flag: "list",
+    content: "A collection of my selected works & key projects",
+  },
+};
+
+export const projectsData: ProjectData[] = [
   {
     id: "project-1",
     title: "Modern E-commerce Platform",
@@ -370,6 +389,11 @@ export const projectsData: Project[] = [
 export const experienceData: ExperienceContent = {
   title: "Experience",
   subtitle: "journey",
+  terminalInfo: {
+    command: "career",
+    flag: "path",
+    content: "Building & growing through meaningful challenges",
+  },
   experiences: [
     {
       id: "exp-1",
@@ -413,8 +437,13 @@ export const experienceData: ExperienceContent = {
 };
 
 export const contactData: ContactContent = {
-  title: "Contact",
-  subtitle: "connect",
+  title: "Get in touch",
+  subtitle: "contact",
+  terminalInfo: {
+    command: "contact",
+    flag: "email",
+    content: "Let's collaborate on something amazing",
+  },
   description:
     "Have a project in mind or want to discuss opportunities? Feel free to reach out!",
   email: "hassanhauda@gmail.com",

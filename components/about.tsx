@@ -3,9 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { SectionHeader } from "./section-header";
+import { SectionHeader } from "./ui/section-header";
 import { aboutContent } from "@/lib/data";
 import { MonitorPlay, Trophy } from "lucide-react";
+import TerminalInfo from "./ui/terminal-info";
 
 const About = () => {
   const containerVariants = {
@@ -76,17 +77,11 @@ const About = () => {
         {/* Content Section */}
         <motion.div variants={itemVariants} className="lg:col-span-7">
           {/* Terminal-style intro */}
-          <div className="mb-6 rounded-lg border border-primary-base/20 bg-background-base/50 p-3 font-mono text-sm dark:border-primary-base-dark/10 dark:bg-background-base-dark/50">
-            <span className="text-accent-base dark:text-accent-base-dark">
-              $ whoami
-            </span>
-            <span className="ml-2 text-primary-base/70 dark:text-primary-base-dark/70">
-              --info
-            </span>
-            <span className="ml-2 text-primary-base-dark">
-              &gt;&gt;&gt; {aboutContent.description.intro}
-            </span>
-          </div>
+          <TerminalInfo
+            command={aboutContent.terminalInfo.command}
+            flag={aboutContent.terminalInfo.flag}
+            content={aboutContent.terminalInfo.content}
+          />
 
           {/* Description */}
           <div className="space-y-4">
@@ -94,7 +89,7 @@ const About = () => {
               <motion.p
                 key={index}
                 variants={itemVariants}
-                className="text-pretty font-raleway leading-relaxed text-default-base/80 dark:text-default-base-dark/80"
+                className="text-pretty font-raleway leading-relaxed text-default-base/80 dark:text-default-base-dark/80 md:text-base"
               >
                 {detail}
               </motion.p>

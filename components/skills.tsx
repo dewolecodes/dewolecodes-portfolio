@@ -2,9 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { SectionHeader } from "./section-header";
+import { SectionHeader } from "./ui/section-header";
 import { skillsContent } from "@/lib/data";
 import { Code2 } from "lucide-react";
+import TerminalInfo from "./ui/terminal-info";
 
 const Skills = () => {
   const containerVariants = {
@@ -40,17 +41,11 @@ const Skills = () => {
 
         {/* Terminal-style description */}
         <div className="mx-auto mt-6 max-w-3xl">
-          <div className="mb-8 rounded-lg border border-primary-base/20 bg-background-base/50 p-3 font-mono text-sm dark:border-primary-base-dark/10 dark:bg-background-base-dark/50">
-            <span className="text-accent-base dark:text-accent-base-dark">
-              $ skills
-            </span>
-            <span className="ml-2 text-primary-base/70 dark:text-primary-base-dark/70">
-              --list
-            </span>
-            <span className="ml-2 text-primary-base-dark">
-              &gt;&gt;&gt; {skillsContent.description}
-            </span>
-          </div>
+          <TerminalInfo
+            command={skillsContent.terminalInfo.command}
+            flag={skillsContent.terminalInfo.flag}
+            content={skillsContent.terminalInfo.content}
+          />
         </div>
 
         <motion.div

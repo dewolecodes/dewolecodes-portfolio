@@ -3,10 +3,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { SectionHeader } from "./section-header";
-import { projectsData } from "@/lib/data";
+import { SectionHeader } from "./ui/section-header";
+import { projectsData, projectsSection } from "@/lib/data";
 import { Code2, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
+import TerminalInfo from "./ui/terminal-info";
 
 export default function Projects() {
   const [showAllProjects, setShowAllProjects] = useState(false);
@@ -20,21 +21,19 @@ export default function Projects() {
   return (
     <section id="projects" className="px-4 py-16 md:px-6">
       <div className="relative">
-        <SectionHeader title="Projects" subtitle="portfolio" align="left" />
+        <SectionHeader
+          title={projectsSection.title}
+          subtitle={projectsSection.subtitle}
+          align="left"
+        />
 
         {/* Terminal-style description */}
         <div className="mx-auto mt-6 max-w-2xl">
-          <div className="mb-8 rounded-lg border border-primary-base/20 bg-background-base/50 p-3 font-mono text-sm dark:border-primary-base-dark/10 dark:bg-background-base-dark/50">
-            <span className="text-accent-base dark:text-accent-base-dark">
-              $ projects
-            </span>
-            <span className="ml-2 text-primary-base/70 dark:text-primary-base-dark/70">
-              --list
-            </span>
-            <span className="ml-2 text-primary-base-dark">
-              &gt;&gt;&gt; A collection of my selected works & key projects
-            </span>
-          </div>
+          <TerminalInfo
+            command={projectsSection.terminalInfo.command}
+            flag={projectsSection.terminalInfo.flag}
+            content={projectsSection.terminalInfo.content}
+          />
         </div>
 
         {/* Featured Projects */}

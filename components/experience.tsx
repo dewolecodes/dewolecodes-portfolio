@@ -3,27 +3,26 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExperienceCard } from "./experience-card";
-import { SectionHeader } from "./section-header";
+import { SectionHeader } from "./ui/section-header";
 import { experienceData } from "@/lib/data";
+import TerminalInfo from "./ui/terminal-info";
 
 export default function Experience() {
   return (
     <section id="experience" className="px-4 py-16 md:px-6">
-      <SectionHeader title="Experience" subtitle="journey" align="left" />
+      <SectionHeader
+        title={experienceData.title}
+        subtitle={experienceData.subtitle}
+        align="left"
+      />
 
-      {/* Terminal-style description */}
-      <div className="mx-auto mt-6 max-w-2xl">
-        <div className="mb-12 rounded-lg border border-primary-base/20 bg-background-base/50 p-3 font-mono text-sm dark:border-primary-base-dark/10 dark:bg-background-base-dark/50">
-          <span className="text-accent-base dark:text-accent-base-dark">
-            $ career
-          </span>
-          <span className="ml-2 text-primary-base/70 dark:text-primary-base-dark/70">
-            --path
-          </span>
-          <span className="ml-2 text-primary-base-dark">
-            &gt;&gt;&gt; Building & growing through meaningful challenges
-          </span>
-        </div>
+      {/* Terminal-style intro */}
+      <div className="mx-auto mb-16 mt-6 max-w-2xl">
+        <TerminalInfo
+          command={experienceData.terminalInfo.command}
+          flag={experienceData.terminalInfo.flag}
+          content={experienceData.terminalInfo.content}
+        />
       </div>
 
       {/* Experience Grid with Connection Lines */}

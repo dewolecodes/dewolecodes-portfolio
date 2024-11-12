@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { SectionHeader } from "./section-header";
+import { SectionHeader } from "./ui/section-header";
 import { contactData } from "@/lib/data";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
+import TerminalInfo from "./ui/terminal-info";
 
 export default function Contact() {
   const [formData, setFormData] = React.useState({
@@ -39,21 +40,19 @@ export default function Contact() {
 
   return (
     <section id="contact" className="px-4 py-16 md:px-6">
-      <SectionHeader title="Contact" subtitle="connect" align="left" />
+      <SectionHeader
+        title={contactData.title}
+        subtitle={contactData.subtitle}
+        align="left"
+      />
 
       {/* Terminal-style description */}
-      <div className="mx-auto mt-6 max-w-2xl">
-        <div className="mb-8 rounded-lg border border-primary-base/20 bg-background-base/50 p-3 font-mono text-sm dark:border-primary-base-dark/10 dark:bg-background-base-dark/50">
-          <span className="text-accent-base dark:text-accent-base-dark">
-            $ contact
-          </span>
-          <span className="ml-2 text-primary-base/70 dark:text-primary-base-dark/70">
-            --send
-          </span>
-          <span className="ml-2 text-primary-base-dark">
-            &gt;&gt;&gt; Let&apos;s collaborate on something amazing
-          </span>
-        </div>
+      <div className="mx-auto mt-6 max-w-xl">
+        <TerminalInfo
+          command={contactData.terminalInfo.command}
+          flag={contactData.terminalInfo.flag}
+          content={contactData.terminalInfo.content}
+        />
       </div>
 
       <div className="mt-12 grid gap-8 md:grid-cols-5 md:gap-12">

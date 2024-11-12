@@ -1,5 +1,21 @@
 import { LucideIcon } from "lucide-react";
 
+// Common types
+export type TerminalInfo = {
+  command: string;
+  flag: string;
+  content: string;
+};
+
+export type Icon = React.FC<{ className?: string }>;
+
+// Base content type for sections with title, subtitle and terminal info
+export type BaseSection = {
+  title: string;
+  subtitle: string;
+  terminalInfo: TerminalInfo;
+};
+
 export type NavItem = {
   name: string;
   href: string;
@@ -35,15 +51,12 @@ export type HeroContent = {
   };
 };
 
-export type AboutContent = {
-  title: string;
-  subtitle: string;
+export type AboutContent = BaseSection & {
   image: {
     src: string;
     alt: string;
   };
   description: {
-    intro: string;
     details: string[];
   };
   interests: Array<{
@@ -52,27 +65,25 @@ export type AboutContent = {
   }>;
 };
 
-// types.ts - Add this to your existing types
 export type SkillGroup = {
   title: string;
   skills: Array<{
     name: string;
-    icon: React.FC<{ className?: string }>; // This will be a react-icons component
+    icon: Icon;
   }>;
 };
 
-export type SkillsContent = {
-  title: string;
-  subtitle: string;
-  description: string;
+export type SkillsContent = BaseSection & {
+  terminalInfo: TerminalInfo;
   groups: SkillGroup[];
 };
 
-export type Project = {
+export type ProjectSection = BaseSection;
+
+export type ProjectData = {
   id: string;
   title: string;
   description: string;
-  // status: "building" | "featured" | "default";
   featured: boolean;
   cover: {
     url: string;
@@ -80,7 +91,7 @@ export type Project = {
   };
   tech: Array<{
     name: string;
-    icon: React.FC<{ className?: string }>;
+    icon: Icon;
   }>;
   links: {
     github?: string;
@@ -91,12 +102,6 @@ export type Project = {
     solution: string;
     keyFeatures: string[];
   };
-};
-
-export type ExperienceContent = {
-  title: string;
-  subtitle: string;
-  experiences: Experience[];
 };
 
 export type Experience = {
@@ -114,9 +119,11 @@ export type Experience = {
   achievements: string[];
 };
 
-export type ContactContent = {
-  title: string;
-  subtitle: string;
+export type ExperienceContent = BaseSection & {
+  experiences: Array<Experience>;
+};
+
+export type ContactContent = BaseSection & {
   description: string;
   email: string;
   socials: {
