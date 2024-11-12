@@ -3,12 +3,16 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { SectionHeader } from "./ui/section-header";
+import { SectionHeader } from "../ui/section-header";
 import { aboutContent } from "@/lib/data";
 import { MonitorPlay, Trophy } from "lucide-react";
-import TerminalInfo from "./ui/terminal-info";
+import TerminalInfo from "../ui/terminal-info";
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 const About = () => {
+  // Register the "about" section
+  const { ref } = useSectionInView("about", 0.5);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,7 +30,7 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="px-4 py-16 md:px-6">
+    <section ref={ref} id="about" className="scroll-mt-12 px-4 py-16 md:px-6">
       <SectionHeader
         title={aboutContent.title}
         subtitle={aboutContent.subtitle}
@@ -77,11 +81,13 @@ const About = () => {
         {/* Content Section */}
         <motion.div variants={itemVariants} className="lg:col-span-7">
           {/* Terminal-style intro */}
-          <TerminalInfo
-            command={aboutContent.terminalInfo.command}
-            flag={aboutContent.terminalInfo.flag}
-            content={aboutContent.terminalInfo.content}
-          />
+          <div className="w-fit">
+            <TerminalInfo
+              command={aboutContent.terminalInfo.command}
+              flag={aboutContent.terminalInfo.flag}
+              content={aboutContent.terminalInfo.content}
+            />
+          </div>
 
           {/* Description */}
           <div className="space-y-4">

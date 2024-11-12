@@ -5,15 +5,19 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { SparklesCore } from "./ui/sparkles";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
-import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { SparklesCore } from "../ui/sparkles";
+import { TextGenerateEffect } from "../ui/text-generate-effect";
+import { HoverBorderGradient } from "../ui/hover-border-gradient";
 import { heroContent } from "@/lib/data";
-import { MobileRolesSidebar } from "./ui/mobile-roles";
+import { MobileRolesSidebar } from "../ui/mobile-roles";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { PiReadCvLogoLight } from "react-icons/pi";
+import { useSection } from "@/hooks/useSection";
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 export default function Hero() {
+  const { ref } = useSectionInView("home", 0.5);
+
   const { theme } = useTheme();
 
   const containerVariants = {
@@ -31,7 +35,11 @@ export default function Hero() {
   const MobileRoles = MobileRolesSidebar;
 
   return (
-    <div className="relative flex min-h-[90vh] w-full flex-col items-center justify-center overflow-hidden bg-background-base px-4 pt-20 dark:bg-background-base-dark sm:pt-24 md:pt-28 lg:pt-20">
+    <section
+      id="home"
+      ref={ref}
+      className="relative flex min-h-[90vh] w-full flex-col items-center justify-center overflow-hidden bg-background-base px-4 pt-20 dark:bg-background-base-dark sm:pt-24 md:pt-28 lg:pt-20"
+    >
       {/* Matrix-like animated background */}
       <div className="absolute inset-0 h-full w-full">
         <SparklesCore
@@ -191,9 +199,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mb-8 max-w-2xl"
           >
-            <div className="text-pretty font-raleway text-base text-default-base/80 dark:text-default-base-dark/80">
-              <TextGenerateEffect words={heroContent.description} />
-            </div>
+            <TextGenerateEffect words={heroContent.description} />
           </motion.div>
 
           {/* Mobile/Tablet Roles */}
@@ -264,6 +270,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }

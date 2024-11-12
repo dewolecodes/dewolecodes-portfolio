@@ -13,16 +13,16 @@ import {
   SiVercel,
   SiFigma,
   SiFramer,
-  // SiDocker,
-  // SiPrisma,
   SiFirebase,
   SiMysql,
   SiNotion,
   SiSupabase,
-  SiPostgresql,
-  SiPrisma,
+  SiEjs,
+  SiGooglegemini,
+  SiBootstrap,
+  SiSocketdotio,
 } from "react-icons/si";
-// import { FaJava } from "react-icons/fa";
+
 import {
   HeroContent,
   NavItem,
@@ -41,14 +41,14 @@ export const navigationItems: NavItem[] = [
     label: "About section",
   },
   {
-    name: "Skills",
-    href: "/#skills",
-    label: "Skills section",
-  },
-  {
     name: "Projects",
     href: "/#projects",
     label: "Projects section",
+  },
+  {
+    name: "Skills",
+    href: "/#skills",
+    label: "Skills section",
   },
   {
     name: "Experience",
@@ -82,7 +82,8 @@ export const heroContent: HeroContent = {
       href: "#projects",
     },
     secondary: {
-      href: "/resume.pdf",
+      // href: "/resume.pdf",
+      href: "https://drive.google.com/file/d/1i2bki3RXgZU2U0LNkbs2CCZLLg5i8F8A/view?usp=drive_link",
     },
   },
   social: {
@@ -97,7 +98,7 @@ export const aboutContent: AboutContent = {
   terminalInfo: {
     command: "whoami",
     flag: "info",
-    content: "Turning ideas into reality through code",
+    content: "Software engineer bringing ideas to life",
   },
   image: {
     src: "/images/nabeel.webp",
@@ -105,11 +106,11 @@ export const aboutContent: AboutContent = {
   },
   description: {
     details: [
-      "Hey there! I'm Hassan (Nabeel), a developer who believes in the power of technology to create meaningful experiences. My journey into tech began with a simple curiosity about how things work on the web, and it quickly turned into a passion for creating beautiful, functional solutions.",
+      "Hello, I'm Hassan, though many know me as Nabeel. I love creating websites and applications that not only look great but also work smoothly. What started as just being curious about how websites work has grown into something I'm truly passionate about.",
 
-      "When I'm not crafting code, I dive into various activities that keep my creativity flowing and mind sharp. I'm an avid reader of tech blogs and science fiction, which fuels my imagination and keeps me updated with the latest innovations.",
+      "When I'm working on projects, I always aim for clean and efficient solutions. I enjoy the challenge of turning complex problems into simple, user-friendly experiences. Every project is a chance to learn something new and create something meaningful.",
 
-      "What truly excites me about technology is its potential to solve real-world problems. Every project is an opportunity to learn something new and create something meaningful. I believe in writing clean, maintainable code that makes a difference.",
+      "Beyond coding, I'm always exploring new technologies and keeping up with the latest in web development & tech in general. I believe that staying curious and continuously learning is what makes a great developer and engineer. This mindset helps me bring fresh ideas and better solutions to every project I work on.",
     ],
   },
   interests: [
@@ -191,25 +192,24 @@ export const projectsSection: ProjectSection = {
 export const projectsData: ProjectData[] = [
   {
     id: "project-1",
-    title: "Modern E-commerce Platform",
+    title: "Abdamin International Limited",
     description:
-      "A full-stack e-commerce solution with real-time inventory and seamless payments.",
+      "A responsive web application for Abdamin International Limited, a multi-sector company in Nigeria.",
     featured: true,
     cover: {
       // 1200x675 for 16:9 aspect ratio
-      url: "https://picsum.photos/seed/ecommerce/1200/675",
-      alt: "E-commerce platform dashboard",
+      url: "/projects/abdamin.webp",
+      alt: "Abdamin International Limited",
     },
     tech: [
-      { name: "Next.js", icon: SiNextdotjs },
+      { name: "React", icon: SiReact },
       { name: "TypeScript", icon: SiTypescript },
       { name: "Tailwind", icon: SiTailwindcss },
-      { name: "MongoDB", icon: SiMongodb },
-      { name: "Prisma", icon: SiPrisma },
+      { name: "Framer Motion", icon: SiFramer },
     ],
     links: {
-      github: "https://github.com/...",
-      live: "https://...",
+      github: "https://github.com/NabsCodes/abdamin",
+      live: "https://abdamin.com/",
     },
     details: {
       challenge:
@@ -226,24 +226,23 @@ export const projectsData: ProjectData[] = [
   },
   {
     id: "project-2",
-    title: "Social Media Dashboard",
+    title: "Horizon - Crypto SaaS ",
     description:
-      "A real-time social media analytics dashboard with customizable widgets and data visualization.",
+      "Horizon is designed for AI-powered SaaS startups to explore real-time trends, decode user queries with precision, and make strategic decisions with foresight.",
     featured: true,
     cover: {
-      url: "https://picsum.photos/seed/dashboard/1200/675",
-      alt: "Social media analytics dashboard",
+      url: "/projects/horizon.webp",
+      alt: "Horizon - Crypto SaaS",
     },
     tech: [
       { name: "React", icon: SiReact },
       { name: "TypeScript", icon: SiTypescript },
       { name: "Tailwind", icon: SiTailwindcss },
-      { name: "Firebase", icon: SiFirebase },
-      { name: "Framer", icon: SiFramer },
+      { name: "Framer Motion", icon: SiFramer },
     ],
     links: {
-      github: "https://github.com/...",
-      live: "https://...",
+      github: "https://github.com/NabsCodes/horizon",
+      live: "https://horizonbusiness.vercel.app/",
     },
     details: {
       challenge:
@@ -260,33 +259,35 @@ export const projectsData: ProjectData[] = [
   },
   {
     id: "project-3",
-    title: "Task Management API",
+    title: "Library Meta Bot System",
     description:
-      "A RESTful API for task management with authentication, real-time updates, and team collaboration features.",
+      "An advanced library management system integrating AI-assisted cataloging, comprehensive classification tools, and robust metadata management.",
     featured: true,
     cover: {
-      url: "https://picsum.photos/seed/api/1200/675",
-      alt: "API documentation interface",
+      url: "/projects/lib-meta-bot.webp",
+      alt: "Library Metabot System",
     },
     tech: [
       { name: "Node.js", icon: SiNodedotjs },
       { name: "Express", icon: SiExpress },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Prisma", icon: SiPrisma },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "React", icon: SiReact },
+      { name: "Tailwind", icon: SiTailwindcss },
+      { name: "Gemini", icon: SiGooglegemini },
     ],
     links: {
-      github: "https://github.com/...",
-      live: "https://...",
+      github: "https://github.com/NabsCodes/LibMetaBot",
+      live: "https://lib-meta-bot.vercel.app/",
     },
   },
   {
     id: "project-4",
-    title: "Blog Platform",
+    title: "Yara - eCommerce Landing Page",
     description:
-      "A modern blog platform with rich text editing, image optimization, and SEO features.",
+      "A landing page built for eCommerce small businesses. Yara is a project crafted from my time at Perxcels UI/UX school.",
     featured: false,
     cover: {
-      url: "https://picsum.photos/seed/blog/1200/675",
+      url: "/projects/yara.webp",
       alt: "Blog platform interface",
     },
     tech: [
@@ -296,88 +297,44 @@ export const projectsData: ProjectData[] = [
       { name: "Tailwind", icon: SiTailwindcss },
     ],
     links: {
-      github: "https://github.com/...",
-      live: "https://...",
+      github: "https://github.com/NabsCodes/yara",
+      live: "https://yara-seven.vercel.app/",
     },
   },
   {
     id: "project-5",
-    title: "AI-Powered Chat Application",
+    title: "SMS Schduler ",
     description:
-      "Real-time chat platform with AI-driven language translation and sentiment analysis.",
+      "An SMS Scheduler app developed for MKEL Networks to schedule SMS messages. It allows automation of sending recurring messages at specific times and intervals using third-party API(s).",
     featured: false,
-    cover: {
-      url: "https://picsum.photos/seed/chat/1200/675",
-      alt: "Chat application interface",
-    },
     tech: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "TypeScript", icon: SiTypescript },
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express", icon: SiExpress },
+      { name: "Bootstrap", icon: SiBootstrap },
+      { name: "EJS", icon: SiEjs },
+      { name: "Socket.io", icon: SiSocketdotio },
       { name: "MongoDB", icon: SiMongodb },
-      { name: "Firebase", icon: SiFirebase },
     ],
     links: {
-      github: "https://github.com/...",
-      live: "https://...",
+      github: "https://github.com/NabsCodes/sms-scheduler",
     },
   },
   {
     id: "project-6",
-    title: "Fitness Tracking Platform",
+    title: "Elderly Care Management System",
     description:
-      "Comprehensive fitness tracking application with workout planning and progress visualization.",
+      "An elderly care management system to monitor and manage the health and well-being of elderly individuals.",
     featured: false,
     cover: {
-      url: "https://picsum.photos/seed/fitness/1200/675",
+      url: "/projects/ecms.webp",
       alt: "Fitness tracking dashboard",
     },
     tech: [
       { name: "React", icon: SiReact },
       { name: "Node.js", icon: SiNodedotjs },
-      { name: "PostgreSQL", icon: SiPostgresql },
-      { name: "Prisma", icon: SiPrisma },
-    ],
-    links: {
-      github: "https://github.com/...",
-      live: "https://...",
-    },
-  },
-  {
-    id: "project-7",
-    title: "Property Management System",
-    description:
-      "Cloud-based property management solution for real estate agencies and landlords.",
-    featured: false,
-    cover: {
-      url: "https://picsum.photos/seed/property/1200/675",
-      alt: "Property management interface",
-    },
-    tech: [
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Supabase", icon: SiSupabase },
-      { name: "Tailwind", icon: SiTailwindcss },
-    ],
-    links: {
-      github: "https://github.com/...",
-      live: "https://...",
-    },
-  },
-  {
-    id: "project-8",
-    title: "Learning Management System",
-    description:
-      "Interactive learning platform with video courses, quizzes, and progress tracking.",
-    featured: false,
-    cover: {
-      url: "https://picsum.photos/seed/learning/1200/675",
-      alt: "Learning platform dashboard",
-    },
-    tech: [
-      { name: "React", icon: SiReact },
       { name: "Express", icon: SiExpress },
       { name: "MongoDB", icon: SiMongodb },
-      { name: "Firebase", icon: SiFirebase },
+      { name: "Tailwind", icon: SiTailwindcss },
     ],
     links: {
       github: "https://github.com/...",
@@ -397,51 +354,51 @@ export const experienceData: ExperienceContent = {
   experiences: [
     {
       id: "exp-1",
-      role: "Senior Frontend Developer",
-      company: "TechCorp Solutions",
-      companyUrl: "https://techcorp.com",
-      location: "San Francisco, CA (Remote)",
-      type: "Full-time",
+      role: "Frontend Developer",
+      company: "Mkel Networks Limited",
+      companyUrl: "https://mkelnetworks.com",
+      location: "Abuja, Nigeria",
+      type: "Internship",
       dates: {
-        start: "Jun 2022",
-        end: "Present",
+        start: "Aug 2023",
+        end: "May 2024",
       },
       description:
-        "Led the frontend development team in building and maintaining large-scale web applications.",
+        "Developed and maintained multiple client projects and supported team members, focusing on scalable web applications.",
       achievements: [
-        "Reduced application load time by 40% through performance optimization",
-        "Implemented new design system used across 5 product teams",
-        "Mentored 4 junior developers and established frontend best practices",
+        "Enhanced team productivity by 50% through the development of an SMS scheduling app with Node.js and Express.",
+        "Monitored client queries remotely during night shifts, maintaining a 95% response rate.",
+        "Led 80% of frontend and 20% of backend development for an HR Management system, implementing user authentication and core features.",
       ],
     },
     {
       id: "exp-2",
-      role: "Full Stack Developer",
-      company: "InnovateTech",
-      companyUrl: "https://innovatetech.com",
-      location: "London, UK",
-      type: "Contract",
+      role: "IT Support",
+      company: "Nigerian Communications Commission (NCC)",
+      companyUrl: "https://www.ncc.gov.ng/",
+      location: "Abuja, Nigeria",
+      type: "Internship",
       dates: {
-        start: "Mar 2021",
-        end: "May 2022",
+        start: "Jul 2022",
+        end: "Aug 2022",
       },
       description:
-        "Developed and maintained multiple client projects focusing on scalable web applications.",
+        "Interned at Technical Standards & Network Integrity / Spectrum Department",
       achievements: [
-        "Built and launched 3 major client projects with 99.9% uptime",
-        "Implemented automated testing reducing bugs by 60%",
-        "Developed reusable component library used across projects",
+        "Increased database efficiency by 25% through optimizing MySQL queries for recording and analyzing user call data statistics, handling over 1 million records.",
+        "Increased team’s regulatory compliance knowledge by 40% through creation of a technical standards summary.",
+        "Enhanced data accuracy by managing user call data using MySQL and collaborating with the Technical Standards unit.",
       ],
     },
   ],
 };
 
 export const contactData: ContactContent = {
-  title: "Get in touch",
-  subtitle: "contact",
+  title: "Get in Touch",
+  subtitle: "connect",
   terminalInfo: {
     command: "contact",
-    flag: "email",
+    flag: "send",
     content: "Let's collaborate on something amazing",
   },
   description:

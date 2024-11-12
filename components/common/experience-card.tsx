@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { RiBuildingLine, RiMapPinLine } from "react-icons/ri";
 import type { Experience } from "@/lib/types";
+import Link from "next/link";
 
 export const ExperienceCard: React.FC<{
   experience: Experience;
@@ -32,16 +33,16 @@ export const ExperienceCard: React.FC<{
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="rounded-lg border border-primary-base/30 bg-background-base/50 p-6 backdrop-blur-sm transition-colors dark:border-primary-base-dark/10 dark:bg-background-base-dark/50"
+      className="my-1 rounded-lg border border-primary-base/30 bg-background-base/50 p-6 backdrop-blur-sm transition-colors dark:border-primary-base-dark/10 dark:bg-background-base-dark/50"
     >
       {/* Header Section */}
-      <div className="flex flex-col border-b border-primary-base/5 pb-4 dark:border-primary-base-dark/5 md:flex-row md:items-start md:justify-between">
+      <div className="flex flex-col gap-4 border-b border-primary-base/5 dark:border-primary-base-dark/5 lg:flex-row lg:items-start lg:justify-between lg:gap-2 lg:pb-4">
         {/* Role & Type */}
-        <div className="mb-4 md:mb-0">
+        <div className="flex items-center justify-between lg:flex-col lg:items-start">
           <h3 className="bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-lg font-medium text-transparent dark:from-primary-base-dark dark:to-accent-base-dark">
             {experience.role}
           </h3>
-          <div className="mt-2">
+          <div className="lg:mt-2">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-primary-base/10 bg-primary-base/5 px-2.5 py-0.5 text-xs text-primary-base dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5 dark:text-primary-base-dark">
               <span className="h-1.5 w-1.5 rounded-full bg-accent-base/60 dark:bg-accent-base-dark/60" />
               {experience.type}
@@ -53,14 +54,14 @@ export const ExperienceCard: React.FC<{
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm text-default-base/70 dark:text-default-base-dark/70">
             <RiBuildingLine className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-            <a
-              href={experience.companyUrl}
+            <Link
+              href={experience.companyUrl || "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-accent-base dark:hover:text-accent-base-dark"
             >
               {experience.company}
-            </a>
+            </Link>
           </div>
           <div className="flex items-center gap-2 text-sm text-default-base/70 dark:text-default-base-dark/70">
             <RiMapPinLine className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />

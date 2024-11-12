@@ -16,8 +16,16 @@ export type BaseSection = {
   terminalInfo: TerminalInfo;
 };
 
+export type SectionName =
+  | "home"
+  | "about"
+  | "projects"
+  | "skills"
+  | "experience"
+  | "contact";
+
 export type NavItem = {
-  name: string;
+  name: Capitalize<SectionName>;
   href: string;
   label?: string;
 };
@@ -85,7 +93,7 @@ export type ProjectData = {
   title: string;
   description: string;
   featured: boolean;
-  cover: {
+  cover?: {
     url: string;
     alt: string;
   };

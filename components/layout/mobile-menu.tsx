@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence, easeInOut } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { navigationItems } from "@/lib/data";
 import Link from "next/link";
 
@@ -20,7 +20,7 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-background-base/60 backdrop-blur-sm dark:bg-background-base-dark/60"
             onClick={onClose}
           />
@@ -30,19 +30,19 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.5, ease: easeInOut }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="absolute left-0 right-0 top-0 z-50 mt-[72px]"
           >
-            {/* Synced width container */}
             <motion.div
+              initial={false}
               animate={{
                 width: isScrolled ? "95%" : "100%",
               }}
               transition={{
-                duration: 0.5,
-                ease: easeInOut,
+                duration: 0.3,
+                ease: "easeOut",
               }}
-              className="mx-auto bg-background-base/95 px-6 py-8 shadow-lg backdrop-blur-md dark:bg-background-base-dark/95"
+              className="mx-auto overflow-hidden bg-background-base/95 px-6 py-8 shadow-lg backdrop-blur-md dark:bg-background-base-dark/95"
             >
               <nav className="max-w-lg">
                 <div className="flex flex-col space-y-6">
@@ -51,8 +51,11 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
                       key={item.name}
                       initial={{ opacity: 0, x: -8 }}
                       animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -8 }}
-                      transition={{ delay: i * 0.1 }}
+                      transition={{
+                        duration: 0.2,
+                        delay: i * 0.05,
+                        ease: "easeOut",
+                      }}
                     >
                       <Link
                         href={item.href}
@@ -68,8 +71,11 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ delay: navigationItems.length * 0.1 }}
+                    transition={{
+                      duration: 0.2,
+                      delay: navigationItems.length * 0.05,
+                      ease: "easeOut",
+                    }}
                     className="pt-2"
                   >
                     <Link

@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { SectionHeader } from "./ui/section-header";
+import { SectionHeader } from "../ui/section-header";
 import { contactData } from "@/lib/data";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,9 +18,13 @@ import {
 } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
-import TerminalInfo from "./ui/terminal-info";
+import TerminalInfo from "../ui/terminal-info";
+import { useSection } from "@/hooks/useSection";
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 export default function Contact() {
+  const { ref } = useSectionInView("contact", 0.5);
+
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
@@ -39,7 +43,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="px-4 py-16 md:px-6">
+    <section ref={ref} id="contact" className="scroll-mt-12 px-4 py-16 md:px-6">
       <SectionHeader
         title={contactData.title}
         subtitle={contactData.subtitle}
@@ -47,7 +51,7 @@ export default function Contact() {
       />
 
       {/* Terminal-style description */}
-      <div className="mx-auto mt-6 max-w-xl">
+      <div className="mt-6 w-fit">
         <TerminalInfo
           command={contactData.terminalInfo.command}
           flag={contactData.terminalInfo.flag}

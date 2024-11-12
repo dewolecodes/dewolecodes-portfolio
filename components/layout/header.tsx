@@ -6,9 +6,9 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { easeInOut, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "./ui/theme-toggle";
+import { ModeToggle } from "../ui/theme-toggle";
 import { navigationItems } from "@/lib/data";
-import { NavLink } from "./navlink";
+import { NavLink } from "./nav-link";
 import { MobileMenu } from "./mobile-menu";
 
 export function Header() {
@@ -163,8 +163,11 @@ export function Header() {
           className={cn(
             "relative z-50 mx-auto flex flex-col items-center justify-between bg-transparent px-4 py-2",
             isScrolled && "mt-3",
-            (isScrolled || isMobileMenuOpen) &&
+            isScrolled &&
+              !isMobileMenuOpen &&
               "border border-primary-base/20 bg-background-base/80 backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/80",
+            isMobileMenuOpen &&
+              "bg-background-base/80 backdrop-blur-md dark:bg-background-base-dark/80",
           )}
         >
           <div className="flex w-full flex-row items-center justify-between">

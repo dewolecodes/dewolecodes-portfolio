@@ -1,15 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { use } from "react";
 import { motion } from "framer-motion";
-import { ExperienceCard } from "./experience-card";
-import { SectionHeader } from "./ui/section-header";
+import { ExperienceCard } from "../common/experience-card";
+import { SectionHeader } from "../ui/section-header";
 import { experienceData } from "@/lib/data";
-import TerminalInfo from "./ui/terminal-info";
+import TerminalInfo from "../ui/terminal-info";
+import { useSection } from "@/hooks/useSection";
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 export default function Experience() {
+  const { ref } = useSectionInView("experience", 0.5);
+
   return (
-    <section id="experience" className="px-4 py-16 md:px-6">
+    <section
+      ref={ref}
+      id="experience"
+      className="scroll-mt-12 px-4 py-16 md:px-6"
+    >
       <SectionHeader
         title={experienceData.title}
         subtitle={experienceData.subtitle}
@@ -17,7 +25,7 @@ export default function Experience() {
       />
 
       {/* Terminal-style intro */}
-      <div className="mx-auto mb-16 mt-6 max-w-2xl">
+      <div className="mb-16 mt-6 w-fit">
         <TerminalInfo
           command={experienceData.terminalInfo.command}
           flag={experienceData.terminalInfo.flag}

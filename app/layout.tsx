@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Raleway, Space_Grotesk } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/context/theme-provider";
 import "./globals.css";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 // Raleway for body text
 const raleway = Raleway({
@@ -32,20 +31,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="!scroll-smooth">
       <body
-        className={`${raleway.variable} ${spaceGrotesk.variable} bg-background-base font-raleway text-default-base dark:bg-background-base-dark dark:text-default-base-dark`}
+        className={`${raleway.variable} ${spaceGrotesk.variable} bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <ActiveSectionContextProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </ActiveSectionContextProvider>
       </body>
     </html>
   );

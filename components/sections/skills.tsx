@@ -2,12 +2,16 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { SectionHeader } from "./ui/section-header";
+import { SectionHeader } from "../ui/section-header";
 import { skillsContent } from "@/lib/data";
 import { Code2 } from "lucide-react";
-import TerminalInfo from "./ui/terminal-info";
+import TerminalInfo from "../ui/terminal-info";
+import { useSection } from "@/hooks/useSection";
+import { useSectionInView } from "@/hooks/useSectionInView";
 
 const Skills = () => {
+  const { ref } = useSectionInView("skills", 0.5);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -25,7 +29,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="px-4 py-16 md:px-6">
+    <section ref={ref} id="skills" className="scroll-mt-12 px-4 py-16 md:px-6">
       <div className="relative overflow-hidden">
         {/* Background decorations */}
         <div className="pointer-events-none absolute inset-0 -z-10">
@@ -40,7 +44,7 @@ const Skills = () => {
         />
 
         {/* Terminal-style description */}
-        <div className="mx-auto mt-6 max-w-3xl">
+        <div className="mt-6 w-fit">
           <TerminalInfo
             command={skillsContent.terminalInfo.command}
             flag={skillsContent.terminalInfo.flag}
