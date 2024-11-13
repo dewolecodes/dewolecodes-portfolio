@@ -1,8 +1,14 @@
 "use client";
 
+import type { Metadata } from "next";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "404 - Page not found ",
+  description: "Page not found",
+};
 
 export default function NotFound() {
   return (
