@@ -136,7 +136,7 @@ export default function RootLayout({
         <ActiveSectionContextProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
