@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Raleway, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/context/theme-provider";
 import "./globals.css";
@@ -26,21 +26,27 @@ export const metadata: Metadata = {
     template: "%s | Nabeel's Portfolio",
   },
   description:
-    "Hey, I’m Nabeel! Welcome to my portfolio, where I showcase innovative web development projects built with tools like React, Next.js, and more. Dive in to explore my work, highlighting the skills and creativity that drive my passion for building high-quality digital solutions.",
+    "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Frontend Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
   keywords: [
+    "Nabeel Hassan",
     "Nabeel",
-    "portfolio",
-    "web developer",
-    "web designer",
+    "Hassan",
+    "Hassan Umar Hassan",
+    "Portfolio",
+    "Web Developer",
+    "Web Designer",
     "Software Engineer",
     "Software Developer",
     "Frontend Developer",
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
+    "JavaScript Developer",
+    "TypeScript Developer",
+    "Node.js Developer",
   ],
   authors: {
-    name: "Nabeel",
+    name: "Nabeel Hassan",
     url: "https://nabeelhassan.dev",
   },
   creator: "Nabeel Hassan",
@@ -49,6 +55,18 @@ export const metadata: Metadata = {
     email: false,
     telephone: false,
     address: false,
+  },
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+    other: [
+      {
+        rel: "mask-icon",
+        url: "/favicon.svg",
+        color: "#71a295",
+      },
+    ],
   },
   metadataBase: new URL("https://nabeelhassan.dev"),
   alternates: {
@@ -68,17 +86,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nabeel Hassan | Frontend Developer",
     description:
-      "Hey, I’m Nabeel! Welcome to my portfolio, where I showcase innovative web development projects built with tools like React, Next.js, and more. Dive in to explore my work, highlighting the skills and creativity that drive my passion for building high-quality digital solutions.",
+      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Frontend Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
     url: "https://nabeelhassan.dev",
     siteName: "Nabeel Hassan | Frontend Developer",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og-image.png", // Make sure to add this image in your public folder
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Nabeel's Portfolio",
+        alt: "Nabeel Hassan - Frontend Developer",
       },
     ],
   },
@@ -86,22 +104,23 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nabeel Hassan | Frontend Developer",
     description:
-      "Hey, I’m Nabeel! Welcome to my portfolio, where I showcase innovative web development projects built with tools like React, Next.js, and more. Dive in to explore my work, highlighting the skills and creativity that drive my passion for building high-quality digital solutions.",
-    creator: "@nabeelhassan_", // Replace with your Twitter handle
-    images: ["/twitter-image.png"], // Make sure to add this image in your public folder
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
+      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Frontend Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
+    creator: "@nabeelhassan_",
+    images: ["/twitter-image.png"],
   },
   verification: {
-    google: "your-google-site-verification", // Replace with your Google verification code
+    google: "your-google-site-verification",
     yandex: "your-yandex-verification", // Optional
-    me: ["nabeelhassan.dev", "mailto:hassanhauda@gmail.com"], // Replace with your email
+    me: ["nabeelhassan.dev", "mailto:hassanhauda@gmail.com"],
   },
   category: "portfolio",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3f6f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e1714" },
+  ],
 };
 
 export default function RootLayout({
@@ -111,22 +130,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
-      <head>
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-96x96.png"
-          sizes="96x96"
-        />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-      </head>
       <body
         className={`${raleway.variable} ${spaceGrotesk.variable} bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40`}
       >

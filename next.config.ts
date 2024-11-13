@@ -11,4 +11,11 @@ const nextConfig: import("next").NextConfig = {
   },
 };
 
+// const withPWA: import("next").NextConfig = {
+//   ...nextConfig,
+//   pwa: {
+//     dest: "public",
+//   },
+// };
+
 export default nextConfig;
