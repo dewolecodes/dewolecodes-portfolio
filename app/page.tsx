@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import About from "@/components/sections/about";
 import Contact from "@/components/sections/contact";
 import Experience from "@/components/sections/experience";

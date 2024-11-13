@@ -1,6 +1,5 @@
 import { LucideIcon } from "lucide-react";
 
-// Common types
 export type TerminalInfo = {
   command: string;
   flag: string;
@@ -9,7 +8,6 @@ export type TerminalInfo = {
 
 export type Icon = React.FC<{ className?: string }>;
 
-// Base content type for sections with title, subtitle and terminal info
 export type BaseSection = {
   title: string;
   subtitle: string;

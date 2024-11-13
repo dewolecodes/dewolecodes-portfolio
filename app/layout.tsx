@@ -21,7 +21,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Nabeel Hassan | Frontend Developer",
+  title: {
+    default: "Nabeel Hassan | Frontend Developer",
+    template: "%s | Nabeel's Portfolio",
+  },
   description:
     "Explore Nabeel's portfolio showcasing innovative web development and design projects. Discover skills in React, Next.js, and UI/UX design.",
   keywords: [
@@ -40,8 +43,65 @@ export const metadata: Metadata = {
     name: "Nabeel",
     url: "https://nabeelhassan.dev",
   },
-  viewport: "width=device-width, initial-scale=1.0",
-  robots: "index, follow",
+  creator: "Nabeel Hassan",
+  publisher: "Nabeel Hassan",
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
+  },
+  metadataBase: new URL("https://nabeelhassan.dev"),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: "Nabeel Hassan | Frontend Developer",
+    description:
+      "Explore Nabeel Hassan's portfolio showcasing innovative web development and design projects. Discover skills in React, Next.js, and UI/UX design.",
+    url: "https://nabeelhassan.dev",
+    siteName: "Nabeel Hassan | Frontend Developer",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.png", // Make sure to add this image in your public folder
+        width: 1200,
+        height: 630,
+        alt: "Nabeel's Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nabeel Hassan | Frontend Developer",
+    description:
+      "Explore Nabeel Hassan's portfolio showcasing innovative web development and design projects.",
+    creator: "@nabeelhassan_", // Replace with your Twitter handle
+    images: ["/twitter-image.png"], // Make sure to add this image in your public folder
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  verification: {
+    google: "your-google-site-verification", // Replace with your Google verification code
+    yandex: "your-yandex-verification", // Optional
+    me: ["nabeelhassan.dev", "mailto:hassanhauda@gmail.com"], // Replace with your email
+  },
+  category: "portfolio",
 };
 
 export default function RootLayout({
@@ -51,6 +111,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
+      <head>
+        <link
+          rel="icon"
+          type="image/png"
+          href="/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+      </head>
       <body
         className={`${raleway.variable} ${spaceGrotesk.variable} bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40`}
       >
