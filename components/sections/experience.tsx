@@ -1,12 +1,11 @@
 "use client";
 
-import React, { use } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { ExperienceCard } from "../common/experience-card";
 import { SectionHeader } from "../ui/section-header";
 import { experienceData } from "@/lib/data";
 import TerminalInfo from "../ui/terminal-info";
-import { useSection } from "@/hooks/useSection";
 import { useSectionInView } from "@/hooks/useSectionInView";
 
 export default function Experience() {

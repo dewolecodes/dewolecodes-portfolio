@@ -67,7 +67,6 @@ export default function FeaturedProjectCard({
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background-base/80 via-background-base/10 to-transparent dark:from-background-base-dark/80 dark:via-background-base-dark/10" />
             </>
           ) : (
             <ProjectImagePlaceholder />

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { navigationItems } from "@/lib/data";
-import { RiCodeSSlashLine, RiArrowUpLine } from "react-icons/ri";
+import { RiCodeSSlashLine } from "react-icons/ri";
 import ScrollToTopButton from "../ui/scroll-to-top-button";
 
 export function Footer() {

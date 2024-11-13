@@ -8,7 +8,6 @@ import { Code2, ChevronDown, ChevronUp } from "lucide-react";
 import TerminalInfo from "../ui/terminal-info";
 import OtherProjectCard from "../common/other-project-card";
 import FeaturedProjectCard from "../common/featured-project-card";
-import { useSection } from "@/hooks/useSection";
 import { useSectionInView } from "@/hooks/useSectionInView";
 
 export default function Projects() {

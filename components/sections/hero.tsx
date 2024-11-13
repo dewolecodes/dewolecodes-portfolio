@@ -12,7 +12,6 @@ import { heroContent } from "@/lib/data";
 import { MobileRolesSidebar } from "../ui/mobile-roles";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { PiReadCvLogoLight } from "react-icons/pi";
-import { useSection } from "@/hooks/useSection";
 import { useSectionInView } from "@/hooks/useSectionInView";
 
 export default function Hero() {
@@ -117,7 +116,7 @@ export default function Hero() {
             <div className="inline-block">
               <div className="mb-2 font-mono text-sm">
                 <span className="text-accent-base dark:text-accent-base-dark">
-                  $ hello{" "}
+                  hello{" "}
                 </span>
                 <span className="text-primary-base/70 dark:text-primary-base-dark/70">
                   {">"}
@@ -146,7 +145,7 @@ export default function Hero() {
 
               <div className="mt-2 font-mono text-sm">
                 <span className="text-accent-base dark:text-accent-base-dark">
-                  $ nickname{" "}
+                  nickname{" "}
                 </span>
                 <span className="text-primary-base/70 dark:text-primary-base-dark/70">
                   {">"}

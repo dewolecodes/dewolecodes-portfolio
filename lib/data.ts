@@ -58,9 +58,11 @@ export const navigationItems: NavItem[] = [
 ] as const;
 
 export const heroContent: HeroContent = {
-  intro: " CODE • CREATE • INNOVATE ",
+  intro: " Available for hire ",
+  // intro: " CODE • CREATE • INNOVATE ",
   description:
-    "I am a Frontend developer passionate about creating exceptional user experiences. I turn complex challenges into clean, efficient, and delightful solutions.",
+    // "Software developer who enjoys building things for the web. Whether it's a full website or a specific feature, I create solutions that work well and look good. Discover my portfolio and explore my work.",
+    "Software developer with a passion for crafting great user experiences. From responsive interfaces to full-stack applications, I build solutions that are both engaging and reliable. Discover my portfolio and explore my work.",
   personal: {
     name: "Hassan Umar Hassan",
     nickname: "Nabeel",
@@ -82,7 +84,6 @@ export const heroContent: HeroContent = {
       href: "#projects",
     },
     secondary: {
-      // href: "/resume.pdf",
       href: "https://drive.google.com/file/d/1i2bki3RXgZU2U0LNkbs2CCZLLg5i8F8A/view?usp=drive_link",
     },
   },
@@ -141,7 +142,8 @@ export const skillsContent: SkillsContent = {
   terminalInfo: {
     command: "skill",
     flag: "list",
-    content: "Technologies and tools I work with to bring ideas to life",
+    content:
+      "Some few technologies and tools I work with to bring ideas to life",
   },
   groups: [
     {
@@ -153,7 +155,6 @@ export const skillsContent: SkillsContent = {
         { name: "JavaScript", icon: SiJavascript },
         { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "Node.js", icon: SiNodedotjs },
-        // { name: "Java", icon: FaJava },
       ],
     },
     {
@@ -337,8 +338,7 @@ export const projectsData: ProjectData[] = [
       { name: "Tailwind", icon: SiTailwindcss },
     ],
     links: {
-      github: "https://github.com/...",
-      live: "https://...",
+      github: "https://github.com/NabsCodes/ecms",
     },
   },
 ];
@@ -348,8 +348,8 @@ export const experienceData: ExperienceContent = {
   subtitle: "journey",
   terminalInfo: {
     command: "career",
-    flag: "path",
-    content: "Building & growing through meaningful challenges",
+    flag: "experiences",
+    content: "Discover my career journey and work experience",
   },
   experiences: [
     {

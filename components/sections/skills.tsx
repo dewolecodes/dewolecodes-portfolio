@@ -6,7 +6,6 @@ import { SectionHeader } from "../ui/section-header";
 import { skillsContent } from "@/lib/data";
 import { Code2 } from "lucide-react";
 import TerminalInfo from "../ui/terminal-info";
-import { useSection } from "@/hooks/useSection";
 import { useSectionInView } from "@/hooks/useSectionInView";
 
 const Skills = () => {

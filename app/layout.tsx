@@ -21,7 +21,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Nabeel's Portfolio | Frontend Developer",
+  title: "Nabeel Hassan | Frontend Developer",
   description:
     "Explore Nabeel's portfolio showcasing innovative web development and design projects. Discover skills in React, Next.js, and UI/UX design.",
   keywords: [
