@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Nabeel's Portfolio",
   },
   description:
-    "Explore Nabeel's portfolio showcasing innovative web development and design projects. Discover skills in React, Next.js, and UI/UX design.",
+    "Hey, I’m Nabeel! Welcome to my portfolio, where I showcase innovative web development projects built with tools like React, Next.js, and more. Dive in to explore my work, highlighting the skills and creativity that drive my passion for building high-quality digital solutions.",
   keywords: [
     "Nabeel",
     "portfolio",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nabeel Hassan | Frontend Developer",
     description:
-      "Explore Nabeel Hassan's portfolio showcasing innovative web development and design projects. Discover skills in React, Next.js, and UI/UX design.",
+      "Hey, I’m Nabeel! Welcome to my portfolio, where I showcase innovative web development projects built with tools like React, Next.js, and more. Dive in to explore my work, highlighting the skills and creativity that drive my passion for building high-quality digital solutions.",
     url: "https://nabeelhassan.dev",
     siteName: "Nabeel Hassan | Frontend Developer",
     locale: "en_US",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nabeel Hassan | Frontend Developer",
     description:
-      "Explore Nabeel Hassan's portfolio showcasing innovative web development and design projects.",
+      "Hey, I’m Nabeel! Welcome to my portfolio, where I showcase innovative web development projects built with tools like React, Next.js, and more. Dive in to explore my work, highlighting the skills and creativity that drive my passion for building high-quality digital solutions.",
     creator: "@nabeelhassan_", // Replace with your Twitter handle
     images: ["/twitter-image.png"], // Make sure to add this image in your public folder
   },
