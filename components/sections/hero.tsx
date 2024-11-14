@@ -138,16 +138,6 @@ export default function Hero() {
                 <span className="ml-2 text-primary-base-dark">
                   Welcome! I&apos;m
                 </span>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    repeatDelay: 0.5,
-                  }}
-                  className="ml-1 inline-block h-4 w-[1px] bg-primary-base-dark/50 dark:bg-primary-base-dark/50"
-                />
               </div>
 
               <h1 className="relative mb-2 bg-gradient-to-r from-primary-base-dark via-accent-base-dark/70 to-primary-base bg-clip-text font-raleway text-4xl font-bold tracking-tight text-transparent dark:from-primary-base-dark dark:via-accent-base-dark dark:to-primary-base-dark sm:text-6xl md:text-7xl">
@@ -167,16 +157,6 @@ export default function Hero() {
                 <span className="ml-2 text-primary-base-dark">
                   Also known as {heroContent.personal.nickname}
                 </span>
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{
-                    duration: 1,
-                    repeat: Infinity,
-                    repeatDelay: 0.5,
-                  }}
-                  className="ml-1 inline-block h-4 w-[1px] bg-primary-base-dark/50 dark:bg-primary-base-dark/50"
-                />
               </div>
             </div>
           </motion.div>

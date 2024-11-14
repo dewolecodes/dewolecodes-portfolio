@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Nabeel's Portfolio
 
-## Getting Started
+<img src="/app/icon.png" height="64" alt="Logo" />
 
-First, run the development server:
+Welcome to my personal portfolio! This project showcases my web development skills, featuring a custom developer theme that reflects my dedication to unique, innovative solutions. Dive in to explore my projects and the tools I use to bring ideas to life.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌟 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Built with the latest technologies to ensure performance, responsiveness, and a smooth user experience.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[![Next JS](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Features
 
-## Learn More
+- **Built with Next.js**: Server-side rendering, routing, and optimized performance.
+- **Type Safety with TypeScript**: Provides reliable, maintainable code.
+- **Smooth Animations**: Implemented using Framer Motion for an interactive, dynamic user experience.
+- **Tailwind CSS**: Styled for a clean, responsive design.
+- **React**: The core library for UI development, offering flexibility and component-based architecture.
 
-To learn more about Next.js, take a look at the following resources:
+## ⚡️ Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the repository**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/NabsCodes/nabeels-portfolio.git
+   ```
 
-## Deploy on Vercel
+2. **Install dependencies**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Run the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **View the site at** [http://localhost:3000](http://localhost:3000).
+
+   Tip: You can start exploring and customizing by editing `app/page.tsx`. The page will auto-update as you save changes.
+
+## 💡 Project Vision
+
+This portfolio is designed to highlight my work, skills, and dedication to quality in web development. It serves as a reflection of my passion for creating modern, efficient, and engaging digital experiences.
+
+## 📜 License & Attribution
+
+This portfolio is my original work, and I kindly ask that you respect the effort that went into its creation. Feel free to use the code as inspiration or reference, but please give proper credit if you use any part of it directly.
+
+Made with 💻 and a lot of ☕ by Nabeel Hassan

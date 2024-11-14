@@ -68,12 +68,12 @@ export const heroContent: HeroContent = {
     nickname: "Nabeel",
   },
   currentRole: {
-    title: "Full Stack Developer",
+    title: "Frontend Developer",
     filename: "current_role.tsx",
   },
   roles: [
     { icon: Terminal, label: "Software Engineer" },
-    { icon: Code2, label: "React Developer" },
+    // { icon: Code2, label: "React Developer" },
     { icon: Code2, label: "Frontend Developer" },
     { icon: Boxes, label: "Full Stack Developer" },
     { icon: ArrowRight, label: "Freelancer" },
