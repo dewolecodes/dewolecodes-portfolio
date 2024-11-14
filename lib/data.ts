@@ -304,7 +304,7 @@ export const projectsData: ProjectData[] = [
   },
   {
     id: "project-5",
-    title: "SMS Schduler ",
+    title: "SMS Scheduler App",
     description:
       "An SMS Scheduler app developed for MKEL Networks to schedule SMS messages. It allows automation of sending recurring messages at specific times and intervals using third-party API(s).",
     featured: false,
