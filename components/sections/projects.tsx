@@ -17,7 +17,7 @@ export default function Projects() {
 
   // Track when someone views the projects section
   useEffect(() => {
-    trackEvent("view", "section", "projects");
+    trackEvent("projects_view", "section", "projects");
   }, []);
 
   // Track when someone clicks a project or its links
@@ -25,7 +25,7 @@ export default function Projects() {
     projectName: string,
     type: "github" | "live" | "view",
   ) => {
-    trackEvent("click", "project", `${type}_${projectName}`);
+    trackEvent("project_click", "project", `${type}_${projectName}`);
   };
 
   const featuredProjects = projectsData.filter((p) => p.featured);

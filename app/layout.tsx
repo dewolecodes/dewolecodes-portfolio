@@ -110,11 +110,6 @@ export const metadata: Metadata = {
     creator: "@nabeelhassan_",
     images: ["/twitter-image.png"],
   },
-  verification: {
-    google: "your-google-site-verification",
-    yandex: "your-yandex-verification", // Optional
-    me: ["nabeelhassan.dev", "mailto:hassanhauda@gmail.com"],
-  },
   category: "portfolio",
 };
 
@@ -130,16 +125,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
       <body
         className={`${raleway.variable} ${spaceGrotesk.variable} bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40`}
       >
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics
-            GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
-          />
-        )}
+        {gaId && <GoogleAnalytics GA_MEASUREMENT_ID={gaId} />}
         <ActiveSectionContextProvider>
           <ThemeProvider
             attribute="class"

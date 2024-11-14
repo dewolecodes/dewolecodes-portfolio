@@ -53,7 +53,7 @@ const ContactForm = () => {
     },
     onSuccess: () => {
       // Track the event when the email is sent
-      trackEvent("submit", "contact", "success");
+      trackEvent("contact_form", "submission", "success");
 
       toast.custom(() => (
         <CustomToast
@@ -67,8 +67,8 @@ const ContactForm = () => {
     onError: (error) => {
       // Track the error when the email fails to send
       trackEvent(
-        "error",
-        "contact",
+        "contact_form",
+        "submission",
         error.response?.data?.error || "unknown_error",
       );
 

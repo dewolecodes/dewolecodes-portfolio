@@ -33,15 +33,15 @@ export default function Hero() {
 
   // Analytics Tracking
   const handleSocialClick = (platform: string) => {
-    trackEvent("click", "social", platform);
+    trackEvent("social_click", "social", platform);
   };
 
   const handleResumeClick = () => {
-    trackEvent("download", "resume", "hero");
+    trackEvent("resume_download", "resume", "hero");
   };
 
   const handleProjectsClick = () => {
-    trackEvent("click", "projects", "hero");
+    trackEvent("projects_click", "projects", "hero");
   };
 
   // Mobile/Tablet roles that appear after description

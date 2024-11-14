@@ -21,11 +21,11 @@ export default function Contact() {
   const { ref } = useSectionInView("contact", 0.5);
 
   const handleSocialClick = (platform: string) => {
-    trackEvent("click", "social", platform);
+    trackEvent("social_click", "social", platform);
   };
 
   const handleEmailClick = () => {
-    trackEvent("click", "email", "contact");
+    trackEvent("email_click", "email", "contact");
   };
 
   return (
