@@ -1,6 +1,6 @@
 "use client";
 
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/utils/analytics";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "../ui/section-header";
@@ -17,7 +17,7 @@ export default function Projects() {
 
   // Track when someone views the projects section
   useEffect(() => {
-    track("Projects Section View");
+    trackEvent("view", "section", "projects");
   }, []);
 
   // Track when someone clicks a project or its links
@@ -25,10 +25,7 @@ export default function Projects() {
     projectName: string,
     type: "github" | "live" | "view",
   ) => {
-    track("Project Interaction", {
-      project: projectName,
-      type: type,
-    });
+    trackEvent("click", "project", `${type}_${projectName}`);
   };
 
   const featuredProjects = projectsData.filter((p) => p.featured);

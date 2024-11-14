@@ -13,7 +13,7 @@ import { MobileRolesSidebar } from "../ui/mobile-roles";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { PiReadCvLogoLight } from "react-icons/pi";
 import { useSectionInView } from "@/hooks/useSectionInView";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/utils/analytics";
 
 export default function Hero() {
   const { ref } = useSectionInView("home", 0.5);
@@ -33,22 +33,15 @@ export default function Hero() {
 
   // Analytics Tracking
   const handleSocialClick = (platform: string) => {
-    track("Social Link Click", {
-      platform: platform,
-      section: "hero",
-    });
+    trackEvent("click", "social", platform);
   };
 
   const handleResumeClick = () => {
-    track("Resume Click", {
-      section: "hero",
-    });
+    trackEvent("download", "resume", "hero");
   };
 
   const handleProjectsClick = () => {
-    track("Projects Navigation", {
-      from: "hero",
-    });
+    trackEvent("click", "projects", "hero");
   };
 
   // Mobile/Tablet roles that appear after description

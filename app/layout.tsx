@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import GoogleAnalytics from "@/components/google-analytics";
 import type { Metadata, Viewport } from "next";
 import { Raleway, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/context/theme-provider";
@@ -134,6 +135,11 @@ export default function RootLayout({
       <body
         className={`${raleway.variable} ${spaceGrotesk.variable} bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40`}
       >
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics
+            GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}
+          />
+        )}
         <ActiveSectionContextProvider>
           <ThemeProvider
             attribute="class"

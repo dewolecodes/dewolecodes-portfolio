@@ -12,7 +12,7 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 import ContactForm from "@/components/common/contact-form";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/utils/analytics";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -21,16 +21,11 @@ export default function Contact() {
   const { ref } = useSectionInView("contact", 0.5);
 
   const handleSocialClick = (platform: string) => {
-    track("Social Link Click", {
-      platform: platform,
-      section: "contact",
-    });
+    trackEvent("click", "social", platform);
   };
 
   const handleEmailClick = () => {
-    track("Email Click", {
-      section: "contact",
-    });
+    trackEvent("click", "email", "contact");
   };
 
   return (
