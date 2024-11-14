@@ -7,6 +7,7 @@ import { Code2, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { ProjectData } from "@/lib/types";
 import Image from "next/image";
 import ProjectImagePlaceholder from "./project-image-placeholder";
+import Link from "next/link";
 
 export default function FeaturedProjectCard({
   project,
@@ -129,7 +130,7 @@ export default function FeaturedProjectCard({
           {/* Links */}
           <div className="mt-4 flex items-center gap-3">
             {project.links.github && (
-              <a
+              <Link
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -137,10 +138,10 @@ export default function FeaturedProjectCard({
               >
                 <FiGithub className="h-4 w-4" />
                 <span>View Code</span>
-              </a>
+              </Link>
             )}
             {project.links.live && (
-              <a
+              <Link
                 href={project.links.live}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -148,7 +149,7 @@ export default function FeaturedProjectCard({
               >
                 <ExternalLink className="h-4 w-4" />
                 <span>Live Demo</span>
-              </a>
+              </Link>
             )}
           </div>
         </div>

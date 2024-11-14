@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
 import { Raleway, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/context/theme-provider";
@@ -141,6 +142,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             {children}
+            <Analytics />
           </ThemeProvider>
         </ActiveSectionContextProvider>
       </body>

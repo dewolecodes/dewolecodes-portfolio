@@ -13,6 +13,7 @@ import { MobileRolesSidebar } from "../ui/mobile-roles";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { PiReadCvLogoLight } from "react-icons/pi";
 import { useSectionInView } from "@/hooks/useSectionInView";
+import { track } from "@vercel/analytics";
 
 export default function Hero() {
   const { ref } = useSectionInView("home", 0.5);
@@ -28,6 +29,26 @@ export default function Hero() {
         delayChildren: 0.3,
       },
     },
+  };
+
+  // Analytics Tracking
+  const handleSocialClick = (platform: string) => {
+    track("Social Link Click", {
+      platform: platform,
+      section: "hero",
+    });
+  };
+
+  const handleResumeClick = () => {
+    track("Resume Click", {
+      section: "hero",
+    });
+  };
+
+  const handleProjectsClick = () => {
+    track("Projects Navigation", {
+      from: "hero",
+    });
   };
 
   // Mobile/Tablet roles that appear after description
@@ -211,7 +232,10 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex gap-4 sm:flex-row"
           >
-            <Link href={heroContent.cta.primary.href}>
+            <Link
+              href={heroContent.cta.primary.href}
+              onClick={handleProjectsClick}
+            >
               <Button
                 className="group relative h-12 overflow-hidden rounded-lg bg-secondary-base px-4 py-2 text-default-base transition-all hover:bg-primary-base/90 dark:bg-primary-base-dark/80 dark:text-default-base-dark dark:hover:bg-primary-base-dark/10 sm:px-8"
                 size="lg"
@@ -224,7 +248,11 @@ export default function Hero() {
               </Button>
             </Link>
 
-            <Link href={heroContent.cta.secondary.href} target="_blank">
+            <Link
+              href={heroContent.cta.secondary.href}
+              target="_blank"
+              onClick={handleResumeClick}
+            >
               <Button
                 variant="outline"
                 className="group h-12 overflow-hidden border-primary-base/50 bg-background-base/50 px-4 font-space-grotesk text-primary-base-dark backdrop-blur-sm transition-all duration-300 hover:bg-primary-base/10 hover:text-primary-base-dark dark:border-primary-base-dark/30 dark:bg-background-base-dark/50 dark:hover:bg-primary-base-dark/10 sm:px-8"
@@ -248,6 +276,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-4 rounded-lg border border-primary-base/50 bg-background-base p-2 backdrop-blur-sm dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
               <Link
                 href={heroContent.social.github}
+                onClick={() => handleSocialClick("github")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative rounded-md p-2 transition-colors hover:bg-primary-base/10 dark:hover:bg-primary-base-dark/10"
@@ -259,6 +288,7 @@ export default function Hero() {
 
               <Link
                 href={heroContent.social.linkedin}
+                onClick={() => handleSocialClick("linkedin")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative rounded-md p-2 transition-colors hover:bg-primary-base/10 dark:hover:bg-primary-base-dark/10"

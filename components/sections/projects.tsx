@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { track } from "@vercel/analytics";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "../ui/section-header";
 import { projectsData, projectsSection } from "@/lib/data";
@@ -12,8 +13,23 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 
 export default function Projects() {
   const { ref } = useSectionInView("projects", 0.5);
-
   const [showAllProjects, setShowAllProjects] = useState(false);
+
+  // Track when someone views the projects section
+  useEffect(() => {
+    track("Projects Section View");
+  }, []);
+
+  // Track when someone clicks a project or its links
+  const handleProjectClick = (
+    projectName: string,
+    type: "github" | "live" | "view",
+  ) => {
+    track("Project Interaction", {
+      project: projectName,
+      type: type,
+    });
+  };
 
   const featuredProjects = projectsData.filter((p) => p.featured);
   const otherProjects = projectsData.filter((p) => !p.featured);
@@ -46,99 +62,20 @@ export default function Projects() {
         {/* Featured Projects */}
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project) => (
-            // <motion.div
-            //   key={project.id}
-            //   initial={{ opacity: 0, y: 20 }}
-            //   whileInView={{ opacity: 1, y: 0 }}
-            //   transition={{ duration: 0.3, delay: index * 0.1 }}
-            //   viewport={{ once: true }}
-            //   className="group relative"
-            // >
-            //   <div className="relative flex h-[28rem] flex-col overflow-hidden rounded-lg border border-primary-base/30 bg-background-base/80 backdrop-blur-sm transition-colors hover:border-primary-base/50 dark:border-primary-base-dark/10 dark:bg-background-base-dark/80 dark:hover:border-primary-base-dark/30">
-            //     {/* Project Header */}
-            //     <div className="border-b border-primary-base/10 bg-primary-base/5 px-5 py-4 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5">
-            //       <div className="flex items-center justify-between">
-            //         <div className="flex items-center gap-3">
-            //           <Code2 className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-            //           <h3 className="bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-sm font-medium text-transparent transition-colors dark:from-primary-base-dark dark:to-accent-base-dark">
-            //             {project.title}
-            //           </h3>
-            //         </div>
-            //         {project.featured && (
-            //           <span className="rounded-full bg-primary-base/10 px-2 py-0.5 text-xs text-primary-base dark:bg-primary-base-dark/10 dark:text-primary-base-dark">
-            //             Featured
-            //           </span>
-            //         )}
-            //       </div>
-            //     </div>
-
-            //     {/* Project Image - 40% of height */}
-            //     <div className="relative h-[40%] w-full">
-            //       {project.cover && (
-            //         <Image
-            //           src={project.cover.url}
-            //           alt={project.cover.alt}
-            //           fill
-            //           className="object-cover object-center"
-            //         />
-            //       )}
-            //       <div className="absolute inset-0 bg-gradient-to-t from-background-base-dark/50 via-background-base-dark/50 to-transparent" />
-            //     </div>
-
-            //     {/* Content section with fixed spacing */}
-            //     <div className="flex flex-1 flex-col justify-between p-5">
-            //       {/* Upper content group */}
-            //       <div className="space-y-4">
-            //         {/* Description with fixed height */}
-            //         <p className="line-clamp-3 min-h-[3rem] text-sm text-default-base/70 dark:text-default-base-dark/70">
-            //           {project.description}
-            //         </p>
-
-            //         {/* Tech stack with fixed height and scrolling if needed */}
-            //         <div className="max-h-[4.5rem] overflow-y-auto">
-            //           <div className="flex flex-wrap gap-1.5">
-            //             {project.tech.map(({ name, icon: Icon }) => (
-            //               <div
-            //                 key={name}
-            //                 className="flex items-center gap-1.5 rounded-full bg-primary-base/10 px-2.5 py-1 text-xs text-primary-base dark:bg-primary-base-dark/10 dark:text-primary-base-dark"
-            //               >
-            //                 <Icon className="h-3 w-3" />
-            //                 <span>{name}</span>
-            //               </div>
-            //             ))}
-            //           </div>
-            //         </div>
-            //       </div>
-
-            //       {/* Links always at bottom */}
-            //       <div className="flex items-center gap-3">
-            //         {project.links.github && (
-            //           <a
-            //             href={project.links.github}
-            //             target="_blank"
-            //             rel="noopener noreferrer"
-            //             className="flex items-center gap-2 rounded-lg border border-primary-base/20 bg-primary-base/5 px-3 py-1.5 text-sm text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
-            //           >
-            //             <FiGithub className="h-4 w-4" />
-            //             <span>View Code</span>
-            //           </a>
-            //         )}
-            //         {project.links.live && (
-            //           <a
-            //             href={project.links.live}
-            //             target="_blank"
-            //             rel="noopener noreferrer"
-            //             className="flex items-center gap-2 rounded-lg border border-primary-base/20 bg-primary-base/5 px-3 py-1.5 text-sm text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
-            //           >
-            //             <ExternalLink className="h-4 w-4" />
-            //             <span>Live Demo</span>
-            //           </a>
-            //         )}
-            //       </div>
-            //     </div>
-            //   </div>
-            // </motion.div>
-            <FeaturedProjectCard key={project.id} project={project} />
+            <div
+              key={project.id}
+              onClick={() => handleProjectClick(project.title, "view")}
+            >
+              <FeaturedProjectCard
+                project={{
+                  ...project,
+                  links: {
+                    github: project.links.github || undefined,
+                    live: project.links.live || undefined,
+                  },
+                }}
+              />
+            </div>
           ))}
         </div>
 
@@ -160,7 +97,20 @@ export default function Projects() {
           {/* Projects Grid */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {displayedOtherProjects.map((project) => (
-              <OtherProjectCard key={project.id} project={project} />
+              <div
+                key={project.id}
+                onClick={() => handleProjectClick(project.title, "view")}
+              >
+                <OtherProjectCard
+                  project={{
+                    ...project,
+                    links: {
+                      github: project.links.github || undefined,
+                      live: project.links.live || undefined,
+                    },
+                  }}
+                />
+              </div>
             ))}
           </div>
 

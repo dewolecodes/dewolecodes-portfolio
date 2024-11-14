@@ -12,12 +12,26 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 import ContactForm from "@/components/common/contact-form";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import { track } from "@vercel/analytics";
 
 // Create a client
 const queryClient = new QueryClient();
 
 export default function Contact() {
   const { ref } = useSectionInView("contact", 0.5);
+
+  const handleSocialClick = (platform: string) => {
+    track("Social Link Click", {
+      platform: platform,
+      section: "contact",
+    });
+  };
+
+  const handleEmailClick = () => {
+    track("Email Click", {
+      section: "contact",
+    });
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -53,6 +67,7 @@ export default function Contact() {
                   me a message or email me directly at{" "}
                   <Link
                     href={`mailto:${contactData.email}`}
+                    onClick={handleEmailClick}
                     className="inline-flex items-center gap-1 text-accent-base underline decoration-dashed underline-offset-4 transition-colors hover:text-accent-base/80 dark:text-accent-base-dark dark:hover:text-accent-base-dark/80"
                   >
                     {contactData.email}
@@ -64,6 +79,7 @@ export default function Contact() {
                 <div className="mt-6 flex flex-col gap-3">
                   <motion.a
                     href={contactData.socials.github}
+                    onClick={() => handleSocialClick("github")}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 4 }}
@@ -74,6 +90,7 @@ export default function Contact() {
                   </motion.a>
                   <motion.a
                     href={contactData.socials.linkedin}
+                    onClick={() => handleSocialClick("linkedin")}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 4 }}
@@ -84,6 +101,7 @@ export default function Contact() {
                   </motion.a>
                   <motion.a
                     href={contactData.socials.twitter}
+                    onClick={() => handleSocialClick("twitter")}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ x: 4 }}

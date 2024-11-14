@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { FiGithub } from "react-icons/fi";
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { ProjectData } from "@/lib/types";
+import Link from "next/link";
 
 const OtherProjectCard = ({ project }: { project: ProjectData }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -77,24 +78,24 @@ const OtherProjectCard = ({ project }: { project: ProjectData }) => {
 
           <div className="mt-6 flex items-center gap-3">
             {project.links.github && (
-              <a
+              <Link
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary-base/20 bg-primary-base/5 text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
               >
                 <FiGithub className="h-5 w-5" />
-              </a>
+              </Link>
             )}
             {project.links.live && (
-              <a
+              <Link
                 href={project.links.live}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-primary-base/20 bg-primary-base/5 text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
               >
                 <ExternalLink className="h-5 w-5" />
-              </a>
+              </Link>
             )}
           </div>
         </div>

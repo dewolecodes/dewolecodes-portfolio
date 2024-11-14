@@ -1,3 +1,4 @@
+import { track } from "@vercel/analytics";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -51,6 +52,12 @@ const ContactForm = () => {
       return response.data;
     },
     onSuccess: () => {
+      // Track the event when the email is sent
+      track("Contact Form Submission", {
+        type: "submission",
+        status: "success",
+      });
+
       toast.custom(() => (
         <CustomToast
           title="Success!"
@@ -61,6 +68,13 @@ const ContactForm = () => {
       reset();
     },
     onError: (error) => {
+      // Track the error when the email fails to send
+      track("Contact Form Error", {
+        type: "submission",
+        status: "error",
+        error: error.response?.data?.error || "Unknown error",
+      });
+
       toast.custom(() => (
         <CustomToast
           title="Error"
