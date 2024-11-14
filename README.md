@@ -1,6 +1,4 @@
-# Nabeel's Portfolio
-
-<img src="/app/icon.png" height="64" alt="Logo" />
+# <img src="/app/icon.png" height="24" alt="Logo" style="vertical-align:middle; margin-right: 8px;" /> Nabeel's Portfolio
 
 Welcome to my personal portfolio! This project showcases my web development skills, featuring a custom developer theme that reflects my dedication to unique, innovative solutions. Dive in to explore my projects and the tools I use to bring ideas to life.
 
