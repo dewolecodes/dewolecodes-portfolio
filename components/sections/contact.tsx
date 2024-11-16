@@ -94,6 +94,7 @@ export default function Contact() {
                     <SiLinkedin className="h-5 w-5" />
                     <span className="text-sm">Connect on LinkedIn</span>
                   </motion.a>
+
                   <motion.a
                     href={contactData.socials.twitter}
                     onClick={() => handleSocialClick("twitter")}

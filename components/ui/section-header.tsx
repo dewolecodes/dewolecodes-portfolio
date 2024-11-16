@@ -1,4 +1,7 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface SectionHeaderProps {
   title: string;
@@ -14,7 +17,11 @@ export function SectionHeader({
   align = "left",
 }: SectionHeaderProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.3, ease: "easeOut", delay: 0.3 }}
+      viewport={{ once: true }}
       className={cn("relative py-2", className, {
         "text-center": align === "center",
         "text-right": align === "right",
@@ -26,7 +33,6 @@ export function SectionHeader({
           "justify-end": align === "right",
         })}
       >
-        {/* Branch visualization */}
         <div className="inline-flex items-center gap-3">
           <div className="flex items-center gap-2">
             <svg
@@ -58,6 +64,6 @@ export function SectionHeader({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

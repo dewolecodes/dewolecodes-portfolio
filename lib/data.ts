@@ -21,6 +21,9 @@ import {
   SiGooglegemini,
   SiBootstrap,
   SiSocketdotio,
+  SiDjango,
+  SiCss3,
+  SiHtml5,
 } from "react-icons/si";
 
 import {
@@ -339,6 +342,24 @@ export const projectsData: ProjectData[] = [
     ],
     links: {
       github: "https://github.com/NabsCodes/ecms",
+    },
+  },
+  {
+    id: "project-7",
+    title: "CGPA Calculator",
+    description:
+      "A CGPA calculator for students to calculate their cumulative grade point average.",
+    featured: false,
+    tech: [
+      { name: "HTML", icon: SiHtml5 },
+      { name: "CSS", icon: SiCss3 },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Bootstrap", icon: SiBootstrap },
+      { name: "Django", icon: SiDjango },
+    ],
+    links: {
+      github: "https://github.com/NabsCodes/portfolio",
+      live: "https://nabeelhassan.pythonanywhere.com",
     },
   },
 ];

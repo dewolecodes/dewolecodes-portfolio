@@ -17,7 +17,6 @@ import { trackEvent } from "@/utils/analytics";
 
 export default function Hero() {
   const { ref } = useSectionInView("home", 0.5);
-
   const { theme } = useTheme();
 
   const containerVariants = {
@@ -51,7 +50,7 @@ export default function Hero() {
     <section
       id="home"
       ref={ref}
-      className="relative flex min-h-[90vh] w-full flex-col items-center justify-center overflow-hidden bg-background-base px-4 pt-20 dark:bg-background-base-dark sm:pt-24 md:pt-28 lg:pt-20"
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-background-base px-4 pt-20 dark:bg-background-base-dark sm:pt-24 md:pt-28 lg:pt-20"
     >
       {/* Matrix-like animated background */}
       <div className="absolute inset-0 h-full w-full">
@@ -60,7 +59,7 @@ export default function Hero() {
           background="transparent"
           minSize={0.4}
           maxSize={theme === "dark" ? 1.2 : 1.6}
-          particleDensity={theme === "dark" ? 120 : 130}
+          particleDensity={theme === "dark" ? 120 : 140}
           className="h-full w-full"
           particleColor={theme === "dark" ? "#71a295" : "#365e53"}
         />
@@ -190,7 +189,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mb-8 max-w-2xl"
+            className="mb-8 max-w-4xl"
           >
             <TextGenerateEffect words={heroContent.description} />
           </motion.div>

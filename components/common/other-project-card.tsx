@@ -22,11 +22,13 @@ const OtherProjectCard = ({ project }: { project: ProjectData }) => {
   return (
     <div className="group">
       <div className="relative w-full overflow-hidden rounded-lg border border-primary-base/20 bg-background-base/80 p-6 backdrop-blur-sm transition-all hover:border-primary-base/40 dark:border-primary-base-dark/10 dark:bg-background-base-dark/80 dark:hover:border-primary-base-dark/20">
-        <div className="flex min-h-[260px] flex-col">
-          <h3 className="mb-2 bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-base font-medium text-transparent dark:from-primary-base-dark dark:to-accent-base-dark">
+        <div className="flex flex-col">
+          {/* Title */}
+          <h3 className="mb-2 bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-base font-medium text-transparent dark:from-primary-base-dark dark:to-accent-base-dark md:text-lg">
             {project.title}
           </h3>
 
+          {/* Description with read more */}
           <div className="relative">
             <div
               onClick={() => isClampable && setIsExpanded(!isExpanded)}
@@ -62,6 +64,7 @@ const OtherProjectCard = ({ project }: { project: ProjectData }) => {
             )}
           </div>
 
+          {/* Tech stack */}
           <div className="mb-auto mt-6">
             <div className="flex flex-wrap gap-2">
               {project.tech.map(({ name, icon: Icon }) => (
@@ -76,6 +79,7 @@ const OtherProjectCard = ({ project }: { project: ProjectData }) => {
             </div>
           </div>
 
+          {/* Links */}
           <div className="mt-6 flex items-center gap-3">
             {project.links.github && (
               <Link

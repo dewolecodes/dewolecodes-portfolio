@@ -35,13 +35,14 @@ export default function FeaturedProjectCard({
       viewport={{ once: true }}
       className="group relative"
     >
-      <div className="relative flex h-[32rem] flex-col overflow-hidden rounded-lg border border-primary-base/30 bg-background-base/80 backdrop-blur-sm transition-colors hover:border-primary-base/50 dark:border-primary-base-dark/10 dark:bg-background-base-dark/80 dark:hover:border-primary-base-dark/30">
-        {/* Project Header */}
-        <div className="border-b border-primary-base/10 bg-primary-base/5 px-5 py-4 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5">
-          <div className="flex items-center justify-between">
+      {/* Main Card Container */}
+      <div className="relative flex h-[550px] w-full flex-col overflow-hidden rounded-lg border border-primary-base/30 bg-background-base/80 backdrop-blur-sm transition-colors hover:border-primary-base/50 dark:border-primary-base-dark/10 dark:bg-background-base-dark/80 dark:hover:border-primary-base-dark/30">
+        {/* Header Section - Fixed height */}
+        <div className="flex h-14 shrink-0 items-center border-b border-primary-base/10 bg-primary-base/5 px-5 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5">
+          <div className="flex w-full items-center justify-between">
             <div className="flex items-center gap-3">
               <Code2 className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-              <h3 className="bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-sm font-medium text-transparent transition-colors dark:from-primary-base-dark dark:to-accent-base-dark">
+              <h3 className="bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-sm font-medium text-transparent transition-colors dark:from-primary-base-dark dark:to-accent-base-dark md:text-base">
                 {project.title}
               </h3>
             </div>
@@ -53,31 +54,29 @@ export default function FeaturedProjectCard({
           </div>
         </div>
 
-        {/* Project Image Section */}
-        <div className="relative h-[50%] w-full overflow-hidden border-b border-primary-base/30 dark:border-primary-base-dark/20">
+        {/* Image Section - 16:9 aspect ratio */}
+        <div className="relative aspect-video w-full overflow-hidden border-b border-primary-base/30 dark:border-primary-base-dark/20">
           {!imageError && project.cover ? (
-            <>
-              <Image
-                src={project.cover.url}
-                alt={project.cover.alt}
-                width={1200}
-                height={675}
-                className="h-full w-full object-cover object-top transition-all duration-500 ease-out group-hover:scale-[1.03]"
-                onError={() => setImageError(true)}
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                quality={90}
-              />
-            </>
+            <Image
+              src={project.cover.url}
+              alt={project.cover.alt}
+              fill
+              className="object-cover object-top transition-all duration-500 ease-out group-hover:scale-[1.03]"
+              onError={() => setImageError(true)}
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={90}
+            />
           ) : (
             <ProjectImagePlaceholder />
           )}
         </div>
 
-        {/* Content section */}
-        <div className="flex flex-1 flex-col justify-between p-5">
-          <div className="space-y-4">
-            {/* Description */}
+        {/* Content Section - Fills remaining space */}
+        <div className="flex flex-1 flex-col justify-between p-6">
+          {/* Description and Tech Stack Container */}
+          <div className="space-y-4 overflow-y-auto">
+            {/* Description with Expand/Collapse */}
             <div className="relative">
               <div
                 onClick={() => isClampable && setIsExpanded(!isExpanded)}
@@ -85,7 +84,7 @@ export default function FeaturedProjectCard({
               >
                 <p
                   ref={textRef}
-                  className={`text-sm leading-relaxed text-default-base/70 dark:text-default-base-dark/70 ${
+                  className={`text-sm leading-relaxed text-default-base/70 dark:text-default-base-dark/70 md:text-base ${
                     !isExpanded ? "line-clamp-3" : ""
                   }`}
                 >
@@ -96,7 +95,7 @@ export default function FeaturedProjectCard({
               {isClampable && (
                 <div
                   onClick={() => setIsExpanded(!isExpanded)}
-                  className="mt-1 flex cursor-pointer items-center gap-1 font-mono text-xs text-primary-base/60 transition-colors hover:text-primary-base dark:text-primary-base-dark/60 dark:hover:text-primary-base-dark"
+                  className="mt-2 flex cursor-pointer items-center gap-1 font-mono text-xs text-primary-base/60 transition-colors hover:text-primary-base dark:text-primary-base-dark/60 dark:hover:text-primary-base-dark"
                 >
                   <span className="text-accent-base dark:text-accent-base-dark">
                     $
@@ -113,12 +112,12 @@ export default function FeaturedProjectCard({
               )}
             </div>
 
-            {/* Tech stack */}
-            <div className="flex flex-wrap gap-1.5">
+            {/* Tech Stack */}
+            <div className="flex flex-wrap gap-2">
               {project.tech.map(({ name, icon: Icon }) => (
                 <div
                   key={name}
-                  className="flex items-center gap-1.5 rounded-full bg-primary-base/10 px-2.5 py-1 text-xs text-primary-base dark:bg-primary-base-dark/10 dark:text-primary-base-dark"
+                  className="flex items-center gap-1.5 rounded-full bg-primary-base/10 px-3 py-1.5 text-xs text-primary-base dark:bg-primary-base-dark/10 dark:text-primary-base-dark"
                 >
                   <Icon className="h-3 w-3" />
                   <span>{name}</span>
@@ -127,14 +126,14 @@ export default function FeaturedProjectCard({
             </div>
           </div>
 
-          {/* Links */}
+          {/* Links Section - Fixed at bottom */}
           <div className="mt-4 flex items-center gap-3">
             {project.links.github && (
               <Link
                 href={project.links.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-lg border border-primary-base/20 bg-primary-base/5 px-3 py-1.5 text-sm text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
+                className="flex items-center gap-2 rounded-lg border border-primary-base/20 bg-primary-base/5 px-4 py-2 text-xs text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
               >
                 <FiGithub className="h-4 w-4" />
                 <span>View Code</span>
@@ -145,7 +144,7 @@ export default function FeaturedProjectCard({
                 href={project.links.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-lg border border-primary-base/20 bg-primary-base/5 px-3 py-1.5 text-sm text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
+                className="flex items-center gap-2 rounded-lg border border-primary-base/20 bg-primary-base/5 px-4 py-2 text-xs text-primary-base transition-all hover:border-primary-base/40 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
               >
                 <ExternalLink className="h-4 w-4" />
                 <span>Live Demo</span>

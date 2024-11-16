@@ -42,7 +42,7 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
                 duration: 0.3,
                 ease: "easeOut",
               }}
-              className="mx-auto overflow-hidden bg-background-base/95 px-6 py-8 shadow-lg backdrop-blur-md dark:bg-background-base-dark/95"
+              className="mx-auto overflow-hidden bg-background-base/95 p-6 shadow-lg backdrop-blur-md dark:bg-background-base-dark/95"
             >
               <nav className="max-w-lg">
                 <div className="flex flex-col space-y-6">
