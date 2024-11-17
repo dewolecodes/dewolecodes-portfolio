@@ -21,7 +21,7 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background-base/60 backdrop-blur-sm dark:bg-background-base-dark/60"
+            className="fixed inset-0 z-40 bg-background-base/60 backdrop-blur-[2px] dark:bg-background-base-dark/60"
             onClick={onClose}
           />
 
@@ -31,7 +31,7 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="absolute left-0 right-0 top-0 z-50 mt-[72px]"
+            className="absolute left-0 right-0 top-0 z-50 mt-[80px]"
           >
             <motion.div
               initial={false}
@@ -42,7 +42,7 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
                 duration: 0.3,
                 ease: "easeOut",
               }}
-              className="mx-auto overflow-hidden bg-background-base/95 p-6 shadow-lg backdrop-blur-md dark:bg-background-base-dark/95"
+              className="mx-auto overflow-hidden rounded-lg border border-primary-base/30 bg-background-base/95 p-6 shadow-lg backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/95"
             >
               <nav className="max-w-lg">
                 <div className="flex flex-col space-y-6">

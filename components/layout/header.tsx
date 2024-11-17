@@ -153,7 +153,7 @@ export function Header() {
         <motion.div
           animate={{
             width: isScrolled ? "95%" : "100%",
-            borderRadius: isScrolled && !isMobileMenuOpen ? 9999 : 0,
+            borderRadius: isScrolled && !isMobileMenuOpen ? 9999 : 10,
           }}
           transition={{
             duration: 0.5,
@@ -161,13 +161,14 @@ export function Header() {
             borderRadius: { duration: 0.2 },
           }}
           className={cn(
-            "relative z-50 mx-auto flex flex-col items-center justify-between bg-transparent px-4 py-2",
-            isScrolled && "mt-3",
+            "relative z-50 mx-auto flex flex-col items-center justify-between bg-transparent px-4 py-2", // Is not scrolled and not open
+            isScrolled &&
+              "mt-3 border border-primary-base/30 dark:border-primary-base-dark/20", // Is scrolled but open
             isScrolled &&
               !isMobileMenuOpen &&
-              "border border-primary-base/20 bg-background-base/80 backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/80",
+              "border border-primary-base/20 bg-background-base/80 backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/80", // Is scrolled but not open
             isMobileMenuOpen &&
-              "bg-background-base/80 backdrop-blur-md dark:bg-background-base-dark/80",
+              "bg-background-base/80 backdrop-blur-md dark:bg-background-base-dark/80", // Is open Mobile Menu and Navbar (scrolled or not)
           )}
         >
           <div className="flex w-full flex-row items-center justify-between">
