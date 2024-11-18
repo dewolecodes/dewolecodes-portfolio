@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Nabeel's Portfolio",
   },
   description:
-    "Hey, I'm Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
+    "Hey, I'm Nabeel! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript. Crafting responsive, user-centric solutions with clean code and optimal performance.",
   metadataBase: new URL("https://nabeelhassan.dev"),
   applicationName: "Nabeel Hassan Portfolio",
 
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     siteName: "Nabeel Hassan Portfolio",
     title: "Nabeel Hassan | Web Developer",
     description:
-      "Hey, I'm Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies.",
+      "Hey, I'm Nabeel! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
     url: "https://nabeelhassan.dev",
     locale: "en_US",
   },
@@ -105,7 +105,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nabeel Hassan | Web Developer",
     description:
-      "Web Developer specializing in React, Next.js, and modern web technologies.",
+      "Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
     creator: "@nabeelhassan_",
     site: "@nabeelhassan_",
   },
