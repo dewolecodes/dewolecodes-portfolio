@@ -24,11 +24,11 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nabeel Hassan | Frontend Developer",
+    default: "Nabeel Hassan | Web Developer",
     template: "%s | Nabeel's Portfolio",
   },
   description:
-    "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Frontend Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
+    "Hey, I'm Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
   keywords: [
     "Nabeel Hassan",
     "Nabeel",
@@ -86,9 +86,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Nabeel Hassan | Frontend Developer",
+    title: "Nabeel Hassan | Web Developer",
     description:
-      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Frontend Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
+      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
     url: "https://nabeelhassan.dev",
     siteName: "Nabeel Hassan | Frontend Developer",
     locale: "en_US",
@@ -104,9 +104,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nabeel Hassan | Frontend Developer",
+    title: "Nabeel Hassan | Web Developer",
     description:
-      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Frontend Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
+      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
     creator: "@nabeelhassan_",
     images: ["/twitter-image.png"],
   },
