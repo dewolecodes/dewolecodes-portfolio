@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Nabeel Hassan | Frontend Developer",
+    name: "Nabeel Hassan Portfolio",
     short_name: "Nabeel Hassan",
     description:
-      "Frontend Developer specializing in React, Next.js, and modern web technologies.",
+      "Web Developer specializing in React, Next.js, and modern web technologies.",
     start_url: "/",
     display: "standalone",
     background_color: "#f3f6f5",

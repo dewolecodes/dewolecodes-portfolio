@@ -23,60 +23,98 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  // Basic
   title: {
     default: "Nabeel Hassan | Web Developer",
     template: "%s | Nabeel's Portfolio",
   },
   description:
     "Hey, I'm Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
+  metadataBase: new URL("https://nabeelhassan.dev"),
+  applicationName: "Nabeel Hassan Portfolio",
+
+  // Keywords and Categories
   keywords: [
-    "Nabeel Hassan",
     "Nabeel",
     "Hassan",
+    "Nabeel Hassan",
     "Hassan Umar Hassan",
-    "Portfolio",
     "Web Developer",
-    "Web Designer",
-    "Software Engineer",
-    "Software Developer",
     "Frontend Developer",
-    "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
-    "JavaScript Developer",
     "TypeScript Developer",
+    "UI Developer",
+    "JavaScript Developer",
+    "Full Stack Developer",
+    "Software Developer",
+    "Software Engineer",
     "Node.js Developer",
+    "Web Development Portfolio",
+    "React Portfolio",
+    "Frontend Portfolio",
+    "Modern Web Development",
+    "Web Designer",
+    "UI/UX Development",
+    "Portfolio",
   ],
-  authors: {
-    name: "Nabeel Hassan",
-    url: "https://nabeelhassan.dev",
-  },
+  category: "portfolio",
+
+  // Creator Info
+  authors: [
+    {
+      name: "Nabeel Hassan",
+      url: "https://nabeelhassan.dev",
+    },
+  ],
   creator: "Nabeel Hassan",
   publisher: "Nabeel Hassan",
-  formatDetection: {
-    email: false,
-    telephone: false,
-    address: false,
+
+  // Verification
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    other: {
+      me: [
+        "https://github.com/NabsCodes",
+        "https://linkedin.com/in/hassan-umar-hassan",
+      ],
+    },
   },
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/apple-icon.png",
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/favicon.svg",
-        color: "#71a295",
-      },
-    ],
-  },
-  metadataBase: new URL("https://nabeelhassan.dev"),
+
+  // Alternate Languages/Versions
   alternates: {
-    canonical: "/",
+    canonical: "https://nabeelhassan.dev",
+    languages: {
+      "en-US": "https://nabeelhassan.dev",
+    },
   },
+
+  // OpenGraph
+  openGraph: {
+    type: "website",
+    siteName: "Nabeel Hassan Portfolio",
+    title: "Nabeel Hassan | Web Developer",
+    description:
+      "Hey, I'm Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies.",
+    url: "https://nabeelhassan.dev",
+    locale: "en_US",
+  },
+
+  // Twitter
+  twitter: {
+    card: "summary_large_image",
+    title: "Nabeel Hassan | Web Developer",
+    description:
+      "Web Developer specializing in React, Next.js, and modern web technologies.",
+    creator: "@nabeelhassan_",
+    site: "@nabeelhassan_",
+  },
+
+  // Robots
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -85,32 +123,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  openGraph: {
-    title: "Nabeel Hassan | Web Developer",
-    description:
-      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
-    url: "https://nabeelhassan.dev",
-    siteName: "Nabeel Hassan | Frontend Developer",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Nabeel Hassan - Frontend Developer",
-      },
-    ],
+
+  // Other Important SEO Tags
+  referrer: "origin-when-cross-origin",
+  classification: "Portfolio",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Nabeel Hassan | Web Developer",
-    description:
-      "Hey, I’m Nabeel! Welcome to my portfolio, I'm a Web Developer specializing in React, Next.js, and modern web technologies. Building innovative web solutions with clean, efficient code.",
-    creator: "@nabeelhassan_",
-    images: ["/twitter-image.png"],
-  },
-  category: "portfolio",
 };
 
 export const viewport: Viewport = {
@@ -118,6 +139,11 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: light)", color: "#f3f6f5" },
     { media: "(prefers-color-scheme: dark)", color: "#0e1714" },
   ],
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  interactiveWidget: "resizes-visual",
 };
 
 export default function RootLayout({
