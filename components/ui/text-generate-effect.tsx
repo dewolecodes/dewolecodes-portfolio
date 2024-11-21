@@ -31,7 +31,7 @@ export function TextGenerateEffect({ words }: { words: string }) {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className="ml-[1px] inline-block h-5 w-[2px] bg-primary-base dark:bg-primary-base-dark"
+          className="ml-[1px] inline-block h-4 w-[2px] bg-primary-base dark:bg-primary-base-dark"
         />
       </p>
     </div>

@@ -36,7 +36,7 @@ export const ExperienceCard: React.FC<{
       className="my-1 rounded-lg border border-primary-base/30 bg-background-base/50 p-6 backdrop-blur-sm transition-colors dark:border-primary-base-dark/10 dark:bg-background-base-dark/50"
     >
       {/* Header Section */}
-      <div className="flex flex-col gap-4 border-b border-primary-base/5 dark:border-primary-base-dark/5 lg:flex-row lg:items-start lg:justify-between lg:gap-2 lg:pb-4">
+      <div className="flex flex-col gap-4 pb-4 lg:flex-row lg:items-start lg:justify-between">
         {/* Role & Type */}
         <div className="flex items-center justify-between lg:flex-col lg:items-start">
           <h3 className="bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-lg font-medium text-transparent dark:from-primary-base-dark dark:to-accent-base-dark">
@@ -54,14 +54,21 @@ export const ExperienceCard: React.FC<{
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm text-default-base/70 dark:text-default-base-dark/70">
             <RiBuildingLine className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-            <Link
-              href={experience.companyUrl || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-accent-base dark:hover:text-accent-base-dark"
-            >
-              {experience.company}
-            </Link>
+            {experience.companyUrl ? (
+              <Link
+                href={experience.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-accent-base dark:hover:text-accent-base-dark"
+              >
+                {experience.company}
+                <span className="ml-1 text-xs text-primary-base dark:text-primary-base-dark">
+                  ↗
+                </span>
+              </Link>
+            ) : (
+              <span>{experience.company}</span>
+            )}
           </div>
           <div className="flex items-center gap-2 text-sm text-default-base/70 dark:text-default-base-dark/70">
             <RiMapPinLine className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
@@ -69,6 +76,8 @@ export const ExperienceCard: React.FC<{
           </div>
         </div>
       </div>
+      {/* Divider */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary-base/80 to-transparent dark:via-primary-base-dark/20" />
 
       {/* Description & Achievements */}
       <motion.div

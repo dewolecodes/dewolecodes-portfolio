@@ -65,7 +65,8 @@ export const heroContent: HeroContent = {
   // intro: " CODE • CREATE • INNOVATE ",
   description:
     // "Software developer who enjoys building things for the web. Whether it's a full website or a specific feature, I create solutions that work well and look good. Discover my portfolio and explore my work.",
-    "Software developer with a passion for crafting great user experiences. From responsive interfaces to full-stack applications, I build solutions that are both engaging and reliable. Discover my portfolio and explore my work.",
+    // "Software developer with a passion for crafting great user experiences. From responsive interfaces to full-stack applications, I build solutions that are both engaging and reliable. Discover my portfolio and explore my work."
+    "Frontend-focused developer with a knack for building reliable full-stack applications. I specialize in creating engaging user interfaces that are responsive and scalable.",
   personal: {
     name: "Hassan Umar Hassan",
     nickname: "Nabeel",
@@ -75,10 +76,10 @@ export const heroContent: HeroContent = {
     filename: "current_role.tsx",
   },
   roles: [
-    { icon: Terminal, label: "Software Engineer" },
-    // { icon: Code2, label: "React Developer" },
     { icon: Code2, label: "Frontend Developer" },
     { icon: Boxes, label: "Full Stack Developer" },
+    { icon: Terminal, label: "Software Engineer" },
+    // { icon: Code2, label: "React Developer" },
     { icon: ArrowRight, label: "Freelancer" },
     // Add more roles as needed
   ],
@@ -201,7 +202,6 @@ export const projectsData: ProjectData[] = [
       "A responsive web application for Abdamin International Limited, a multi-sector company in Nigeria.",
     featured: true,
     cover: {
-      // 1200x675 for 16:9 aspect ratio
       url: "/projects/abdamin.webp",
       alt: "Abdamin International Limited",
     },
@@ -375,7 +375,7 @@ export const experienceData: ExperienceContent = {
   experiences: [
     {
       id: "exp-1",
-      role: "Frontend Developer",
+      role: "Full Stack Developer",
       company: "Mkel Networks Limited",
       companyUrl: "https://mkelnetworks.com",
       location: "Abuja, Nigeria",
@@ -394,7 +394,7 @@ export const experienceData: ExperienceContent = {
     },
     {
       id: "exp-2",
-      role: "IT Support",
+      role: "Technical Support",
       company: "Nigerian Communications Commission (NCC)",
       companyUrl: "https://www.ncc.gov.ng/",
       location: "Abuja, Nigeria",
@@ -404,11 +404,11 @@ export const experienceData: ExperienceContent = {
         end: "Aug 2022",
       },
       description:
-        "Interned at Technical Standards & Network Integrity / Spectrum Department",
+        "Supported Technical Standards & Network Integrity Department with data analysis and documentation.",
       achievements: [
-        "Increased database efficiency by 25% through optimizing MySQL queries for recording and analyzing user call data statistics, handling over 1 million records.",
-        "Increased team’s regulatory compliance knowledge by 40% through creation of a technical standards summary.",
-        "Enhanced data accuracy by managing user call data using MySQL and collaborating with the Technical Standards unit.",
+        "Implemented efficient MySQL queries to analyze and manage telecommunications user data, processing over 10,000 records.",
+        "Developed technical documentation from industry meetings, enhancing team knowledge base of Mobile Network Operators (MNOs) standards.",
+        "Supported data integrity through MySQL database management, working closely with the Technical Standards unit.",
       ],
     },
   ],

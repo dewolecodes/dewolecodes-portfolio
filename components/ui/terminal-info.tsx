@@ -42,17 +42,6 @@ const TerminalInfo: React.FC<TerminalInfoProps> = ({
     },
   };
 
-  const cursorVariants: Variants = {
-    blink: {
-      opacity: [0, 1],
-      transition: {
-        duration: 0.8,
-        repeat: Infinity,
-        repeatType: "reverse",
-      },
-    },
-  };
-
   return (
     <motion.div
       variants={containerVariants}
@@ -99,11 +88,6 @@ const TerminalInfo: React.FC<TerminalInfoProps> = ({
           <span className="text-sm text-default-base/70 dark:text-default-base-dark/70">
             {content}
           </span>
-          <motion.span
-            variants={cursorVariants}
-            animate="blink"
-            className="ml-[2px] inline-block h-4 w-[1px] bg-primary-base/50 dark:bg-primary-base-dark/50"
-          />
         </motion.div>
       </div>
 
@@ -144,11 +128,6 @@ const TerminalInfo: React.FC<TerminalInfoProps> = ({
           >
             {content}
           </motion.span>
-          <motion.span
-            variants={cursorVariants}
-            animate="blink"
-            className="ml-[2px] inline-block h-4 w-[1px] bg-primary-base/50 dark:bg-primary-base-dark/50"
-          />
         </div>
       </div>
     </motion.div>
