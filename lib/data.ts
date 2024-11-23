@@ -65,8 +65,8 @@ export const heroContent: HeroContent = {
   // intro: " CODE • CREATE • INNOVATE ",
   description:
     // "Software developer who enjoys building things for the web. Whether it's a full website or a specific feature, I create solutions that work well and look good. Discover my portfolio and explore my work.",
-    // "Software developer with a passion for crafting great user experiences. From responsive interfaces to full-stack applications, I build solutions that are both engaging and reliable. Discover my portfolio and explore my work."
-    "Frontend-focused developer with a knack for building reliable full-stack applications. I specialize in creating engaging user interfaces that are responsive and scalable.",
+    "Software developer with a passion for crafting great user experiences. From responsive interfaces to full-stack applications, I build solutions that are both engaging and reliable. Discover my portfolio and explore my work.",
+  // "Frontend-focused developer with a knack for building reliable full-stack applications. I specialize in creating engaging user interfaces that are responsive and scalable.",
   personal: {
     name: "Hassan Umar Hassan",
     nickname: "Nabeel",
@@ -76,9 +76,9 @@ export const heroContent: HeroContent = {
     filename: "current_role.tsx",
   },
   roles: [
+    { icon: Terminal, label: "Software Engineer" },
     { icon: Code2, label: "Frontend Developer" },
     { icon: Boxes, label: "Full Stack Developer" },
-    { icon: Terminal, label: "Software Engineer" },
     // { icon: Code2, label: "React Developer" },
     { icon: ArrowRight, label: "Freelancer" },
     // Add more roles as needed
