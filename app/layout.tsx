@@ -5,6 +5,8 @@ import { Raleway, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/context/theme-provider";
 import "./globals.css";
 import ActiveSectionContextProvider from "@/context/active-section-context";
+// import MouseEffect from "@/components/ui/mouse-effect";
+import { cn } from "@/lib/utils";
 
 // Raleway for body text
 const raleway = Raleway({
@@ -152,11 +154,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  // const isTouchDevice =
+  //   typeof window !== "undefined" &&
+  //   ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
       <body
-        className={`${raleway.variable} ${spaceGrotesk.variable} bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40`}
+        className={cn(
+          raleway.variable,
+          spaceGrotesk.variable,
+          "bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40",
+          // !isTouchDevice && "cursor-none", // Add this class conditionally
+        )}
       >
         {gaId && <GoogleAnalytics GA_MEASUREMENT_ID={gaId} />}
         <ActiveSectionContextProvider>
@@ -166,6 +176,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            {/* <MouseEffect /> */}
             {children}
             <Analytics />
           </ThemeProvider>

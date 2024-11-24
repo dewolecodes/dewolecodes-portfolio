@@ -164,7 +164,7 @@ const ContactForm = () => {
               </div>
               <Textarea
                 {...register("message")}
-                placeholder="Your message..."
+                placeholder="What’s on your mind? Have an idea or project to discuss?"
                 rows={6}
                 className={`rounded-l-none border-primary-base/30 transition-colors dark:border-primary-base-dark/10 ${
                   errors.message
