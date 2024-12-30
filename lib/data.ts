@@ -16,7 +16,7 @@ import {
   SiFirebase,
   SiMysql,
   SiNotion,
-  SiSupabase,
+  // SiSupabase,
   SiEjs,
   SiGooglegemini,
   SiBootstrap,
@@ -295,9 +295,10 @@ export const projectsData: ProjectData[] = [
       alt: "Blog platform interface",
     },
     tech: [
-      { name: "Next.js", icon: SiNextdotjs },
+      // { name: "Next.js", icon: SiNextdotjs },
+      { name: "React", icon: SiReact },
       { name: "TypeScript", icon: SiTypescript },
-      { name: "Supabase", icon: SiSupabase },
+      // { name: "Supabase", icon: SiSupabase },
       { name: "Tailwind", icon: SiTailwindcss },
     ],
     links: {
