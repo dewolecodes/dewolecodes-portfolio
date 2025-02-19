@@ -1,5 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "@/components/google-analytics";
+import GoogleAnalytics from "@/components/integrations/google-analytics";
 import type { Metadata, Viewport } from "next";
 import { Raleway, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/context/theme-provider";

@@ -1,4 +1,5 @@
 import { LucideIcon } from "lucide-react";
+import { IconType } from "react-icons";
 
 export type TerminalInfo = {
   command: string;
@@ -86,7 +87,7 @@ export type SkillsContent = BaseSection & {
 
 export type ProjectSection = BaseSection;
 
-export type ProjectData = {
+export interface ProjectData {
   id: string;
   title: string;
   description: string;
@@ -97,7 +98,7 @@ export type ProjectData = {
   };
   tech: Array<{
     name: string;
-    icon: Icon;
+    icon: IconType;
   }>;
   links: {
     github?: string;
@@ -108,7 +109,7 @@ export type ProjectData = {
     solution: string;
     keyFeatures: string[];
   };
-};
+}
 
 export type Experience = {
   id: string;
