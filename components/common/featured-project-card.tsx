@@ -83,7 +83,7 @@ export default function FeaturedProjectCard({
                 />
                 {project.links.live && (
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-background-base/20 to-background-base/95 opacity-0 transition-all duration-300 group-hover/preview:opacity-100 dark:via-background-base-dark/20 dark:to-background-base-dark/95">
-                    <button className="flex items-center gap-2 rounded-lg border border-primary-base/20 bg-background-base/95 px-5 py-2 text-sm text-primary-base ring-1 ring-primary-base/5 transition-colors dark:border-primary-base-dark/20 dark:bg-background-base-dark/95 dark:text-primary-base-dark dark:ring-primary-base-dark/5">
+                    <button className="flex items-center gap-2 rounded-lg border border-primary-base bg-background-base/95 px-5 py-2 text-sm text-primary-base ring-1 ring-primary-base/5 transition-colors dark:border-primary-base-dark dark:bg-background-base-dark/95 dark:text-primary-base-dark dark:ring-primary-base-dark/5">
                       <Eye className="h-4 w-4" />
                       <span>preview --live</span>
                     </button>
