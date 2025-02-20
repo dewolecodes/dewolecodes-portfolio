@@ -107,7 +107,7 @@ export function ProjectPreview({
                 {/* Loading State */}
                 {isLoading && (
                   <div className="absolute inset-0 flex items-center justify-center bg-background-base dark:bg-background-base-dark">
-                    <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary-base border-t-transparent dark:border-primary-base-dark" />
+                    <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary-base border-t-transparent" />
                   </div>
                 )}
 
