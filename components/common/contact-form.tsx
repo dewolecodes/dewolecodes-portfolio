@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema } from "@/lib/validations/contact";
+import { contactSchema } from "@/email/validations/contact";
 import { toast } from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
@@ -164,7 +164,7 @@ const ContactForm = () => {
               </div>
               <Textarea
                 {...register("message")}
-                placeholder="What’s on your mind? Have an idea or project to discuss?"
+                placeholder="What's on your mind? Have an idea or project to discuss?"
                 rows={6}
                 className={`rounded-l-none border-primary-base/30 transition-colors dark:border-primary-base-dark/10 ${
                   errors.message

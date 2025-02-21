@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 import { ContactFormEmail } from "@/email/contact-form-email";
-import { contactSchema } from "@/lib/validations/contact";
+import { contactSchema } from "@/email/validations/contact";
 import { NextResponse } from "next/server";
 import * as z from "zod";
 
