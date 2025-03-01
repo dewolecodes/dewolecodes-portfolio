@@ -62,7 +62,7 @@ const Skills = () => {
             <motion.div
               key={group.title}
               variants={itemVariants}
-              className="relative h-full rounded-xl border border-primary-base/30 bg-background-base/50 p-6 dark:border-primary-base-dark/10 dark:bg-background-base-dark/50"
+              className="relative h-full rounded-xl border border-primary-base/40 bg-background-base/50 p-6 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50"
             >
               {/* Decorative gradient */}
               <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary-base/10 via-transparent to-transparent dark:from-primary-base-dark/5" />

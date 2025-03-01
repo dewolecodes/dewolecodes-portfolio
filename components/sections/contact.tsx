@@ -50,7 +50,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
               viewport={{ once: true }}
-              className="rounded-lg border border-primary-base/30 bg-background-base/80 p-6 backdrop-blur-sm dark:border-primary-base-dark/10 dark:bg-background-base-dark/80"
+              className="rounded-lg border border-primary-base/40 bg-background-base/80 p-6 backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/80"
             >
               <div className="space-y-4">
                 <h3 className="flex items-center gap-2 font-space-grotesk text-lg font-medium text-primary-base dark:text-primary-base-dark">

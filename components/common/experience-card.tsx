@@ -33,7 +33,7 @@ export const ExperienceCard: React.FC<{
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="my-1 rounded-lg border border-primary-base/30 bg-background-base/50 p-6 backdrop-blur-sm transition-colors dark:border-primary-base-dark/10 dark:bg-background-base-dark/50"
+      className="my-1 rounded-lg border border-primary-base/40 bg-background-base/50 p-6 backdrop-blur-sm transition-colors dark:border-primary-base-dark/20 dark:bg-background-base-dark/50"
     >
       {/* Header Section */}
       <div className="flex flex-col gap-4 pb-4 lg:flex-row lg:items-start lg:justify-between">

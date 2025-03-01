@@ -10,9 +10,9 @@ import ScrollToTopButton from "../ui/scroll-to-top-button";
 
 export function Footer() {
   return (
-    <footer className="relative z-10 mt-8 border-t border-primary-base/20 bg-gradient-to-b from-background-base/50 to-background-base/80 py-12 backdrop-blur-sm dark:border-primary-base-dark/10 dark:from-background-base-dark/50 dark:to-background-base-dark/80">
+    <footer className="relative z-10 mt-8 border-t border-primary-base/40 bg-gradient-to-b from-background-base/50 to-background-base/80 py-12 backdrop-blur-sm dark:border-primary-base-dark/20 dark:from-background-base-dark/50 dark:to-background-base-dark/80">
       {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1.2px,transparent_1px),linear-gradient(to_bottom,#80808012_1.2px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]" />
 
       {/* Scroll to Top Button */}
       <ScrollToTopButton />

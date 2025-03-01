@@ -48,7 +48,7 @@ const TerminalInfo: React.FC<TerminalInfoProps> = ({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="mb-8 rounded-lg border border-primary-base/20 bg-background-base/50 p-4 backdrop-blur-sm dark:border-primary-base-dark/10 dark:bg-background-base-dark/50"
+      className="mb-8 rounded-lg border border-primary-base/50 bg-background-base/50 p-4 backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/50"
     >
       {/* Compact layout for mobile */}
       <div className="flex flex-col gap-2 md:hidden">

@@ -46,6 +46,10 @@ export function SparklesCore({
             value: background,
           },
         },
+        fullScreen: {
+          enable: true,
+          zIndex: -1,
+        },
         particles: {
           number: {
             value: particleDensity,

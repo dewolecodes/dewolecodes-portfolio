@@ -50,7 +50,7 @@ export default function Hero() {
     <section
       id="home"
       ref={ref}
-      className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-background-base px-4 pt-20 dark:bg-background-base-dark sm:pt-24 md:pt-28 lg:pt-20"
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden px-4 pt-20 sm:pt-24 md:pt-28 lg:pt-20"
     >
       {/* Matrix-like animated background */}
       <div className="absolute inset-0 h-full w-full">
@@ -60,14 +60,13 @@ export default function Hero() {
           minSize={0.4}
           maxSize={theme === "dark" ? 1.2 : 1.6}
           particleDensity={theme === "dark" ? 120 : 140}
-          className="h-full w-full"
           particleColor={theme === "dark" ? "#71a295" : "#365e53"}
         />
       </div>
 
       {/* Dynamic Side Roles - Desktop only */}
       <div className="absolute right-10 top-20 hidden h-full lg:block xl:right-0 xl:top-3">
-        <div className="relative h-full w-[1.5px] bg-primary-base dark:w-[2px] dark:bg-primary-base-dark/10">
+        <div className="relative h-full w-[1.5px] bg-primary-base dark:w-[2px] dark:bg-primary-base-dark/20">
           <div className="absolute -left-[150px] bottom-20 flex h-full flex-col justify-center space-y-16 xl:bottom-0">
             {heroContent.roles.map((item, index) => (
               <motion.div
@@ -91,14 +90,14 @@ export default function Hero() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 mx-auto w-full"
+        className="relative mx-auto w-full"
       >
         {/* Code-style intro */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8 max-w-2xl"
+          className="mb-8"
         >
           <HoverBorderGradient
             containerClassName="rounded-full backdrop-blur-sm"

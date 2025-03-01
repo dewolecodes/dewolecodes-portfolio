@@ -110,7 +110,7 @@ const About = () => {
             {aboutContent.interests.map((section, index) => (
               <div
                 key={index}
-                className="rounded-lg border border-primary-base/30 bg-background-base/50 px-5 py-4 transition-colors duration-300 hover:border-primary-base/50 dark:border-primary-base-dark/10 dark:bg-background-base-dark/50 dark:hover:border-primary-base-dark/30"
+                className="rounded-lg border border-primary-base/50 bg-background-base/50 px-5 py-4 transition-colors duration-300 hover:border-primary-base/50 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50 dark:hover:border-primary-base-dark/30"
               >
                 {/* Header */}
                 <div className="flex items-center gap-2">

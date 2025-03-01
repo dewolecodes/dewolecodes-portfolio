@@ -42,7 +42,7 @@ export default function Experience() {
       <div className="relative grid gap-12 md:gap-16">
         {/* Connector Line */}
         <div className="absolute inset-0 flex justify-center">
-          <div className="w-px bg-gradient-to-b from-primary-base/30 via-primary-base/20 to-transparent dark:from-primary-base-dark/30 dark:via-primary-base-dark/20" />
+          <div className="w-px bg-gradient-to-b from-primary-base/40 via-primary-base/30 to-transparent dark:from-primary-base-dark/40 dark:via-primary-base-dark/30" />
         </div>
 
         {/* Experience Items */}
