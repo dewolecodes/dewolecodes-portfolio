@@ -77,7 +77,13 @@ export default function Projects() {
         </div>
 
         {/* Other Projects Section */}
-        <div className="relative mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          viewport={{ once: true }}
+          className="relative mt-16"
+        >
           {/* Section Divider with Text */}
           <div className="relative mb-8 flex items-center justify-center">
             <div className="absolute inset-0 flex items-center">
@@ -131,7 +137,7 @@ export default function Projects() {
               </button>
             </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

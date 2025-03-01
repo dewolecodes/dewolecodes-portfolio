@@ -11,6 +11,12 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 export default function Experience() {
   const { ref } = useSectionInView("experience", 0.5);
 
+  // Sort the experience data by start date in descending order
+  const sortedExperienceData = experienceData.experiences.sort(
+    (a, b) =>
+      new Date(b.dates.start).getTime() - new Date(a.dates.start).getTime(),
+  );
+
   return (
     <section
       ref={ref}
@@ -40,7 +46,7 @@ export default function Experience() {
         </div>
 
         {/* Experience Items */}
-        {experienceData.experiences.map((experience, index) => (
+        {sortedExperienceData.map((experience, index) => (
           <motion.div
             key={experience.id}
             initial={{ opacity: 0, y: 20 }}

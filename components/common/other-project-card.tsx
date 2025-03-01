@@ -5,6 +5,7 @@ import { FiGithub } from "react-icons/fi";
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { ProjectData } from "@/lib/types";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const OtherProjectCard = ({ project }: { project: ProjectData }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -20,7 +21,13 @@ const OtherProjectCard = ({ project }: { project: ProjectData }) => {
   }, [project.description]);
 
   return (
-    <div className="group">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="group"
+    >
       <div className="relative w-full overflow-hidden rounded-lg border border-primary-base/20 bg-background-base/80 p-6 backdrop-blur-sm transition-all hover:border-primary-base/40 dark:border-primary-base-dark/10 dark:bg-background-base-dark/80 dark:hover:border-primary-base-dark/20">
         <div className="flex flex-col">
           {/* Title */}
@@ -104,7 +111,7 @@ const OtherProjectCard = ({ project }: { project: ProjectData }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

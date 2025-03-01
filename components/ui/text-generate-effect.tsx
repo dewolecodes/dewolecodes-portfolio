@@ -3,7 +3,13 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export function TextGenerateEffect({ words }: { words: string }) {
+export function TextGenerateEffect({
+  words,
+  textSpeed = 15,
+}: {
+  words: string;
+  textSpeed?: number;
+}) {
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
@@ -15,10 +21,10 @@ export function TextGenerateEffect({ words }: { words: string }) {
       } else {
         clearInterval(interval);
       }
-    }, 30);
+    }, textSpeed);
 
     return () => clearInterval(interval);
-  }, [words]);
+  }, [words, textSpeed]);
 
   return (
     <div className="relative">
