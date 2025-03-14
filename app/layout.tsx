@@ -2,10 +2,10 @@ import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@/components/integrations/google-analytics";
 import type { Metadata, Viewport } from "next";
 import { Raleway, Space_Grotesk } from "next/font/google";
-import { ThemeProvider } from "@/context/theme-provider";
+import { ThemeProvider } from "@/contexts/theme-provider";
 import "./globals.css";
-import ActiveSectionContextProvider from "@/context/active-section-context";
-// import MouseEffect from "@/components/ui/mouse-effect";
+import ActiveSectionContextProvider from "@/contexts/active-section-context";
+import { ToastProvider } from "@/contexts/toast-context";
 import { cn } from "@/lib/utils";
 
 // Raleway for body text
@@ -154,9 +154,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  // const isTouchDevice =
-  //   typeof window !== "undefined" &&
-  //   ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
@@ -165,22 +162,22 @@ export default function RootLayout({
           raleway.variable,
           spaceGrotesk.variable,
           "bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40",
-          // !isTouchDevice && "cursor-none", // Add this class conditionally
         )}
       >
         {gaId && <GoogleAnalytics GA_MEASUREMENT_ID={gaId} />}
-        <ActiveSectionContextProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* <MouseEffect /> */}
-            {children}
-            <Analytics />
-          </ThemeProvider>
-        </ActiveSectionContextProvider>
+        <ToastProvider>
+          <ActiveSectionContextProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+              <Analytics />
+            </ThemeProvider>
+          </ActiveSectionContextProvider>
+        </ToastProvider>
       </body>
     </html>
   );

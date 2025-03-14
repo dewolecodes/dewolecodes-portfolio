@@ -14,11 +14,10 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema } from "@/email/validations/contact";
-import { toast } from "react-hot-toast";
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import type * as z from "zod";
-import { CustomToast } from "@/components/ui/custom-toast";
+import { useToast } from "@/contexts/toast-context";
 
 // Define the type for the form data
 type FormData = z.infer<typeof contactSchema>;
@@ -36,6 +35,9 @@ type ApiError = {
 };
 
 const ContactForm = () => {
+  // Use the custom toast context
+  const { showToast } = useToast();
+
   const {
     register,
     handleSubmit,
@@ -55,13 +57,12 @@ const ContactForm = () => {
       // Track the event when the email is sent
       trackEvent("contact_form", "submission", "success");
 
-      toast.custom(() => (
-        <CustomToast
-          title="Success!"
-          message="Your message has been sent successfully."
-          variant="success"
-        />
-      ));
+      // Show a single success toast
+      showToast(
+        "Success!",
+        "Your message has been sent successfully.",
+        "success",
+      );
       reset();
     },
     onError: (error) => {
@@ -72,16 +73,13 @@ const ContactForm = () => {
         error.response?.data?.error || "unknown_error",
       );
 
-      toast.custom(() => (
-        <CustomToast
-          title="Error"
-          message={
-            error.response?.data?.error ||
-            "Something went wrong. Please try again."
-          }
-          variant="error"
-        />
-      ));
+      // Show a single error toast
+      showToast(
+        "Error",
+        error.response?.data?.error ||
+          "Something went wrong. Please try again.",
+        "error",
+      );
     },
   });
 

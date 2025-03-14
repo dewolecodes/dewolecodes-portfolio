@@ -1,4 +1,4 @@
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useActiveSectionContext } from "@/contexts/active-section-context";
 import { SectionName } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";

@@ -11,7 +11,7 @@ export function CustomToast({ title, message, variant }: CustomToastProps) {
   return (
     <Alert
       variant={variant === "success" ? "default" : "destructive"}
-      className={`z-[9999] w-[356px] border ${
+      className={`z-50 w-[356px] border ${
         variant === "success"
           ? "border-emerald-500 bg-emerald-100 text-emerald-800 dark:border-emerald-500 dark:bg-emerald-900 dark:text-emerald-100"
           : "border-red-500 bg-red-100 text-red-800 dark:border-red-500 dark:bg-red-900 dark:text-red-100"
