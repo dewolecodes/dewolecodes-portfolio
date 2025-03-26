@@ -17,72 +17,121 @@ type ContactFormEmailProps = {
   message: string;
   senderEmail: string;
   senderName: string;
+  date?: string;
 };
 
 export const ContactFormEmail = ({
   message,
   senderEmail,
-  senderName,
+  senderName = "",
+  date = new Date().toLocaleString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }),
 }: ContactFormEmailProps) => {
   return (
     <Html>
       <Head />
       <Preview>New message from {senderName} via your portfolio</Preview>
       <Tailwind>
-        <Body className="bg-gray-50">
-          <Container>
-            <Section className="my-10 rounded-lg border border-gray-200 bg-white px-10 py-8 shadow-lg">
+        <Body className="m-0 bg-gray-200 p-0">
+          <Container className="mx-auto max-w-[600px]">
+            <Section className="bg-[#0e1714] p-[32px_24px] shadow-lg">
               {/* Logo Header */}
-              <div className="mb-8 text-center">
+              <div className="mb-[32px] text-center">
                 <Img
-                  src="https://res.cloudinary.com/dy55vopm2/image/upload/v1731506627/Group_22_bilwww.png"
-                  width="40"
-                  height="40"
-                  alt="Logo"
+                  src="https://res.cloudinary.com/dy55vopm2/image/upload/v1743001924/nabeelhassan-logo_y0zjon.png"
+                  width="80"
+                  height="80"
+                  alt="Nabeel Hassan Logo"
                   className="mx-auto"
                 />
               </div>
 
               {/* Title */}
-              <Heading className="mb-6 text-center text-2xl font-bold text-gray-900">
+              <Heading className="m-0 mb-[24px] text-center text-[24px] font-bold leading-tight text-[#71a295]">
                 New Portfolio Message
               </Heading>
 
-              {/* Sender Info Box */}
-              <div className="mb-6 rounded-md bg-gray-50 p-4">
-                <Text className="m-0 text-base font-semibold text-gray-900">
-                  From: {senderName}
-                </Text>
-                <Link
-                  href={`mailto:${senderEmail}`}
-                  className="text-base text-emerald-600 underline"
-                >
-                  {senderEmail}
-                </Link>
+              {/* Notification Badge */}
+              <div className="mb-[24px] flex items-center justify-center">
+                <div className="inline-block rounded-[20px] bg-[#71a295]/15 px-[16px] py-[8px]">
+                  <Text className="m-0 flex items-center gap-[6px] text-center text-[14px] font-medium text-[#9cbcb2]">
+                    Received on {date}
+                  </Text>
+                </div>
               </div>
 
-              {/* Message Section */}
-              <div className="rounded-md border border-gray-200 bg-white p-6">
-                <Text className="mb-2 text-base font-medium text-gray-900">
-                  Message:
-                </Text>
-                <Text className="whitespace-pre-wrap text-base text-gray-600">
-                  {message}
-                </Text>
+              {/* Sender Info Section - Enhanced */}
+              <div className="mb-[24px] overflow-hidden rounded-[8px] bg-gray-800 shadow-md">
+                {/* Header */}
+                <div className="bg-[#71a295]/15 px-[20px] py-[12px]">
+                  <Text className="m-0 text-[16px] font-semibold tracking-wide text-[#9cbcb2]">
+                    Sender Information
+                  </Text>
+                </div>
+
+                {/* Content */}
+                <div className="space-y-4 p-[20px]">
+                  {/* Name Row */}
+                  <div className="flex items-start gap-3">
+                    <Text className="m-0 min-w-[60px] text-[14px] text-[#9cbcb2]">
+                      Name:
+                    </Text>
+                    <Text className="m-0 flex-1 text-[15px] font-medium text-[#71a295]">
+                      {senderName}
+                    </Text>
+                  </div>
+
+                  {/* Email Row */}
+                  <div className="flex items-start gap-3">
+                    <Text className="m-0 min-w-[60px] text-[14px] text-[#9cbcb2]">
+                      Email:
+                    </Text>
+                    <Text className="m-0 flex-1 break-all text-[15px] text-gray-400">
+                      {senderEmail}
+                    </Text>
+                  </div>
+                </div>
               </div>
 
-              <Hr className="my-6 border-gray-200" />
+              {/* Message Section - Enhanced */}
+              <div className="overflow-hidden rounded-[8px] bg-gray-800 shadow-md">
+                <div className="bg-[#71a295]/15 px-[20px] py-[12px]">
+                  <Text className="m-0 text-[16px] font-semibold tracking-wide text-[#9cbcb2]">
+                    Message Content
+                  </Text>
+                </div>
+
+                <div className="p-[20px]">
+                  <Text className="m-0 whitespace-pre-wrap text-[16px] leading-relaxed text-gray-300">
+                    {message}
+                  </Text>
+                </div>
+              </div>
+
+              <Hr className="my-[24px] text-gray-600" />
 
               {/* Footer */}
-              <Text className="text-center text-sm text-gray-400">
-                This email was sent from your contact form on{" "}
-                <Link
-                  href="https://nabeelhassan.dev"
-                  className="text-emerald-600 underline"
-                >
-                  nabeelhassan.dev
-                </Link>
-              </Text>
+              <div className="text-center">
+                <Text className="m-0 text-[14px] text-gray-400">
+                  This email was sent from your contact form on{" "}
+                  <Link
+                    href="https://nabeelhassan.dev"
+                    className="text-[#71a295] underline"
+                  >
+                    nabeelhassan.dev
+                  </Link>
+                </Text>
+
+                <Text className="mb-0 mt-[16px] text-[12px] text-gray-500">
+                  © {new Date().getFullYear()} Nabeel Hassan. All rights
+                  reserved.
+                </Text>
+              </div>
             </Section>
           </Container>
         </Body>
