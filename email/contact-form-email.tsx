@@ -37,9 +37,9 @@ export const ContactFormEmail = ({
       <Head />
       <Preview>New message from {senderName} via your portfolio</Preview>
       <Tailwind>
-        <Body className="m-0 bg-gray-200 p-0">
-          <Container className="mx-auto max-w-[600px]">
-            <Section className="bg-[#0e1714] p-[32px_24px] shadow-lg">
+        <Body className="m-0 bg-[#0e1714] p-[48px_0px]">
+          <Container className="mx-auto w-full max-w-[465px] rounded-lg bg-[#1a2420] px-4">
+            <Section className="my-[16px] rounded-[8px] bg-[#0e1714] p-[32px_24px] shadow-lg">
               {/* Logo Header */}
               <div className="mb-[32px] text-center">
                 <Img
