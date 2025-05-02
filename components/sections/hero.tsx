@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -18,14 +18,47 @@ import { trackEvent } from "@/utils/analytics";
 export default function Hero() {
   const { ref } = useSectionInView("home", 0.5);
   const { theme } = useTheme();
+  const shouldReduceMotion = useReducedMotion();
 
+  // Sophisticated animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+        duration: shouldReduceMotion ? 0 : 0.5,
+      },
+    },
+  };
+
+  const fadeInUpVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.6,
+        ease: [0.22, 1, 0.36, 1], // Custom easing for smooth motion
+      },
+    },
+  };
+
+  const scaleInVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.6,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
@@ -42,9 +75,6 @@ export default function Hero() {
   const handleProjectsClick = () => {
     trackEvent("projects_click", "projects", "hero");
   };
-
-  // Mobile/Tablet roles that appear after description
-  const MobileRoles = MobileRolesSidebar;
 
   return (
     <section
@@ -73,7 +103,11 @@ export default function Hero() {
                 key={index}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 + index * 0.2 }}
+                transition={{
+                  delay: 0.5 + index * 0.15,
+                  duration: shouldReduceMotion ? 0 : 0.6,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="flex items-center gap-3"
               >
                 <item.icon className="h-5 w-5 text-primary-base dark:text-primary-base-dark/80" />
@@ -93,14 +127,9 @@ export default function Hero() {
         className="relative mx-auto w-full"
       >
         {/* Code-style intro */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
-        >
+        <motion.div variants={fadeInUpVariants} className="mb-8">
           <HoverBorderGradient
-            containerClassName="rounded-full backdrop-blur-sm"
+            containerClassName="rounded-full"
             className="flex items-center space-x-2 border-0 bg-background-base dark:bg-background-base-dark"
             duration={1.5}
           >
@@ -119,12 +148,7 @@ export default function Hero() {
         {/* Main Content */}
         <div className="relative">
           {/* Name Section with Terminal-style Decoration */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-6"
-          >
+          <motion.div variants={fadeInUpVariants} className="mb-6">
             <div className="inline-block">
               <div className="mb-2 font-mono text-sm">
                 <span className="text-accent-base dark:text-accent-base-dark">
@@ -160,13 +184,8 @@ export default function Hero() {
           </motion.div>
 
           {/* Role Title with Terminal-like Design */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mb-8"
-          >
-            <div className="inline-block rounded-lg border border-primary-base/50 bg-background-base/60 p-4 backdrop-blur-sm dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
+          <motion.div variants={scaleInVariants} className="mb-8">
+            <div className="inline-block rounded-lg border border-primary-base/50 bg-background-base/60 p-4 dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-red-500/50"></div>
@@ -184,23 +203,16 @@ export default function Hero() {
           </motion.div>
 
           {/* Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mb-8 max-w-4xl"
-          >
+          <motion.div variants={fadeInUpVariants} className="mb-8 max-w-4xl">
             <TextGenerateEffect words={heroContent.description} />
           </motion.div>
 
           {/* Mobile/Tablet Roles */}
-          <MobileRoles />
+          <MobileRolesSidebar />
 
-          {/* CTA Section with Original Transition */}
+          {/* CTA Section */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            variants={fadeInUpVariants}
             className="flex gap-4 sm:flex-row"
           >
             <Link
@@ -226,7 +238,7 @@ export default function Hero() {
             >
               <Button
                 variant="outline"
-                className="group h-12 overflow-hidden border-primary-base/50 bg-background-base/50 px-4 font-space-grotesk text-primary-base-dark backdrop-blur-sm transition-all duration-300 hover:bg-primary-base/10 hover:text-primary-base-dark dark:border-primary-base-dark/30 dark:bg-background-base-dark/50 dark:hover:bg-primary-base-dark/10 sm:px-8"
+                className="group h-12 overflow-hidden border-primary-base/50 bg-background-base/50 px-4 font-space-grotesk text-primary-base-dark transition-all duration-300 hover:bg-primary-base/10 hover:text-primary-base-dark dark:border-primary-base-dark/30 dark:bg-background-base-dark/50 dark:hover:bg-primary-base-dark/10 sm:px-8"
                 size="lg"
               >
                 <span className="relative z-10 flex items-center gap-2">
@@ -238,13 +250,8 @@ export default function Hero() {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="mt-12"
-          >
-            <div className="inline-flex items-center gap-4 rounded-lg border border-primary-base/50 bg-background-base p-2 backdrop-blur-sm dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
+          <motion.div variants={fadeInUpVariants} className="mt-12">
+            <div className="inline-flex items-center gap-4 rounded-lg border border-primary-base/50 bg-background-base p-2 dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
               <Link
                 href={heroContent.social.github}
                 onClick={() => handleSocialClick("github")}

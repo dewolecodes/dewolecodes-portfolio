@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import About from "@/components/sections/about";
 import Contact from "@/components/sections/contact";
 import Experience from "@/components/sections/experience";
@@ -9,9 +12,25 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 
 export default function Home() {
+  const pageVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
-    // <Preloader />
-    <>
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={pageVariants}
+      className="relative"
+    >
       <Header />
       <TracingBeam>
         <main className="flex min-h-screen flex-col overflow-hidden">
@@ -24,6 +43,6 @@ export default function Home() {
         </main>
       </TracingBeam>
       <Footer />
-    </>
+    </motion.div>
   );
 }

@@ -1,46 +1,122 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { easeInOut, motion } from "framer-motion";
+import { easeInOut, motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "../ui/theme-toggle";
 import { navigationItems } from "@/lib/data";
 import { NavLink } from "./nav-link";
 import { MobileMenu } from "./mobile-menu";
 
+const MobileMenuButton = memo(
+  ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => (
+    <button
+      onClick={onClick}
+      className="text-text-base dark:text-text-base-dark flex h-10 w-10 items-center justify-center rounded-full bg-secondary-base/30 transition-all hover:bg-secondary-base/50 dark:bg-secondary-base-dark/30 dark:hover:bg-secondary-base-dark/50"
+      aria-label="Toggle mobile menu"
+    >
+      {isOpen ? <X size={20} /> : <Menu size={20} />}
+    </button>
+  ),
+);
+
+MobileMenuButton.displayName = "MobileMenuButton";
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Add initial animation state
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    setIsScrolled(scrollPosition > 40);
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
-    };
-    window.addEventListener("scroll", handleScroll);
+    // Add passive event listener for better scroll performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // No dependency on isMobileMenuOpen
+  }, [handleScroll]);
+
+  useEffect(() => {
+    // Trigger initial animation after a small delay
+    const timer = setTimeout(() => {
+      setHasAnimated(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const nameVariants = {
     visible: {
       width: "auto",
       opacity: 1,
-      transition: { duration: 0.3 },
+      transition: { duration: shouldReduceMotion ? 0 : 0.3 },
     },
     hidden: {
       width: 0,
       opacity: 0,
-      transition: { duration: 0.3 },
+      transition: { duration: shouldReduceMotion ? 0 : 0.3 },
     },
   };
 
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen((prev) => !prev);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
+
+  const headerVariants = {
+    hidden: {
+      y: -100,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: shouldReduceMotion ? 0 : 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const navItemVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.1 + i * 0.05,
+        duration: shouldReduceMotion ? 0 : 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    }),
+  };
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full" role="banner">
+    <motion.header
+      initial="hidden"
+      animate={hasAnimated ? "visible" : "hidden"}
+      variants={headerVariants}
+      className="fixed inset-x-0 top-0 z-50 w-full"
+      role="banner"
+    >
       <div className="flex justify-center">
         {/* Desktop Navigation */}
-        <nav
+        <motion.nav
+          variants={headerVariants}
           className={cn(
             "relative z-[60] mt-2 hidden w-full max-w-7xl flex-row items-center justify-between rounded-full bg-transparent px-4 transition-all duration-500 ease-in-out dark:bg-transparent lg:flex",
             isScrolled
@@ -51,77 +127,94 @@ export function Header() {
           aria-label="Main navigation"
         >
           {/* Logo and Name Section */}
-          <Link
-            href="/"
-            className="relative z-20 flex items-center gap-3 py-1"
-            aria-label="Go to homepage"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.4,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            <Link
+              href="/"
+              className="relative z-20 flex items-center gap-3 py-1"
+              aria-label="Go to homepage"
             >
-              {/* Light mode logo */}
-              <div className="relative h-[30px] w-[30px] dark:hidden">
-                <Image
-                  src="/images/light-logo.png"
-                  alt="Personal logo"
-                  fill
-                  sizes="(max-width: 30px) 100vw, 30px"
-                  className="object-contain"
-                />
-              </div>
-              {/* Dark mode logo */}
-              <div className="relative hidden h-[30px] w-[30px] dark:block">
-                <Image
-                  src="/images/dark-logo.png"
-                  alt="Personal logo"
-                  fill
-                  sizes="(max-width: 30px) 100vw, 30px"
-                  className="object-contain"
-                />
-              </div>
-            </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                style={{ willChange: "transform" }}
+              >
+                {/* Light mode logo */}
+                <div className="relative h-[30px] w-[30px] dark:hidden">
+                  <Image
+                    src="/images/light-logo.png"
+                    alt="Personal logo"
+                    fill
+                    sizes="(max-width: 30px) 100vw, 30px"
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                {/* Dark mode logo */}
+                <div className="relative hidden h-[30px] w-[30px] dark:block">
+                  <Image
+                    src="/images/dark-logo.png"
+                    alt="Personal logo"
+                    fill
+                    sizes="(max-width: 30px) 100vw, 30px"
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </motion.div>
 
-            <motion.div
-              variants={nameVariants}
-              initial="visible"
-              animate={isScrolled ? "hidden" : "visible"}
-              className="flex overflow-hidden"
-            >
-              <span className="flex text-lg font-medium">
-                <span className="text-primary-base dark:text-primary-base-dark">
-                  &lt;
+              <motion.div
+                variants={nameVariants}
+                initial="visible"
+                animate={isScrolled ? "hidden" : "visible"}
+                className="flex overflow-hidden"
+                style={{ willChange: "width, opacity" }}
+              >
+                <span className="flex text-lg font-medium">
+                  <span className="text-primary-base dark:text-primary-base-dark">
+                    &lt;
+                  </span>
+                  <span className="text-text-base dark:text-text-base-dark">
+                    nabeel
+                  </span>
+                  <span className="font-light text-primary-base dark:text-accent-base-dark">
+                    hassan
+                  </span>
+                  <span className="text-primary-base dark:text-primary-base-dark">
+                    /&gt;
+                  </span>
                 </span>
-                <span className="text-text-base dark:text-text-base-dark">
-                  nabeel
-                </span>
-                <span className="font-light text-primary-base dark:text-accent-base-dark">
-                  hassan
-                </span>
-                <span className="text-primary-base dark:text-primary-base-dark">
-                  /&gt;
-                </span>
-              </span>
-            </motion.div>
-          </Link>
+              </motion.div>
+            </Link>
+          </motion.div>
 
           {/* Navigation Links */}
           <div
             className="absolute inset-0 hidden flex-1 flex-row items-center justify-center gap-2 text-sm font-medium lg:flex"
             role="menubar"
           >
-            {navigationItems.map((item) => (
-              <NavLink
-                key={item.name}
-                href={item.href}
-                name={item.name}
-                label={item.label}
-              />
+            {navigationItems.map((item, i) => (
+              <motion.div key={item.name} custom={i} variants={navItemVariants}>
+                <NavLink href={item.href} name={item.name} label={item.label} />
+              </motion.div>
             ))}
           </div>
 
           {/* Actions Section */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.4,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
             className="flex items-center gap-4"
             role="group"
             aria-label="Header actions"
@@ -135,6 +228,7 @@ export function Header() {
                 stiffness: 400,
                 damping: 17,
               }}
+              style={{ willChange: "transform" }}
             >
               <Link
                 href="/#contact"
@@ -144,22 +238,23 @@ export function Header() {
                 Contact Me
               </Link>
             </motion.div>
-          </div>
-        </nav>
+          </motion.div>
+        </motion.nav>
       </div>
 
       {/* Mobile Navigation */}
-      <div className="lg:hidden">
+      <motion.div variants={headerVariants} className="lg:hidden">
         <motion.div
           animate={{
             width: isScrolled ? "95%" : "100%",
             borderRadius: isScrolled && !isMobileMenuOpen ? 9999 : 10,
           }}
           transition={{
-            duration: 0.5,
+            duration: shouldReduceMotion ? 0 : 0.5,
             ease: easeInOut,
-            borderRadius: { duration: 0.2 },
+            borderRadius: { duration: shouldReduceMotion ? 0 : 0.2 },
           }}
+          style={{ willChange: "width, border-radius" }}
           className={cn(
             "relative z-50 mx-auto flex flex-col items-center justify-between bg-transparent px-4 py-2", // Is not scrolled and not open
             isScrolled &&
@@ -204,6 +299,7 @@ export function Header() {
                 initial="visible"
                 animate={!isMobileMenuOpen && isScrolled ? "hidden" : "visible"}
                 className="flex overflow-hidden"
+                style={{ willChange: "width, opacity" }}
               >
                 <span className="flex whitespace-nowrap text-base font-medium">
                   <span className="text-primary-base dark:text-primary-base-dark">
@@ -224,24 +320,21 @@ export function Header() {
 
             <div className="flex items-center gap-3">
               <ModeToggle />
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-text-base dark:text-text-base-dark flex h-10 w-10 items-center justify-center rounded-full bg-secondary-base/30 transition-all hover:bg-secondary-base/50 dark:bg-secondary-base-dark/30 dark:hover:bg-secondary-base-dark/50"
-                aria-label="Toggle mobile menu"
-              >
-                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
+              <MobileMenuButton
+                isOpen={isMobileMenuOpen}
+                onClick={toggleMobileMenu}
+              />
             </div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Mobile Menu */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         isScrolled={isScrolled}
-        onClose={() => setIsMobileMenuOpen(false)}
+        onClose={closeMobileMenu}
       />
-    </header>
+    </motion.header>
   );
 }
