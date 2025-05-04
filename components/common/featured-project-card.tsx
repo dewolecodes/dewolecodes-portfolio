@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { FiGithub } from "react-icons/fi";
-import { Code2, ExternalLink, ChevronDown, ChevronUp, Eye } from "lucide-react";
+import { Code2, ExternalLink, ChevronDown, Eye } from "lucide-react";
 import { ProjectData } from "@/lib/types";
 import Image from "next/image";
 import ProjectImagePlaceholder from "./project-image-placeholder";
@@ -46,7 +46,7 @@ export default function FeaturedProjectCard({
         className="group relative"
       >
         {/* Main Card Container */}
-        <div className="relative flex h-[550px] w-full flex-col overflow-hidden rounded-lg border border-primary-base/40 bg-background-base/80 backdrop-blur-sm transition-colors hover:border-primary-base/80 dark:border-primary-base-dark/20 dark:bg-background-base-dark/80 dark:hover:border-primary-base-dark/40">
+        <div className="relative flex h-fit w-full flex-col overflow-hidden rounded-lg border border-primary-base/40 bg-background-base/80 backdrop-blur-sm transition-colors hover:border-primary-base/80 dark:border-primary-base-dark/20 dark:bg-background-base-dark/80 dark:hover:border-primary-base-dark/40">
           {/* Header Section - Fixed height */}
           <div className="flex h-14 shrink-0 items-center border-b border-primary-base/10 bg-primary-base/5 px-5 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5">
             <div className="flex w-full items-center justify-between">
@@ -65,10 +65,7 @@ export default function FeaturedProjectCard({
           </div>
 
           {/* Image Section with Preview Overlay */}
-          <div
-            className="group/preview relative aspect-video w-full overflow-hidden border-b border-primary-base/30 dark:border-primary-base-dark/20"
-            onClick={handlePreviewClick}
-          >
+          <div className="group/preview relative aspect-video w-full overflow-hidden border-b border-primary-base/30 dark:border-primary-base-dark/20">
             {!imageError && project.cover ? (
               <>
                 <Image
@@ -82,7 +79,10 @@ export default function FeaturedProjectCard({
                   quality={90}
                 />
                 {project.links.live && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-transparent via-background-base-dark/20 to-background-base-dark/95 opacity-0 transition-all duration-300 group-hover/preview:opacity-100">
+                  <div
+                    className="absolute inset-0 flex cursor-pointer items-center justify-center bg-gradient-to-b from-transparent via-background-base-dark/20 to-background-base-dark/95 opacity-0 transition-all duration-300 group-hover/preview:opacity-100"
+                    onClick={handlePreviewClick}
+                  >
                     <button className="flex items-center gap-2 rounded-lg border border-primary-base bg-background-base/95 px-5 py-2 text-sm text-primary-base ring-1 ring-primary-base/5 transition-colors dark:border-primary-base-dark dark:bg-background-base-dark/95 dark:text-primary-base-dark dark:ring-primary-base-dark/5">
                       <Eye className="h-4 w-4" />
                       <span>Preview</span>
@@ -105,18 +105,31 @@ export default function FeaturedProjectCard({
                   onClick={() => isClampable && setIsExpanded(!isExpanded)}
                   className={isClampable ? "cursor-pointer" : ""}
                 >
-                  <p
-                    ref={textRef}
-                    className={`text-sm leading-relaxed text-default-base/70 dark:text-default-base-dark/70 md:text-base ${
-                      !isExpanded ? "line-clamp-3" : ""
-                    }`}
+                  <motion.div
+                    initial={{ height: "4.5rem" }}
+                    animate={{ height: isExpanded ? "auto" : "4.5rem" }}
+                    transition={{
+                      duration: 0.4,
+                      ease: [0.04, 0.62, 0.23, 0.98],
+                    }}
+                    className="overflow-hidden"
                   >
-                    {project.description}
-                  </p>
+                    <p
+                      ref={textRef}
+                      className={`text-sm leading-relaxed text-default-base/70 dark:text-default-base-dark/70 md:text-base ${
+                        !isExpanded ? "line-clamp-3" : ""
+                      }`}
+                    >
+                      {project.description}
+                    </p>
+                  </motion.div>
                 </div>
 
                 {isClampable && (
-                  <div
+                  <motion.div
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
                     onClick={() => setIsExpanded(!isExpanded)}
                     className="mt-2 flex cursor-pointer items-center gap-1 font-mono text-xs text-primary-base/60 transition-colors hover:text-primary-base dark:text-primary-base-dark/60 dark:hover:text-primary-base-dark"
                   >
@@ -125,13 +138,15 @@ export default function FeaturedProjectCard({
                     </span>
                     <div className="flex items-center gap-1">
                       <span>{isExpanded ? "show less" : "read more"}</span>
-                      {isExpanded ? (
-                        <ChevronUp className="h-3 w-3" />
-                      ) : (
+                      <motion.div
+                        initial={{ rotate: 0 }}
+                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
                         <ChevronDown className="h-3 w-3" />
-                      )}
+                      </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
               </div>
 

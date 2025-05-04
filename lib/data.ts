@@ -24,6 +24,8 @@ import {
   SiDjango,
   SiCss3,
   SiHtml5,
+  SiDrizzle,
+  SiClerk,
 } from "react-icons/si";
 
 import {
@@ -215,18 +217,6 @@ export const projectsData: ProjectData[] = [
       github: "https://github.com/NabsCodes/abdamin",
       live: "https://abdamin.com/",
     },
-    details: {
-      challenge:
-        "Building a scalable e-commerce platform with real-time inventory management and fast checkout process.",
-      solution:
-        "Implemented Next.js for optimal performance, MongoDB for flexible data structure, and integrated real-time features.",
-      keyFeatures: [
-        "Real-time inventory tracking",
-        "Secure payment processing",
-        "Responsive admin dashboard",
-        "Advanced search and filtering",
-      ],
-    },
   },
   {
     id: "project-2",
@@ -247,18 +237,6 @@ export const projectsData: ProjectData[] = [
     links: {
       github: "https://github.com/NabsCodes/horizon",
       live: "https://horizonbusiness.vercel.app/",
-    },
-    details: {
-      challenge:
-        "Creating a performant dashboard that handles real-time data updates and complex visualizations.",
-      solution:
-        "Used React with Firebase for real-time updates, and implemented efficient data caching strategies.",
-      keyFeatures: [
-        "Real-time data updates",
-        "Interactive charts",
-        "Customizable widgets",
-        "Data export capabilities",
-      ],
     },
   },
   {
@@ -359,8 +337,52 @@ export const projectsData: ProjectData[] = [
       { name: "Django", icon: SiDjango },
     ],
     links: {
-      github: "https://github.com/NabsCodes/portfolio",
+      github: "https://github.com/NabsCodes/cgpa_calculator",
       live: "https://nabeelhassan.pythonanywhere.com",
+    },
+  },
+  {
+    id: "project-8",
+    title: "CGPA Calculator V2",
+    description:
+      "CGPA Calculator V2 – an enhanced version with goal planning, what-if analysis, and grade tracking. Works offline and empowers students to simulate future scenarios, set achievement targets, and visualize academic progress.",
+    featured: true,
+    cover: {
+      url: "/projects/cgpa-calculator.png",
+      alt: "CGPA Calculator V2",
+    },
+    tech: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "React", icon: SiReact },
+      { name: "Tailwind", icon: SiTailwindcss },
+    ],
+    links: {
+      github: "https://github.com/NabsCodes/cgpa_calculator",
+      live: "https://cgpa-calculator-v2.vercel.app",
+    },
+  },
+  {
+    id: "project-9",
+    title: "Drive-X",
+    description:
+      "Drive X is a google drive clone built with Next.js and TypeScript. It was inspired by a tutorial by Theo - T3.gg",
+    featured: true,
+    cover: {
+      url: "/projects/drive-x.png",
+      alt: "Drive-X",
+    },
+    tech: [
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "React", icon: SiReact },
+      { name: "Tailwind", icon: SiTailwindcss },
+      { name: "Drizzle", icon: SiDrizzle },
+      { name: "Clerk", icon: SiClerk },
+    ],
+    links: {
+      github: "https://github.com/NabsCodes/drive-x",
+      live: "https://drive-x.vercel.app",
     },
   },
 ];

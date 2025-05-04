@@ -18,7 +18,7 @@ const ProjectImagePlaceholder = () => {
         {/* Text */}
         <div className="text-center">
           <p className="font-space-grotesk text-sm font-medium text-default-base/70 dark:text-default-base-dark/70">
-            Preview Unavailable
+            Image Preview Unavailable
           </p>
         </div>
       </div>

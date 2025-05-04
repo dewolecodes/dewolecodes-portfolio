@@ -104,11 +104,6 @@ export interface ProjectData {
     github?: string;
     live?: string;
   };
-  details?: {
-    challenge: string;
-    solution: string;
-    keyFeatures: string[];
-  };
 }
 
 export type Experience = {
