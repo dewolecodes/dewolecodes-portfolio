@@ -24,8 +24,13 @@ import {
   SiDjango,
   SiCss3,
   SiHtml5,
-  SiDrizzle,
-  SiClerk,
+  // SiDrizzle,
+  // SiClerk,
+  SiEslint,
+  SiPrettier,
+  // SiSupabase,
+  // SiPostgresql,
+  SiPostman,
 } from "react-icons/si";
 
 import {
@@ -63,8 +68,8 @@ export const navigationItems: NavItem[] = [
 ] as const;
 
 export const heroContent: HeroContent = {
-  intro: " Available for hire ",
-  // intro: " CODE • CREATE • INNOVATE ",
+  // intro: " Available for hire ",
+  intro: " CODE • CREATE • INNOVATE ",
   description:
     // "Software developer who enjoys building things for the web. Whether it's a full website or a specific feature, I create solutions that work well and look good. Discover my portfolio and explore my work.",
     "Software developer with a passion for crafting great user experiences. From responsive interfaces to full-stack applications, I build solutions that are both engaging and reliable. Discover my portfolio and explore my work.",
@@ -81,8 +86,7 @@ export const heroContent: HeroContent = {
     { icon: Terminal, label: "Software Engineer" },
     { icon: Code2, label: "Frontend Developer" },
     { icon: Boxes, label: "Full Stack Developer" },
-    // { icon: Code2, label: "React Developer" },
-    { icon: ArrowRight, label: "Freelancer" },
+    { icon: ArrowRight, label: "Freelance Developer" },
     // Add more roles as needed
   ],
   cta: {
@@ -117,7 +121,9 @@ export const aboutContent: AboutContent = {
 
       "When I'm working on projects, I always aim for clean and efficient solutions. I enjoy the challenge of turning complex problems into simple, user-friendly experiences. Every project is a chance to learn something new and create something meaningful.",
 
-      "Beyond coding, I'm always exploring new technologies and keeping up with the latest in web development & tech in general. I believe that staying curious and continuously learning is what makes a great developer and engineer. This mindset helps me bring fresh ideas and better solutions to every project I work on.",
+      // "Beyond coding, I'm always exploring new technologies and keeping up with the latest in web development & tech in general. I believe that staying curious and continuously learning is what makes a great developer and engineer. This mindset helps me bring fresh ideas and better solutions to every project I work on.",
+
+      "As a freelance developer, I've had the opportunity to work with diverse clients, delivering tailored solutions that meet their specific needs. My experience ranges from building responsive websites to developing complex web applications, always focusing on creating intuitive user experiences and robust functionality.",
     ],
   },
   interests: [
@@ -128,6 +134,7 @@ export const aboutContent: AboutContent = {
         "Reading Tech Blogs and Youtube",
         "Watching Movies & TV Shows",
         "Learning New Technologies",
+        "Exploring New Tech Trends",
       ],
     },
     {
@@ -137,6 +144,7 @@ export const aboutContent: AboutContent = {
         "Solving complex problems",
         "Striving to be at the top",
         "Continuous learning",
+        "Delivering client-focused solutions",
       ],
     },
   ],
@@ -161,6 +169,8 @@ export const skillsContent: SkillsContent = {
         { name: "JavaScript", icon: SiJavascript },
         { name: "Tailwind CSS", icon: SiTailwindcss },
         { name: "Node.js", icon: SiNodedotjs },
+        { name: "HTML5", icon: SiHtml5 },
+        { name: "CSS3", icon: SiCss3 },
       ],
     },
     {
@@ -172,15 +182,21 @@ export const skillsContent: SkillsContent = {
         { name: "Notion", icon: SiNotion },
         { name: "Figma", icon: SiFigma },
         { name: "Framer", icon: SiFramer },
+        { name: "ESLint", icon: SiEslint },
+        { name: "Prettier", icon: SiPrettier },
       ],
     },
     {
       title: "Backend & Database",
       skills: [
         { name: "Express.js", icon: SiExpress },
+        { name: "REST APIs", icon: SiNodedotjs },
         { name: "MongoDB", icon: SiMongodb },
         { name: "MySQL", icon: SiMysql },
+        // { name: "PostgreSQL", icon: SiPostgresql },
+        // { name: "Supabase", icon: SiSupabase },
         { name: "Firebase", icon: SiFirebase },
+        { name: "Postman", icon: SiPostman },
       ],
     },
   ],
@@ -362,29 +378,28 @@ export const projectsData: ProjectData[] = [
       live: "https://cgpa-calculator-v2.vercel.app",
     },
   },
-  {
-    id: "project-9",
-    title: "Drive-X",
-    description:
-      "Drive X is a google drive clone built with Next.js and TypeScript. It was inspired by a tutorial by Theo - T3.gg",
-    featured: true,
-    cover: {
-      url: "/projects/drive-x.png",
-      alt: "Drive-X",
-    },
-    tech: [
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Next.js", icon: SiNextdotjs },
-      { name: "React", icon: SiReact },
-      { name: "Tailwind", icon: SiTailwindcss },
-      { name: "Drizzle", icon: SiDrizzle },
-      { name: "Clerk", icon: SiClerk },
-    ],
-    links: {
-      github: "https://github.com/NabsCodes/drive-x",
-      live: "https://drive-x.vercel.app",
-    },
-  },
+  // {
+  //   id: "project-9",
+  //   title: "Drive-X",
+  //   description:
+  //     "Drive X is a google drive clone built with Next.js and TypeScript. It was inspired by a tutorial by Theo - T3.gg",
+  //   featured: true,
+  //   cover: {
+  //     url: "/projects/drive-x.png",
+  //     alt: "Drive-X",
+  //   },
+  //   tech: [
+  //     { name: "TypeScript", icon: SiTypescript },
+  //     { name: "Next.js", icon: SiNextdotjs },
+  //     { name: "React", icon: SiReact },
+  //     { name: "Tailwind", icon: SiTailwindcss },
+  //     { name: "Clerk", icon: SiClerk },
+  //   ],
+  //   links: {
+  //     github: "https://github.com/NabsCodes/drive-x",
+  //     live: "https://drive-x.vercel.app",
+  //   },
+  // },
 ];
 
 export const experienceData: ExperienceContent = {
