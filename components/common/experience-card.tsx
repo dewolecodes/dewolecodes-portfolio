@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { RiBuildingLine, RiMapPinLine } from "react-icons/ri";
+import { MdArrowOutward } from "react-icons/md";
 import type { Experience } from "@/lib/types";
 import Link from "next/link";
 
@@ -59,12 +60,10 @@ export const ExperienceCard: React.FC<{
                 href={experience.companyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors hover:text-accent-base dark:hover:text-accent-base-dark"
+                className="group flex items-center gap-0.5 transition-colors hover:text-accent-base dark:hover:text-accent-base-dark"
               >
                 {experience.company}
-                <span className="ml-1 text-xs text-primary-base dark:text-primary-base-dark">
-                  ↗
-                </span>
+                <MdArrowOutward className="text-sm text-primary-base transition-colors group-hover:text-accent-base dark:text-primary-base-dark dark:group-hover:text-accent-base-dark" />
               </Link>
             ) : (
               <span>{experience.company}</span>
