@@ -65,11 +65,16 @@ export const navigationItems: NavItem[] = [
     href: "/#experience",
     label: "Experience section",
   },
+  // {
+  //   name: "Blog",
+  //   href: "/blog",
+  //   label: "Blog section",
+  // },
 ] as const;
 
 export const heroContent: HeroContent = {
-  // intro: " Available for hire ",
-  intro: " CODE • CREATE • INNOVATE ",
+  intro: " Available for hire ",
+  // intro: " CODE • CREATE • INNOVATE ",
   description:
     // "Software developer who enjoys building things for the web. Whether it's a full website or a specific feature, I create solutions that work well and look good. Discover my portfolio and explore my work.",
     "Software developer with a passion for crafting great user experiences. From responsive interfaces to full-stack applications, I build solutions that are both engaging and reliable. Discover my portfolio and explore my work.",
@@ -413,6 +418,25 @@ export const experienceData: ExperienceContent = {
   experiences: [
     {
       id: "exp-1",
+      role: "Technical Support",
+      company: "Nigerian Communications Commission (NCC)",
+      companyUrl: "https://www.ncc.gov.ng/",
+      location: "Abuja, Nigeria",
+      type: "Internship",
+      dates: {
+        start: "Jul 2022",
+        end: "Aug 2022",
+      },
+      description:
+        "Supported Technical Standards & Network Integrity Department with data analysis and documentation.",
+      achievements: [
+        "Implemented efficient MySQL queries to analyze and manage telecommunications user data, processing over 10,000 records.",
+        "Developed technical documentation from industry meetings, enhancing team knowledge base of Mobile Network Operators (MNOs) standards.",
+        "Supported data integrity through MySQL database management, working closely with the Technical Standards unit.",
+      ],
+    },
+    {
+      id: "exp-2",
       role: "Full Stack Developer",
       company: "Mkel Networks Limited",
       companyUrl: "https://mkelnetworks.com",
@@ -431,22 +455,21 @@ export const experienceData: ExperienceContent = {
       ],
     },
     {
-      id: "exp-2",
-      role: "Technical Support",
-      company: "Nigerian Communications Commission (NCC)",
-      companyUrl: "https://www.ncc.gov.ng/",
-      location: "Abuja, Nigeria",
-      type: "Internship",
+      id: "exp-3",
+      role: "Freelance Developer",
+      company: "Self-Employed",
+      location: "Remote",
+      type: "Freelance",
       dates: {
-        start: "Jul 2022",
-        end: "Aug 2022",
+        start: "May 2023",
+        end: "Present",
       },
       description:
-        "Supported Technical Standards & Network Integrity Department with data analysis and documentation.",
+        "Deliver end-to-end freelance web development services, collaborating with cross-functional teams to create tailored client solutions.",
       achievements: [
-        "Implemented efficient MySQL queries to analyze and manage telecommunications user data, processing over 10,000 records.",
-        "Developed technical documentation from industry meetings, enhancing team knowledge base of Mobile Network Operators (MNOs) standards.",
-        "Supported data integrity through MySQL database management, working closely with the Technical Standards unit.",
+        "Work closely with designers and backend developers to build seamless, user-focused web applications for diverse clients.",
+        "Manage full project lifecycles, from requirements gathering and UI/UX design to deployment and ongoing support.",
+        "Build responsive, scalable websites and applications, ensuring high performance and client satisfaction.",
       ],
     },
   ],

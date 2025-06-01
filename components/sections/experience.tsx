@@ -11,11 +11,25 @@ import { useSectionInView } from "@/hooks/useSectionInView";
 export default function Experience() {
   const { ref } = useSectionInView("experience", 0.5);
 
-  // Sort the experience data by start date in descending order
-  const sortedExperienceData = experienceData.experiences.sort(
-    (a, b) =>
-      new Date(b.dates.start).getTime() - new Date(a.dates.start).getTime(),
-  );
+  // Sort experiences so that:
+  // 1. Current jobs ("Present") come first
+  // 2. Then, sort by end date (most recent first)
+  const sortedExperienceData = experienceData.experiences.sort((a, b) => {
+    // If a is current and b is not, a comes first
+    if (a.dates.end === "Present" && b.dates.end !== "Present") return -1;
+    // If b is current and a is not, b comes first
+    if (a.dates.end !== "Present" && b.dates.end === "Present") return 1;
+
+    // If both are current, sort by start date (most recent first)
+    if (a.dates.end === "Present" && b.dates.end === "Present") {
+      return (
+        new Date(b.dates.start).getTime() - new Date(a.dates.start).getTime()
+      );
+    }
+
+    // If both are past jobs, sort by end date (most recent first)
+    return new Date(b.dates.end).getTime() - new Date(a.dates.end).getTime();
+  });
 
   return (
     <section

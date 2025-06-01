@@ -21,7 +21,8 @@ export type SectionName =
   | "projects"
   | "skills"
   | "experience"
-  | "contact";
+  | "contact"
+  | "blog";
 
 export type NavItem = {
   name: Capitalize<SectionName>;
