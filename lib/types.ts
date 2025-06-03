@@ -120,6 +120,7 @@ export type Experience = {
   };
   description: string;
   achievements: string[];
+  current: boolean;
 };
 
 export type ExperienceContent = BaseSection & {

@@ -4,8 +4,27 @@ import React from "react";
 import { motion } from "framer-motion";
 import { RiBuildingLine, RiMapPinLine } from "react-icons/ri";
 import { MdArrowOutward } from "react-icons/md";
+import { BsBriefcase, BsLaptop, BsClock } from "react-icons/bs";
+import { PiGraduationCapBold, PiHandshakeBold } from "react-icons/pi";
 import type { Experience } from "@/lib/types";
 import Link from "next/link";
+
+const getTypeIcon = (type: string) => {
+  switch (type.toLowerCase()) {
+    case "full-time":
+      return <BsBriefcase className="h-3 w-3" />;
+    case "part-time":
+      return <BsClock className="h-3 w-3" />;
+    case "contract":
+      return <PiHandshakeBold className="h-3 w-3" />;
+    case "freelance":
+      return <BsLaptop className="h-3 w-3" />;
+    case "internship":
+      return <PiGraduationCapBold className="h-3 w-3" />;
+    default:
+      return <BsBriefcase className="h-3 w-3" />;
+  }
+};
 
 export const ExperienceCard: React.FC<{
   experience: Experience;
@@ -19,13 +38,13 @@ export const ExperienceCard: React.FC<{
       transition={{ duration: 0.3 }}
       className="mb-2 font-mono text-sm"
     >
-      <span className="text-accent-base/80 dark:text-accent-base-dark/80">
+      <span className="inline-flex items-center rounded-md border border-accent-base/10 bg-accent-base/[0.06] px-2 py-0.5 text-xs font-medium text-accent-base/90 dark:border-accent-base-dark/10 dark:bg-accent-base-dark/[0.06] dark:text-accent-base-dark/90">
         {experience.dates.start}
       </span>
-      <span className="mx-1 text-primary-base/50 dark:text-primary-base-dark/50">
+      <span className="mx-2 text-primary-base/30 dark:text-primary-base-dark/30">
         →
       </span>
-      <span className="text-primary-base/80 dark:text-primary-base-dark/80">
+      <span className="inline-flex items-center rounded-md border border-primary-base/10 bg-primary-base/[0.06] px-2 py-0.5 text-xs font-medium text-primary-base/90 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/[0.06] dark:text-primary-base-dark/90">
         {experience.dates.end}
       </span>
     </motion.div>
@@ -43,11 +62,22 @@ export const ExperienceCard: React.FC<{
           <h3 className="bg-gradient-to-r from-primary-base to-accent-base bg-clip-text font-space-grotesk text-lg font-medium text-transparent dark:from-primary-base-dark dark:to-accent-base-dark">
             {experience.role}
           </h3>
-          <div className="lg:mt-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-primary-base/10 bg-primary-base/5 px-2.5 py-0.5 text-xs text-primary-base dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5 dark:text-primary-base-dark">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-base/60 dark:bg-accent-base-dark/60" />
+          <div className="flex items-center gap-2 lg:mt-2">
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-md border border-primary-base/[0.08] bg-gradient-to-r from-primary-base/[0.08] to-accent-base/[0.08] px-2.5 py-0.5 text-[0.6875rem] font-medium text-primary-base/90 transition-colors duration-200 hover:from-primary-base/[0.12] hover:to-accent-base/[0.12] dark:border-primary-base-dark/[0.08] dark:from-primary-base-dark/[0.08] dark:to-accent-base-dark/[0.08] dark:text-primary-base-dark/90 dark:hover:from-primary-base-dark/[0.12] dark:hover:to-accent-base-dark/[0.12]`}
+            >
+              {getTypeIcon(experience.type)}
               {experience.type}
             </span>
+            {experience.current && (
+              <span className="inline-flex items-center text-xs text-accent-base/80 dark:text-accent-base-dark/80">
+                <span className="relative mr-1.5 flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-base opacity-75 dark:bg-accent-base-dark" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-base dark:bg-accent-base-dark" />
+                </span>
+                Active
+              </span>
+            )}
           </div>
         </div>
 
@@ -91,22 +121,24 @@ export const ExperienceCard: React.FC<{
 
         {/* Achievements with terminal style */}
         <div className="rounded-lg border border-primary-base/10 bg-primary-base/5 p-4 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5">
-          <div className="mb-2 font-mono text-xs text-primary-base/60 dark:text-primary-base-dark/60">
+          <div className="mb-3 font-mono text-xs text-primary-base/60 dark:text-primary-base-dark/60">
             $ achievements --list
           </div>
-          <ul className="space-y-2">
+          <ul className="space-y-3">
             {experience.achievements.map((achievement, i) => (
               <motion.li
                 key={i}
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: 0.2 + i * 0.1 }}
-                className="flex items-start gap-3 text-sm"
+                viewport={{ once: true }}
+                className="group relative flex items-start gap-3"
               >
-                <span className="text-accent-base dark:text-accent-base-dark">
-                  {">"}
-                </span>
-                <span className="text-default-base/70 dark:text-default-base-dark/70">
+                <div className="relative mt-1.5">
+                  <div className="absolute -left-[3px] h-full w-[2px] bg-gradient-to-b from-accent-base/20 to-transparent dark:from-accent-base-dark/20" />
+                  <div className="relative h-2 w-2 rounded-full border border-accent-base/30 bg-accent-base/20 transition-colors group-hover:border-accent-base/50 group-hover:bg-accent-base/30 dark:border-accent-base-dark/30 dark:bg-accent-base-dark/20 dark:group-hover:border-accent-base-dark/50 dark:group-hover:bg-accent-base-dark/30" />
+                </div>
+                <span className="text-sm text-default-base/70 transition-colors group-hover:text-default-base/90 dark:text-default-base-dark/70 dark:group-hover:text-default-base-dark/90">
                   {achievement}
                 </span>
               </motion.li>

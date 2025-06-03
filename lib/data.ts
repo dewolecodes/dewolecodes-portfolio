@@ -434,6 +434,7 @@ export const experienceData: ExperienceContent = {
         "Developed technical documentation from industry meetings, enhancing team knowledge base of Mobile Network Operators (MNOs) standards.",
         "Supported data integrity through MySQL database management, working closely with the Technical Standards unit.",
       ],
+      current: false,
     },
     {
       id: "exp-2",
@@ -453,6 +454,7 @@ export const experienceData: ExperienceContent = {
         "Monitored client queries remotely during night shifts, maintaining a 95% response rate.",
         "Led 80% of frontend and 20% of backend development for an HR Management system, implementing user authentication and core features.",
       ],
+      current: false,
     },
     {
       id: "exp-3",
@@ -471,6 +473,7 @@ export const experienceData: ExperienceContent = {
         "Manage full project lifecycles, from requirements gathering and UI/UX design to deployment and ongoing support.",
         "Build responsive, scalable websites and applications, ensuring high performance and client satisfaction.",
       ],
+      current: true,
     },
   ],
 };
