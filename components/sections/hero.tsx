@@ -203,7 +203,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Description */}
-          <motion.div variants={fadeInUpVariants} className="mb-8 max-w-4xl">
+          <motion.div variants={fadeInUpVariants} className="mb-8 max-w-3xl">
             <div className="relative rounded-lg border border-primary-base/30 bg-background-base/60 p-4 backdrop-blur-sm dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
               <div className="absolute left-4 top-0 -translate-y-1/2 rounded-sm bg-background-base px-2 py-0.5 dark:bg-background-base-dark">
                 <span className="font-mono text-xs text-primary-base-dark/70 dark:text-primary-base-dark/70">
