@@ -8,13 +8,17 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-interface MobileMenuProps {
+interface BlogMobileMenuProps {
   isOpen: boolean;
   isScrolled: boolean;
   onClose: () => void;
 }
 
-export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
+export function BlogMobileMenu({
+  isOpen,
+  isScrolled,
+  onClose,
+}: BlogMobileMenuProps) {
   const { getNavigationHref, isBlogPage } = useSmartNavigation();
   const { activeSection } = useActiveSectionContext();
 
@@ -113,22 +117,23 @@ export function MobileMenu({ isOpen, isScrolled, onClose }: MobileMenuProps) {
                     );
                   })}
 
-                  {/* Contact Button */}
+                  {/* Portfolio Button */}
                   <motion.div
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
                       duration: 0.2,
-                      delay: navigationItems.length * 0.05,
+                      delay: 0.05,
                       ease: "easeOut",
                     }}
+                    className="pt-2"
                   >
                     <Link
-                      href="/#contact"
+                      href="/"
                       onClick={onClose}
-                      className="w-full rounded-lg bg-primary-base px-5 py-2.5 text-sm text-white shadow-lg transition-colors hover:bg-primary-base/90 dark:bg-primary-base-dark dark:hover:bg-primary-base-dark/90"
+                      className="inline-block rounded-lg bg-primary-base px-5 py-2.5 text-sm text-white shadow-lg transition-colors hover:bg-primary-base/90 dark:bg-primary-base-dark dark:hover:bg-primary-base-dark/90"
                     >
-                      Contact Me
+                      Portfolio
                     </Link>
                   </motion.div>
                 </div>

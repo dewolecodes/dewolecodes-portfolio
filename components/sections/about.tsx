@@ -7,7 +7,7 @@ import { SectionHeader } from "../ui/section-header";
 import { aboutContent } from "@/lib/data";
 import { MonitorPlay, Trophy } from "lucide-react";
 import TerminalInfo from "../ui/terminal-info";
-import { useSectionInView } from "@/hooks/useSectionInView";
+import { useSectionInView } from "@/hooks/use-section-in-view";
 
 const About = () => {
   // Register the "about" section
@@ -30,7 +30,11 @@ const About = () => {
   };
 
   return (
-    <section ref={ref} id="about" className="scroll-mt-12 px-4 py-16 md:px-6">
+    <section
+      ref={ref}
+      id="about"
+      className="scroll-mt-12 px-4 py-10 sm:py-12 md:px-6 lg:py-16"
+    >
       <SectionHeader
         title={aboutContent.title}
         subtitle={aboutContent.subtitle}

@@ -38,13 +38,13 @@ export const ExperienceCard: React.FC<{
       transition={{ duration: 0.3 }}
       className="mb-2 font-mono text-sm"
     >
-      <span className="inline-flex items-center rounded-md border border-accent-base/10 bg-accent-base/[0.06] px-2 py-0.5 text-xs font-medium text-accent-base/90 dark:border-accent-base-dark/10 dark:bg-accent-base-dark/[0.06] dark:text-accent-base-dark/90">
+      <span className="inline-flex items-center rounded-md border border-accent-base/30 bg-accent-base/[0.08] px-2 py-0.5 text-xs font-medium text-accent-base/90 dark:border-accent-base-dark/30 dark:bg-accent-base-dark/[0.08] dark:text-accent-base-dark/90">
         {experience.dates.start}
       </span>
-      <span className="mx-2 text-primary-base/30 dark:text-primary-base-dark/30">
+      <span className="mx-2 text-primary-base dark:text-primary-base-dark">
         →
       </span>
-      <span className="inline-flex items-center rounded-md border border-primary-base/10 bg-primary-base/[0.06] px-2 py-0.5 text-xs font-medium text-primary-base/90 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/[0.06] dark:text-primary-base-dark/90">
+      <span className="inline-flex items-center rounded-md border border-primary-base/30 bg-primary-base/[0.08] px-2 py-0.5 text-xs font-medium text-primary-base/90 dark:border-primary-base-dark/30 dark:bg-primary-base-dark/[0.08] dark:text-primary-base-dark/90">
         {experience.dates.end}
       </span>
     </motion.div>
@@ -120,8 +120,8 @@ export const ExperienceCard: React.FC<{
         </p>
 
         {/* Achievements with terminal style */}
-        <div className="rounded-lg border border-primary-base/10 bg-primary-base/5 p-4 dark:border-primary-base-dark/10 dark:bg-primary-base-dark/5">
-          <div className="mb-3 font-mono text-xs text-primary-base/60 dark:text-primary-base-dark/60">
+        <div className="rounded-lg border border-primary-base/30 bg-primary-base/5 p-4 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5">
+          <div className="mb-3 font-mono text-xs text-primary-base dark:text-primary-base-dark">
             $ achievements --list
           </div>
           <ul className="space-y-3">
@@ -135,8 +135,8 @@ export const ExperienceCard: React.FC<{
                 className="group relative flex items-start gap-3"
               >
                 <div className="relative mt-1.5">
-                  <div className="absolute -left-[3px] h-full w-[2px] bg-gradient-to-b from-accent-base/20 to-transparent dark:from-accent-base-dark/20" />
-                  <div className="relative h-2 w-2 rounded-full border border-accent-base/30 bg-accent-base/20 transition-colors group-hover:border-accent-base/50 group-hover:bg-accent-base/30 dark:border-accent-base-dark/30 dark:bg-accent-base-dark/20 dark:group-hover:border-accent-base-dark/50 dark:group-hover:bg-accent-base-dark/30" />
+                  <div className="absolute -left-[3px] h-full w-[2px] bg-gradient-to-b from-accent-base to-transparent dark:from-accent-base-dark" />
+                  <div className="relative h-2 w-2 rounded-full border border-accent-base/30 bg-accent-base/30 transition-colors group-hover:border-accent-base/50 group-hover:bg-accent-base/30 dark:border-accent-base-dark/30 dark:bg-accent-base-dark/30 dark:group-hover:border-accent-base-dark/50 dark:group-hover:bg-accent-base-dark/30" />
                 </div>
                 <span className="text-sm text-default-base/70 transition-colors group-hover:text-default-base/90 dark:text-default-base-dark/70 dark:group-hover:text-default-base-dark/90">
                   {achievement}

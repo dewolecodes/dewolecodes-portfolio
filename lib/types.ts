@@ -27,6 +27,8 @@ export type SectionName =
 export type NavItem = {
   name: Capitalize<SectionName>;
   href: string;
+  homeHref: string;
+  fullHref: string;
   label?: string;
 };
 

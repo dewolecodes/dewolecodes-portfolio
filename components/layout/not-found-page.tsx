@@ -1,54 +1,121 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { Home, ArrowLeft, Search, FileText } from "lucide-react";
 
-export default function NotFoundPage() {
+interface ActionButton {
+  href: string;
+  label: string;
+  iconName: string;
+  variant: "primary" | "secondary";
+}
+
+interface NotFoundPageProps {
+  /** Context for the terminal breadcrumb (e.g., "blog", "error") */
+  context: string;
+  /** Specific error message for breadcrumb (e.g., "Post not found", "Page not found") */
+  errorMessage: string;
+  /** Main heading text */
+  title: string;
+  /** Description paragraph */
+  description: string;
+  /** Action buttons to display */
+  actions: ActionButton[];
+  /** List of helpful suggestions for the user */
+  suggestions: string[];
+}
+
+// Icon mapping function
+const getIcon = (iconName: string) => {
+  const icons = {
+    home: Home,
+    arrowLeft: ArrowLeft,
+    search: Search,
+    fileText: FileText,
+  };
+  return icons[iconName as keyof typeof icons] || Home;
+};
+
+export function NotFoundPage({
+  context,
+  errorMessage,
+  title,
+  description,
+  actions,
+  suggestions,
+}: NotFoundPageProps) {
   return (
-    <div className="relative flex min-h-screen items-center justify-center">
-      {/* Background with consistent dark styling */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-background-base-dark/[0.02] dark:bg-background-base-dark" />
-        <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-base-dark/10 blur-3xl" />
-      </div>
-
-      <div className="w-full max-w-lg px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="overflow-hidden rounded-lg border border-primary-base-dark/10 bg-background-base-dark/5 p-8 backdrop-blur-sm dark:bg-background-base-dark/50"
-        >
-          {/* Simple Terminal Header */}
-          <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-primary-base-dark/20" />
-            <div className="h-2 w-2 rounded-full bg-primary-base-dark/20" />
-            <div className="h-2 w-2 rounded-full bg-primary-base-dark/20" />
+    <main className="relative mx-auto w-full max-w-7xl px-4 py-12 pt-24 sm:pt-28 md:pt-32 lg:pt-24">
+      <div className="mx-auto max-w-2xl text-center">
+        <div className="mb-8">
+          {/* Terminal-style error code */}
+          <div className="mb-6 font-mono text-6xl font-bold text-primary-base/20 dark:text-primary-base-dark/20 md:text-8xl">
+            404
           </div>
 
-          {/* 404 Content */}
-          <div className="mt-8 text-center">
-            <h1 className="font-mono text-6xl font-bold text-primary-base-dark">
-              404
-            </h1>
-            <p className="mt-4 font-space-grotesk text-lg text-primary-base-dark/80">
-              Oops! Page not found
-            </p>
-            <p className="mt-2 text-sm text-primary-base-dark/60">
-              The page you're looking for doesn't exist or has been moved.
-            </p>
-
-            {/* Home Button */}
-            <Link
-              href="/"
-              className="group mt-8 inline-flex items-center gap-2 rounded-lg border border-primary-base-dark/20 bg-primary-base-dark/5 px-4 py-2 text-sm text-primary-base-dark transition-all hover:border-primary-base-dark/30 hover:bg-primary-base-dark/10"
-            >
-              <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-              Back to Home
-            </Link>
+          {/* Terminal-style breadcrumb */}
+          <div className="mb-6 font-mono text-sm">
+            <span className="text-accent-base dark:text-accent-base-dark">
+              {context}
+            </span>
+            <span className="ml-2 text-primary-base/70 dark:text-primary-base-dark/70">
+              {">"}
+            </span>
+            <span className="ml-2 text-default-base dark:text-default-base-dark">
+              {errorMessage}
+            </span>
           </div>
-        </motion.div>
+
+          <h1 className="mb-6 font-raleway text-3xl font-bold text-default-base dark:text-default-base-dark md:text-4xl">
+            {title}
+            <span className="text-accent-base dark:text-accent-base-dark">
+              .
+            </span>
+          </h1>
+
+          <p className="mb-8 text-lg text-primary-base dark:text-primary-base-dark">
+            {description}
+          </p>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="space-y-4">
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            {actions.map((action, index) => {
+              const Icon = getIcon(action.iconName);
+              const isPrimary = action.variant === "primary";
+
+              return (
+                <Link
+                  key={index}
+                  href={action.href}
+                  className={
+                    isPrimary
+                      ? "inline-flex items-center gap-2 rounded-lg bg-accent-base px-6 py-3 text-white transition-all duration-200 hover:bg-accent-base/90 motion-safe:hover:scale-105 dark:bg-accent-base-dark dark:hover:bg-accent-base-dark/90"
+                      : "inline-flex items-center gap-2 rounded-lg border border-primary-base/20 bg-background-base/60 px-6 py-3 text-default-base backdrop-blur-sm transition-all duration-200 hover:bg-background-base/80 motion-safe:hover:scale-105 dark:border-primary-base-dark/20 dark:bg-background-base-dark/60 dark:text-default-base-dark dark:hover:bg-background-base-dark/80"
+                  }
+                >
+                  <Icon className="h-4 w-4" />
+                  {action.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Suggestions */}
+        <div className="mt-12 rounded-lg border border-primary-base/20 bg-background-base/60 p-6 backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/60">
+          <h3 className="mb-3 font-space-grotesk text-lg font-semibold text-default-base dark:text-default-base-dark">
+            What you can do:
+          </h3>
+
+          <ul className="space-y-2 text-sm text-primary-base dark:text-primary-base-dark">
+            {suggestions.map((suggestion, index) => (
+              <li key={index}>• {suggestion}</li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

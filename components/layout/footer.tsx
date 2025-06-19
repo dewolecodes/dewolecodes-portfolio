@@ -7,6 +7,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { navigationItems } from "@/lib/data";
 import { RiCodeSSlashLine } from "react-icons/ri";
 import ScrollToTopButton from "@/components/ui/scroll-to-top-button";
+import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
 export function Footer() {
   const shouldReduceMotion = useReducedMotion();
@@ -45,9 +47,8 @@ export function Footer() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: 0.1 + i * 0.05,
-        duration: shouldReduceMotion ? 0 : 0.4,
-        ease: [0.22, 1, 0.36, 1],
+        delay: 0.1 + i * 0.1,
+        duration: 0.5,
       },
     }),
   };
@@ -101,17 +102,27 @@ export function Footer() {
           <motion.div
             custom={1}
             variants={contentVariants}
-            className="flex flex-wrap justify-center gap-6 text-sm md:justify-end"
+            className="flex flex-wrap items-center justify-center gap-6 text-sm md:justify-end"
           >
-            {navigationItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-default-base transition-colors hover:text-accent-base dark:text-default-base-dark dark:hover:text-accent-base-dark"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigationItems.map((item) => {
+              const isBlog = item.name === "Blog";
+              return (
+                <Link
+                  key={item.name}
+                  href={item.fullHref}
+                  className={cn(
+                    "group inline-flex items-center text-default-base transition-colors hover:text-accent-base dark:text-default-base-dark dark:hover:text-accent-base-dark",
+                    isBlog &&
+                      "group flex items-center gap-1 rounded-full border border-primary-base/10 bg-primary-base/[0.1] px-3 py-1 transition-colors hover:border-primary-base/20 hover:bg-primary-base/[0.15] dark:border-primary-base-dark/10 dark:bg-primary-base-dark/[0.1] dark:hover:border-primary-base-dark/20 dark:hover:bg-primary-base-dark/[0.15]",
+                  )}
+                >
+                  <span className="relative top-[1px]">{item.name}</span>
+                  {isBlog && (
+                    <ArrowUpRight className="relative h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  )}
+                </Link>
+              );
+            })}
           </motion.div>
         </div>
 

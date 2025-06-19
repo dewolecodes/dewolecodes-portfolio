@@ -1,0 +1,77 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { BlogCard } from "./blog-card";
+import { BlogPost } from "@/lib/types/blog";
+
+interface BlogPostsGridProps {
+  posts: BlogPost[];
+  searchQuery: string;
+  selectedTag: string;
+  clearFilters: () => void;
+}
+
+export function BlogPostsGrid({
+  posts,
+  searchQuery,
+  selectedTag,
+  clearFilters,
+}: BlogPostsGridProps) {
+  if (posts.length > 0) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, index) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 * index }}
+            >
+              <BlogCard post={post} index={index} />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    );
+  }
+
+  // Empty state
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="py-20 text-center"
+    >
+      <div className="mb-4 font-mono text-lg">
+        <span className="text-primary-base dark:text-primary-base-dark">
+          {"{"}
+        </span>
+        <span className="mx-2 text-primary-base/60 dark:text-primary-base-dark/60">
+          No posts found
+        </span>
+        <span className="text-primary-base dark:text-primary-base-dark">
+          {"}"}
+        </span>
+      </div>
+      <p className="mb-6 text-primary-base dark:text-primary-base-dark">
+        {searchQuery || selectedTag
+          ? "Try different search terms or clear filters"
+          : "Coming soon..."}
+      </p>
+      {(searchQuery || selectedTag) && (
+        <button
+          onClick={clearFilters}
+          className="rounded-lg bg-accent-base px-6 py-3 text-sm text-white transition-colors hover:bg-accent-base/80 dark:bg-accent-base-dark dark:hover:bg-accent-base-dark/80"
+        >
+          Clear all filters
+        </button>
+      )}
+    </motion.div>
+  );
+}

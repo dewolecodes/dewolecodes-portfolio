@@ -110,11 +110,68 @@ const config: Config = {
         "spin-slow": "spin 3s linear infinite",
         blink: "blink 1s step-end infinite",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "none",
+            color: "hsl(var(--foreground))",
+            '[class~="lead"]': {
+              color: "hsl(var(--muted-foreground))",
+            },
+            a: {
+              color: "hsl(var(--primary))",
+              textDecoration: "underline",
+              textUnderlineOffset: "2px",
+              "&:hover": {
+                color: "hsl(var(--primary) / 0.8)",
+              },
+            },
+            strong: {
+              color: "hsl(var(--foreground))",
+              fontWeight: "600",
+            },
+            "h1, h2, h3, h4, h5, h6": {
+              color: "hsl(var(--foreground))",
+            },
+            code: {
+              color: "hsl(var(--primary))",
+              backgroundColor: "hsl(var(--muted))",
+              paddingLeft: "0.5rem",
+              paddingRight: "0.5rem",
+              paddingTop: "0.25rem",
+              paddingBottom: "0.25rem",
+              borderRadius: "0.375rem",
+              fontSize: "0.875rem",
+              fontWeight: "400",
+            },
+            "code::before": {
+              content: '""',
+            },
+            "code::after": {
+              content: '""',
+            },
+            blockquote: {
+              color: "hsl(var(--muted-foreground))",
+              borderLeftColor: "hsl(var(--primary))",
+            },
+            hr: {
+              borderColor: "hsl(var(--border))",
+            },
+            "ul li::marker": {
+              color: "hsl(var(--muted-foreground))",
+            },
+            "ol li::marker": {
+              color: "hsl(var(--muted-foreground))",
+            },
+          },
+        },
+      },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
     require("tailwindcss-motion"),
+    require("@tailwindcss/typography"),
     addVariablesForColors,
   ],
 } satisfies Config;

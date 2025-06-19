@@ -47,29 +47,39 @@ import {
 export const navigationItems: NavItem[] = [
   {
     name: "About",
-    href: "/#about",
+    href: "#about",
+    homeHref: "#about",
+    fullHref: "/#about",
     label: "About section",
   },
   {
     name: "Projects",
-    href: "/#projects",
+    href: "#projects",
+    homeHref: "#projects",
+    fullHref: "/#projects",
     label: "Projects section",
   },
   {
     name: "Skills",
-    href: "/#skills",
+    href: "#skills",
+    homeHref: "#skills",
+    fullHref: "/#skills",
     label: "Skills section",
   },
   {
     name: "Experience",
-    href: "/#experience",
+    href: "#experience",
+    homeHref: "#experience",
+    fullHref: "/#experience",
     label: "Experience section",
   },
-  // {
-  //   name: "Blog",
-  //   href: "/blog",
-  //   label: "Blog section",
-  // },
+  {
+    name: "Blog",
+    href: "/blog",
+    homeHref: "/blog",
+    fullHref: "/blog",
+    label: "Blog page",
+  },
 ] as const;
 
 export const heroContent: HeroContent = {
@@ -419,7 +429,7 @@ export const experienceData: ExperienceContent = {
     {
       id: "exp-1",
       role: "Technical Support",
-      company: "Nigerian Communications Commission (NCC)",
+      company: "Nigerian Communications Commission",
       companyUrl: "https://www.ncc.gov.ng/",
       location: "Abuja, Nigeria",
       type: "Internship",
@@ -463,7 +473,7 @@ export const experienceData: ExperienceContent = {
       location: "Remote",
       type: "Freelance",
       dates: {
-        start: "May 2023",
+        start: "May 2024",
         end: "Present",
       },
       description:

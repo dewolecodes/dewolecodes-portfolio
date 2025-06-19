@@ -9,10 +9,10 @@ import { Code2, ChevronDown, ChevronUp } from "lucide-react";
 import TerminalInfo from "../ui/terminal-info";
 import OtherProjectCard from "../common/other-project-card";
 import FeaturedProjectCard from "../common/featured-project-card";
-import { useSectionInView } from "@/hooks/useSectionInView";
+import { useSectionInView } from "@/hooks/use-section-in-view";
 
 export default function Projects() {
-  const { ref } = useSectionInView("projects", 0.5);
+  const { ref } = useSectionInView("projects");
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   // Track when someone views the projects section
@@ -38,7 +38,7 @@ export default function Projects() {
     <section
       ref={ref}
       id="projects"
-      className="scroll-mt-12 px-4 py-16 md:px-6"
+      className="scroll-mt-12 px-4 pb-10 sm:pb-12 md:px-6 lg:pb-16"
     >
       <div className="relative">
         <SectionHeader

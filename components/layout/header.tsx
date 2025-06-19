@@ -10,6 +10,7 @@ import { ModeToggle } from "../ui/theme-toggle";
 import { navigationItems } from "@/lib/data";
 import { NavLink } from "./nav-link";
 import { MobileMenu } from "./mobile-menu";
+import { useSmartNavigation } from "@/hooks/use-smart-navigation";
 
 const MobileMenuButton = memo(
   ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => (
@@ -29,6 +30,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const { isBlogPage } = useSmartNavigation();
 
   // Add initial animation state
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -120,7 +122,7 @@ export function Header() {
           className={cn(
             "relative z-[60] mt-2 hidden w-full max-w-7xl flex-row items-center justify-between rounded-full bg-transparent px-4 transition-all duration-500 ease-in-out dark:bg-transparent lg:flex",
             isScrolled
-              ? "mx-auto mt-5 w-[720px] border border-primary-base/20 bg-background-base/80 py-2 shadow-nav backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/80"
+              ? "mx-auto mt-5 w-[900px] border border-primary-base/20 bg-background-base/80 py-2 shadow-nav backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/80"
               : "bg-transparent",
           )}
           role="navigation"
@@ -201,7 +203,7 @@ export function Header() {
           >
             {navigationItems.map((item, i) => (
               <motion.div key={item.name} custom={i} variants={navItemVariants}>
-                <NavLink href={item.href} name={item.name} label={item.label} />
+                <NavLink item={item} />
               </motion.div>
             ))}
           </div>
@@ -235,7 +237,7 @@ export function Header() {
                 className="relative hidden cursor-pointer rounded-lg bg-secondary-base px-5 py-2.5 text-center text-sm text-default-base shadow-lg shadow-secondary-base/20 transition-all duration-200 hover:bg-primary-base hover:shadow-xl dark:bg-secondary-base-dark dark:text-default-base-dark dark:shadow-secondary-base-dark/20 dark:hover:bg-primary-base-dark md:flex"
                 aria-label="Contact me"
               >
-                Contact Me
+                {isBlogPage ? "Get in Touch" : "Contact Me"}
               </Link>
             </motion.div>
           </motion.div>

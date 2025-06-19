@@ -6,10 +6,10 @@ import { ExperienceCard } from "../common/experience-card";
 import { SectionHeader } from "../ui/section-header";
 import { experienceData } from "@/lib/data";
 import TerminalInfo from "../ui/terminal-info";
-import { useSectionInView } from "@/hooks/useSectionInView";
+import { useSectionInView } from "@/hooks/use-section-in-view";
 
 export default function Experience() {
-  const { ref } = useSectionInView("experience", 0.5);
+  const { ref } = useSectionInView("experience");
 
   // Sort experiences so that:
   // 1. Current jobs ("Present") come first
@@ -35,7 +35,7 @@ export default function Experience() {
     <section
       ref={ref}
       id="experience"
-      className="scroll-mt-12 px-4 py-16 md:px-6"
+      className="scroll-mt-12 px-4 pb-10 sm:pb-12 md:px-6 lg:pb-16"
     >
       <SectionHeader
         title={experienceData.title}

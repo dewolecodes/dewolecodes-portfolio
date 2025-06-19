@@ -3,21 +3,18 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { SparklesCore } from "../ui/sparkles";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
 import { heroContent } from "@/lib/data";
 import { MobileRolesSidebar } from "../ui/mobile-roles";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { PiReadCvLogoLight } from "react-icons/pi";
-import { useSectionInView } from "@/hooks/useSectionInView";
+import { useSectionInView } from "@/hooks/use-section-in-view";
 import { trackEvent } from "@/utils/analytics";
 
 export default function Hero() {
-  const { ref } = useSectionInView("home", 0.5);
-  const { theme } = useTheme();
+  const { ref } = useSectionInView("home");
   const shouldReduceMotion = useReducedMotion();
 
   // Sophisticated animation variants
@@ -80,20 +77,8 @@ export default function Hero() {
     <section
       id="home"
       ref={ref}
-      className="relative flex w-full flex-col items-center justify-center overflow-hidden px-4 pt-20 sm:pt-24 md:pt-28 lg:pt-20"
+      className="relative flex w-full flex-col items-center justify-center overflow-hidden px-4 pt-20 sm:pt-24 md:pt-20"
     >
-      {/* Matrix-like animated background */}
-      <div className="absolute inset-0 h-full w-full">
-        <SparklesCore
-          id="tsparticlesfullpage"
-          background="transparent"
-          minSize={0.4}
-          maxSize={theme === "dark" ? 1.2 : 1.6}
-          particleDensity={theme === "dark" ? 120 : 140}
-          particleColor={theme === "dark" ? "#71a295" : "#365e53"}
-        />
-      </div>
-
       {/* Dynamic Side Roles - Desktop only */}
       <div className="absolute right-10 top-20 hidden h-full lg:block xl:right-0 xl:top-3">
         <div className="relative h-full w-[1.5px] bg-primary-base dark:w-[2px] dark:bg-primary-base-dark/20">
@@ -185,7 +170,7 @@ export default function Hero() {
 
           {/* Role Title with Terminal-like Design */}
           <motion.div variants={scaleInVariants} className="mb-8">
-            <div className="inline-block rounded-lg border border-primary-base/50 bg-background-base/60 p-4 dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
+            <div className="inline-block rounded-lg border border-primary-base/50 bg-background-base/60 p-4 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
                   <div className="h-2 w-2 rounded-full bg-red-500/50"></div>
@@ -203,8 +188,11 @@ export default function Hero() {
           </motion.div>
 
           {/* Description */}
-          <motion.div variants={fadeInUpVariants} className="mb-8 max-w-3xl">
-            <div className="relative rounded-lg border border-primary-base/30 bg-background-base/60 p-4 backdrop-blur-sm dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
+          <motion.div
+            variants={fadeInUpVariants}
+            className="mb-8 w-full lg:max-w-[730px]"
+          >
+            <div className="relative rounded-lg border border-primary-base/50 bg-background-base/60 p-4 backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/50">
               <div className="absolute left-4 top-0 -translate-y-1/2 rounded-sm bg-background-base px-2 py-0.5 dark:bg-background-base-dark">
                 <span className="font-mono text-xs text-primary-base-dark/70 dark:text-primary-base-dark/70">
                   README.md

@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/contexts/theme-provider";
 import "./globals.css";
 import ActiveSectionContextProvider from "@/contexts/active-section-context";
 import { ToastProvider } from "@/contexts/toast-context";
+import { SparklesBackground } from "@/components/layout/sparkles-background";
 import { cn } from "@/lib/utils";
 
 // Raleway for body text
@@ -173,6 +174,7 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
             >
+              <SparklesBackground />
               {children}
               <Analytics />
             </ThemeProvider>
