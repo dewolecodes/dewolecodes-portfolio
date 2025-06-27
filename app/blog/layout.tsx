@@ -1,28 +1,23 @@
 import type { Metadata } from "next";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | Nabeel Hassan Blog",
-    default: "Blog | Nabeel Hassan",
-  },
+  title: "Blog Page",
   description:
-    "Personal blog sharing development insights, experiences, and learnings",
-  openGraph: {
-    title: "Blog | Nabeel Hassan",
-    description:
-      "Personal blog sharing development insights, experiences, and learnings",
-    type: "website",
-  },
+    "Sharing my journey as a developer, lessons learned, and insights from building modern web applications with React, Next.js, and TypeScript.",
 };
 
-interface BlogLayoutProps {
+export default function BlogLayout({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-export default function BlogLayout({ children }: BlogLayoutProps) {
+}) {
   return (
-    <div className="min-h-screen bg-background-base dark:bg-background-base-dark">
+    <>
+      <Header />
       {children}
-    </div>
+      <Footer />
+    </>
   );
 }

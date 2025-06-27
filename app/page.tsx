@@ -10,25 +10,14 @@ import Skills from "@/components/sections/skills";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { pageTransition } from "@/lib/animation-presets";
 
 export default function Home() {
-  const pageVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   return (
     <motion.div
       initial="hidden"
       animate="visible"
-      variants={pageVariants}
+      variants={pageTransition}
       className="relative"
     >
       <Header />

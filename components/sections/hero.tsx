@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -11,54 +11,17 @@ import { MobileRolesSidebar } from "../ui/mobile-roles";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { PiReadCvLogoLight } from "react-icons/pi";
 import { useSectionInView } from "@/hooks/use-section-in-view";
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent } from "@/lib/services/analytics";
+import {
+  fadeInUp,
+  scaleIn,
+  slideInLeft,
+  staggerContainer,
+  getStaggerDelay,
+} from "@/lib/animation-presets";
 
 export default function Hero() {
   const { ref } = useSectionInView("home");
-  const shouldReduceMotion = useReducedMotion();
-
-  // Sophisticated animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-        duration: shouldReduceMotion ? 0 : 0.5,
-      },
-    },
-  };
-
-  const fadeInUpVariants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: shouldReduceMotion ? 0 : 0.6,
-        ease: [0.22, 1, 0.36, 1], // Custom easing for smooth motion
-      },
-    },
-  };
-
-  const scaleInVariants = {
-    hidden: {
-      opacity: 0,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: shouldReduceMotion ? 0 : 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
 
   // Analytics Tracking
   const handleSocialClick = (platform: string) => {
@@ -86,13 +49,10 @@ export default function Hero() {
             {heroContent.roles.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  delay: 0.5 + index * 0.15,
-                  duration: shouldReduceMotion ? 0 : 0.6,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                variants={slideInLeft}
+                custom={getStaggerDelay(index, 0.3)}
+                initial="hidden"
+                animate="visible"
                 className="flex items-center gap-3"
               >
                 <item.icon className="h-5 w-5 text-primary-base dark:text-primary-base-dark/80" />
@@ -106,13 +66,13 @@ export default function Hero() {
       </div>
 
       <motion.div
-        variants={containerVariants}
+        variants={staggerContainer}
         initial="hidden"
         animate="visible"
         className="relative mx-auto w-full"
       >
         {/* Code-style intro */}
-        <motion.div variants={fadeInUpVariants} className="mb-8">
+        <motion.div variants={fadeInUp} className="mb-8">
           <HoverBorderGradient
             containerClassName="rounded-full"
             className="flex items-center space-x-2 border-0 bg-background-base dark:bg-background-base-dark"
@@ -133,7 +93,7 @@ export default function Hero() {
         {/* Main Content */}
         <div className="relative">
           {/* Name Section with Terminal-style Decoration */}
-          <motion.div variants={fadeInUpVariants} className="mb-6">
+          <motion.div variants={fadeInUp} className="mb-6">
             <div className="inline-block">
               <div className="mb-2 font-mono text-sm">
                 <span className="text-accent-base dark:text-accent-base-dark">
@@ -169,7 +129,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Role Title with Terminal-like Design */}
-          <motion.div variants={scaleInVariants} className="mb-8">
+          <motion.div variants={scaleIn} className="mb-8">
             <div className="inline-block rounded-lg border border-primary-base/50 bg-background-base/60 p-4 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
@@ -189,7 +149,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.div
-            variants={fadeInUpVariants}
+            variants={fadeInUp}
             className="mb-8 w-full lg:max-w-[730px]"
           >
             <div className="relative rounded-lg border border-primary-base/50 bg-background-base/60 p-4 backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/50">
@@ -200,7 +160,7 @@ export default function Hero() {
               </div>
               <TextGenerateEffect
                 words={heroContent.description}
-                textSpeed={12}
+                textSpeed={10}
               />
             </div>
           </motion.div>
@@ -209,10 +169,7 @@ export default function Hero() {
           <MobileRolesSidebar />
 
           {/* CTA Section */}
-          <motion.div
-            variants={fadeInUpVariants}
-            className="flex gap-4 sm:flex-row"
-          >
+          <motion.div variants={fadeInUp} className="flex gap-4 sm:flex-row">
             <Link
               href={heroContent.cta.primary.href}
               onClick={handleProjectsClick}
@@ -248,7 +205,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Social Links */}
-          <motion.div variants={fadeInUpVariants} className="mt-12">
+          <motion.div variants={fadeInUp} className="mt-12">
             <div className="inline-flex items-center gap-4 rounded-lg border border-primary-base/50 bg-background-base p-2 dark:border-primary-base-dark/30 dark:bg-background-base-dark/50">
               <Link
                 href={heroContent.social.github}

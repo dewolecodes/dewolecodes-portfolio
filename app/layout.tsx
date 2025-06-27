@@ -1,5 +1,3 @@
-import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "@/components/integrations/google-analytics";
 import type { Metadata, Viewport } from "next";
 import { Raleway, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/contexts/theme-provider";
@@ -8,6 +6,7 @@ import ActiveSectionContextProvider from "@/contexts/active-section-context";
 import { ToastProvider } from "@/contexts/toast-context";
 import { SparklesBackground } from "@/components/layout/sparkles-background";
 import { cn } from "@/lib/utils";
+import { AnalyticsProviders } from "./_providers";
 
 // Raleway for body text
 const raleway = Raleway({
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
   // Basic
   title: {
     default: "Nabeel Hassan | Web Developer",
-    template: "%s | Nabeel's Portfolio",
+    template: "%s | Nabeel Hassan",
   },
   description:
     "Hey, I'm Nabeel! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript. Crafting responsive, user-centric solutions with clean code and optimal performance.",
@@ -154,8 +153,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-
   return (
     <html lang="en" suppressHydrationWarning className="!scroll-smooth">
       <body
@@ -165,21 +162,21 @@ export default function RootLayout({
           "bg-background-base font-raleway text-default-base selection:bg-primary-base/30 dark:bg-background-base-dark dark:text-default-base-dark dark:selection:bg-primary-base-dark/40",
         )}
       >
-        {gaId && <GoogleAnalytics GA_MEASUREMENT_ID={gaId} />}
-        <ToastProvider>
-          <ActiveSectionContextProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <SparklesBackground />
-              {children}
-              <Analytics />
-            </ThemeProvider>
-          </ActiveSectionContextProvider>
-        </ToastProvider>
+        <AnalyticsProviders>
+          <ToastProvider>
+            <ActiveSectionContextProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+              >
+                <SparklesBackground />
+                {children}
+              </ThemeProvider>
+            </ActiveSectionContextProvider>
+          </ToastProvider>
+        </AnalyticsProviders>
       </body>
     </html>
   );

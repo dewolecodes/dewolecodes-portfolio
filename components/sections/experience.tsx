@@ -2,14 +2,17 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ExperienceCard } from "../common/experience-card";
+import { ExperienceCard } from "../cards/experience-card";
 import { SectionHeader } from "../ui/section-header";
 import { experienceData } from "@/lib/data";
 import TerminalInfo from "../ui/terminal-info";
 import { useSectionInView } from "@/hooks/use-section-in-view";
+import { fadeInUp, getStaggerDelay } from "@/lib/animation-presets";
 
 export default function Experience() {
-  const { ref } = useSectionInView("experience");
+  const { ref } = useSectionInView("experience", {
+    desktopThreshold: 0.3,
+  });
 
   // Sort experiences so that:
   // 1. Current jobs ("Present") come first
@@ -35,7 +38,7 @@ export default function Experience() {
     <section
       ref={ref}
       id="experience"
-      className="scroll-mt-12 px-4 pb-10 sm:pb-12 md:px-6 lg:pb-16"
+      className="scroll-mt-28 px-4 pb-10 sm:pb-12 lg:pb-16"
     >
       <SectionHeader
         title={experienceData.title}
@@ -63,9 +66,10 @@ export default function Experience() {
         {sortedExperienceData.map((experience, index) => (
           <motion.div
             key={experience.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.1 }}
+            variants={fadeInUp}
+            custom={getStaggerDelay(index)}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
             className="relative grid gap-8 md:grid-cols-2 md:gap-16"
           >

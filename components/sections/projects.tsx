@@ -1,18 +1,23 @@
 "use client";
 
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent } from "@/lib/services/analytics";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "../ui/section-header";
 import { projectsData, projectsSection } from "@/lib/data";
 import { Code2, ChevronDown, ChevronUp } from "lucide-react";
 import TerminalInfo from "../ui/terminal-info";
-import OtherProjectCard from "../common/other-project-card";
-import FeaturedProjectCard from "../common/featured-project-card";
+import OtherProjectCard from "../cards/other-project-card";
+import FeaturedProjectCard from "../cards/featured-project-card";
 import { useSectionInView } from "@/hooks/use-section-in-view";
+import { fadeInUp, fadeIn } from "@/lib/animation-presets";
 
 export default function Projects() {
-  const { ref } = useSectionInView("projects");
+  // Lower threshold for projects section due to complex layout
+  const { ref } = useSectionInView("projects", {
+    mobileThreshold: 0.1,
+    desktopThreshold: 0.3,
+  });
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   // Track when someone views the projects section
@@ -38,7 +43,7 @@ export default function Projects() {
     <section
       ref={ref}
       id="projects"
-      className="scroll-mt-12 px-4 pb-10 sm:pb-12 md:px-6 lg:pb-16"
+      className="scroll-mt-28 px-4 pb-10 sm:pb-12 lg:pb-16"
     >
       <div className="relative">
         <SectionHeader
@@ -78,9 +83,9 @@ export default function Projects() {
 
         {/* Other Projects Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
           className="relative mt-16"
         >
@@ -120,8 +125,9 @@ export default function Projects() {
           {/* Toggle Show More/Less Button */}
           {otherProjects.length > 3 && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
               className="mt-8 flex justify-center"
             >
               <button

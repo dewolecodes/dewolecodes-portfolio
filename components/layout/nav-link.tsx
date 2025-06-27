@@ -27,6 +27,7 @@ export function NavLink({ item }: NavLinkProps) {
 
   const href = getNavigationHref(item);
   const isBlog = item.name === "Blog";
+  const isContact = item.name === "Contact me";
 
   return (
     <Link
@@ -35,6 +36,8 @@ export function NavLink({ item }: NavLinkProps) {
         "relative px-3 py-2",
         isBlog &&
           "group flex items-center gap-1 rounded-full border border-primary-base/10 bg-primary-base/[0.1] px-4 transition-colors hover:border-primary-base/20 hover:bg-primary-base/[0.15] dark:border-primary-base-dark/10 dark:bg-primary-base-dark/[0.1] dark:hover:border-primary-base-dark/20 dark:hover:bg-primary-base-dark/[0.15]",
+        // Hide contact link on desktop
+        isContact && "lg:hidden",
       )}
       role="menuitem"
       aria-label={item.label}

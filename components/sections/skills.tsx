@@ -7,31 +7,18 @@ import { skillsContent } from "@/lib/data";
 import { Code2 } from "lucide-react";
 import TerminalInfo from "../ui/terminal-info";
 import { useSectionInView } from "@/hooks/use-section-in-view";
+import { staggerContainer, fadeInUp } from "@/lib/animation-presets";
 
 const Skills = () => {
-  const { ref } = useSectionInView("skills", 0.5);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const { ref } = useSectionInView("skills", {
+    desktopThreshold: 0.8,
+  });
 
   return (
     <section
       ref={ref}
       id="skills"
-      className="scroll-mt-12 px-4 py-10 sm:py-12 md:px-6 lg:py-16"
+      className="scroll-mt-12 px-4 py-10 sm:py-12 lg:py-16"
     >
       <div className="relative overflow-hidden">
         {/* Background decorations */}
@@ -56,7 +43,7 @@ const Skills = () => {
         </div>
 
         <motion.div
-          variants={containerVariants}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -65,7 +52,7 @@ const Skills = () => {
           {skillsContent.groups.map((group) => (
             <motion.div
               key={group.title}
-              variants={itemVariants}
+              variants={fadeInUp}
               className="relative h-full rounded-xl border border-primary-base/40 bg-background-base/50 p-6 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50"
             >
               {/* Decorative gradient */}

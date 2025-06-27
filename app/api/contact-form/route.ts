@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { ContactFormEmail } from "@/email/contact-form-email";
+import { ContactFormEmail } from "@/email/templates/contact-form-email";
 import { contactSchema } from "@/email/validations/contact";
 import { NextResponse } from "next/server";
 import * as z from "zod";

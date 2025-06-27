@@ -6,10 +6,6 @@ import remarkBreaks from "remark-breaks";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  vscDarkPlus,
-  vs,
-} from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useTheme } from "next-themes";
 import { Copy, Check, ExternalLink } from "lucide-react";
 import { useState } from "react";
@@ -196,7 +192,7 @@ export function BlogMarkdown({ content, className = "" }: BlogMarkdownProps) {
 
       if (isExternal) {
         return (
-          <a
+          <Link
             href={href}
             target="_blank"
             rel="noopener noreferrer"
@@ -205,7 +201,7 @@ export function BlogMarkdown({ content, className = "" }: BlogMarkdownProps) {
           >
             {children}
             <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         );
       }
 

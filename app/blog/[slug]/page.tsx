@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { notFound } from "next/navigation";
 import { getPostBySlug } from "@/lib/data/blog-data";
 import { BlogPost } from "@/lib/types/blog";
-import { Footer } from "@/components/layout/footer";
-import { BlogHeader } from "@/components/blog/blog-header";
 import { BlogPostContent } from "@/components/blog/blog-post-content";
 import { BlogLoading } from "@/components/blog/blog-loading";
 import { use } from "react";
@@ -40,15 +38,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
-      {/* Blog Header with Reading Progress */}
-      <BlogHeader showProgress={true} />
-
       {/* Main Content */}
-      <main className="relative mx-auto w-full max-w-4xl px-4 py-12 pt-24 sm:pt-28 md:pt-32 lg:pt-24">
+      <main className="relative mx-auto w-full max-w-4xl px-4 pt-24">
         <BlogPostContent post={post} />
       </main>
-
-      <Footer />
     </>
   );
 }

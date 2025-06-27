@@ -9,16 +9,17 @@ import { Code2, ArrowRight } from "lucide-react";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { useSectionInView } from "@/hooks/use-section-in-view";
-import ContactForm from "@/components/common/contact-form";
+import ContactForm from "@/components/forms/contact-form";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent } from "@/lib/services/analytics";
+import { slideInLeft } from "@/lib/animation-presets";
 
 // Create a client
 const queryClient = new QueryClient();
 
 export default function Contact() {
-  const { ref } = useSectionInView("contact");
+  const { ref } = useSectionInView("contact me");
 
   const handleSocialClick = (platform: string) => {
     trackEvent("social_click", "social", platform);
@@ -33,7 +34,7 @@ export default function Contact() {
       <section
         ref={ref}
         id="contact"
-        className="scroll-mt-12 px-4 pb-10 sm:pb-12 md:px-6 lg:pb-16"
+        className="scroll-mt-12 px-4 pb-10 sm:pb-12 lg:pb-16"
       >
         <Toaster position="bottom-right" />
         <SectionHeader
@@ -46,9 +47,9 @@ export default function Contact() {
           {/* Info Section */}
           <div className="space-y-6 md:col-span-2">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+              variants={slideInLeft}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true }}
               className="rounded-lg border border-primary-base/40 bg-background-base/80 p-6 text-sm backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/80"
             >

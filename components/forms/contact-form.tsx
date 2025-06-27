@@ -1,4 +1,4 @@
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent } from "@/lib/services/analytics";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -50,7 +50,7 @@ const ContactForm = () => {
   // Define the mutation for sending the email
   const mutation = useMutation<ApiResponse, AxiosError<ApiError>, FormData>({
     mutationFn: async (data: FormData) => {
-      const response = await axios.post("/api/sendEmail", data);
+      const response = await axios.post("/api/contact-form", data);
       return response.data;
     },
     onSuccess: () => {

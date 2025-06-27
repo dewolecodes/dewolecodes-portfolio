@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     title: "Building Modern Web Applications with Next.js and TypeScript",
     excerpt:
       "Learn how to create scalable and maintainable web applications using the latest technologies and best practices.",
-    content: `# Building Modern Web Applications with Next.js and TypeScript
+    content: `
 
 Web development has evolved significantly over the past few years. In this comprehensive guide, we'll explore how to build modern, scalable web applications using **Next.js** and **TypeScript**.
 

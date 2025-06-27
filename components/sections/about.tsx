@@ -2,38 +2,26 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { SectionHeader } from "../ui/section-header";
 import { aboutContent } from "@/lib/data";
 import { MonitorPlay, Trophy } from "lucide-react";
 import TerminalInfo from "../ui/terminal-info";
 import { useSectionInView } from "@/hooks/use-section-in-view";
+import { fadeInUp, staggerContainer } from "@/lib/animation-presets";
 
 const About = () => {
-  // Register the "about" section
-  const { ref } = useSectionInView("about", 0.5);
-
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  // Register the "about" section with higher threshold for focused reading
+  const { ref } = useSectionInView("about", {
+    mobileThreshold: 0.3,
+    desktopThreshold: 0.8,
+  });
 
   return (
     <section
       ref={ref}
       id="about"
-      className="scroll-mt-12 px-4 py-10 sm:py-12 md:px-6 lg:py-16"
+      className="scroll-mt-12 px-4 py-10 sm:py-12 lg:py-16"
     >
       <SectionHeader
         title={aboutContent.title}
@@ -42,7 +30,7 @@ const About = () => {
       />
 
       <motion.div
-        variants={containerVariants}
+        variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -50,7 +38,7 @@ const About = () => {
       >
         {/* Image Section */}
         <motion.div
-          variants={itemVariants}
+          variants={fadeInUp}
           className="mx-auto w-full max-w-xs lg:col-span-5 lg:max-w-none"
         >
           <div className="relative overflow-hidden rounded-2xl border border-primary-base/20 bg-background-base shadow-md dark:border-primary-base-dark/20 dark:bg-background-base-dark">
@@ -83,7 +71,7 @@ const About = () => {
         </motion.div>
 
         {/* Content Section */}
-        <motion.div variants={itemVariants} className="lg:col-span-7">
+        <motion.div variants={fadeInUp} className="lg:col-span-7">
           {/* Terminal-style intro */}
           <div className="w-fit">
             <TerminalInfo
@@ -98,7 +86,7 @@ const About = () => {
             {aboutContent.description.details.map((detail, index) => (
               <motion.p
                 key={index}
-                variants={itemVariants}
+                variants={fadeInUp}
                 className="text-pretty font-raleway leading-relaxed text-default-base/80 dark:text-default-base-dark/80 md:text-base"
               >
                 {detail}
@@ -108,7 +96,7 @@ const About = () => {
 
           {/* Interests & Motivations */}
           <motion.div
-            variants={itemVariants}
+            variants={fadeInUp}
             className="mt-8 grid gap-4 sm:grid-cols-2"
           >
             {aboutContent.interests.map((section, index) => (

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { NavItem } from "../lib/types";
+import { NavItem } from "@/lib/types";
 
 export function useSmartNavigation() {
   const pathname = usePathname();
@@ -22,11 +22,13 @@ export function useSmartNavigation() {
 
   const isHomePage = pathname === "/";
   const isBlogPage = pathname.startsWith("/blog");
+  const isBlogPost = pathname.startsWith("/blog/") && pathname !== "/blog";
 
   return {
     getNavigationHref,
     pathname,
     isHomePage,
     isBlogPage,
+    isBlogPost,
   };
 }

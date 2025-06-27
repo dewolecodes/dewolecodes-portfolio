@@ -6,7 +6,7 @@ import { FiGithub } from "react-icons/fi";
 import { Code2, ExternalLink, ChevronDown, Eye } from "lucide-react";
 import { ProjectData } from "@/lib/types";
 import Image from "next/image";
-import ProjectImagePlaceholder from "./project-image-placeholder";
+import ProjectImagePlaceholder from "../ui/project-image-placeholder";
 import Link from "next/link";
 import { ProjectPreview } from "@/components/ui/project-preview";
 
