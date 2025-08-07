@@ -9,7 +9,7 @@ import type { SectionName } from "@/lib/types";
  * - Hero/Landing: Default thresholds work well (0.2 mobile, 0.5 desktop)
  * - About/Content: Higher threshold for focused reading (0.3 mobile, 0.8 desktop)
  * - Projects/Gallery: Lower threshold for complex layouts (0.2 mobile, 0.3 desktop)
- * - Contact/Footer: Default thresholds work well (0.2 mobile, 0.5 desktop)
+ * - Contact/Footer: Lower threshold for last section (0.1 mobile, 0.3 desktop)
  */
 
 interface SectionInViewOptions {
@@ -69,17 +69,28 @@ export function useSectionInView(
     return isMobile ? mobileThreshold : desktopThreshold;
   };
 
+  const calculatedThreshold = getThreshold();
+
   const { ref, inView } = useInView({
-    threshold: getThreshold(),
+    threshold: calculatedThreshold,
   });
   const { setActiveSection, timeOfLastClick } = useActiveSectionContext();
 
   useEffect(() => {
     if (inView && Date.now() - timeOfLastClick > 1000) {
-      console.log(`Setting active section to: ${sectionName}`);
+      console.log(
+        `Setting active section to: ${sectionName} (threshold: ${calculatedThreshold}, mobile: ${isMobile})`,
+      );
       setActiveSection(sectionName);
     }
-  }, [inView, setActiveSection, timeOfLastClick, sectionName]);
+  }, [
+    inView,
+    setActiveSection,
+    timeOfLastClick,
+    sectionName,
+    calculatedThreshold,
+    isMobile,
+  ]);
 
   return { ref };
 }

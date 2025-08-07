@@ -34,7 +34,7 @@ export default function Contact() {
       <section
         ref={ref}
         id="contact"
-        className="scroll-mt-12 px-4 pb-10 sm:pb-12 lg:pb-16"
+        className="scroll-mt-28 px-4 pb-10 sm:pb-12 lg:pb-16"
       >
         <Toaster position="bottom-right" />
         <SectionHeader
