@@ -1,4 +1,4 @@
-import { BaseSection } from "./common";
+import { BaseSection } from "@/lib/types/common";
 
 export type Experience = {
   id: string;

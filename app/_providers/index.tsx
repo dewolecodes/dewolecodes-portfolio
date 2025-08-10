@@ -1,6 +1,6 @@
 "use client";
 
-import { AnalyticsProvider } from "./analytics-provider";
+import { AnalyticsProvider } from "@/app/_providers/analytics-provider";
 
 interface AnalyticsProvidersProps {
   children: React.ReactNode;

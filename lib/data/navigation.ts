@@ -1,4 +1,4 @@
-import { NavItem, BlogNavItem } from "../types";
+import { NavItem, BlogNavItem } from "@/lib/types";
 
 export const navigationItems: NavItem[] = [
   {
@@ -21,6 +21,13 @@ export const navigationItems: NavItem[] = [
     homeHref: "#skills",
     fullHref: "/#skills",
     label: "Skills section",
+  },
+  {
+    name: "Testimonials",
+    href: "#testimonials",
+    homeHref: "#testimonials",
+    fullHref: "/#testimonials",
+    label: "Testimonials section",
   },
   {
     name: "Experience",

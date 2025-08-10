@@ -1,4 +1,4 @@
-import { AboutContent } from "../types";
+import { AboutContent } from "@/lib/types";
 
 export const aboutContent: AboutContent = {
   title: "About Me",
@@ -6,7 +6,7 @@ export const aboutContent: AboutContent = {
   terminalInfo: {
     command: "whoami",
     flag: "info",
-    content: "Software engineer bringing ideas to life",
+    content: "Software engineer delivering measurable business value",
   },
   image: {
     src: "/images/nabeel.webp",
@@ -14,34 +14,34 @@ export const aboutContent: AboutContent = {
   },
   description: {
     details: [
-      "Hello, I'm Hassan, though many know me as Nabeel. I love creating websites and applications that not only look great but also work smoothly. What started as just being curious about how websites work has grown into something I'm truly passionate about.",
+      "Hello, I'm Hassan, though many know me as Nabeel. I architect and develop web applications that combine elegant design with robust functionality, ensuring they deliver measurable business value. What started as curiosity about how websites work has evolved into a passion for creating solutions that drive real results.",
 
-      "When I'm working on projects, I always aim for clean and efficient solutions. I enjoy the challenge of turning complex problems into simple, user-friendly experiences. Every project is a chance to learn something new and create something meaningful.",
+      "With experience delivering client projects and maintaining a 100% satisfaction rate, I specialize in transforming business challenges into scalable digital solutions. My approach focuses on clean, efficient code that not only works flawlessly but also provides the foundation for future growth and scalability.",
 
-      // "Beyond coding, I'm always exploring new technologies and keeping up with the latest in web development & tech in general. I believe that staying curious and continuously learning is what makes a great developer and engineer. This mindset helps me bring fresh ideas and better solutions to every project I work on.",
+      // "As a freelance developer, I've had the opportunity to work with diverse clients, delivering tailored solutions that meet their specific needs. My experience ranges from building responsive websites to developing complex web applications, always focusing on creating intuitive user experiences and robust functionality.",
 
-      "As a freelance developer, I've had the opportunity to work with diverse clients, delivering tailored solutions that meet their specific needs. My experience ranges from building responsive websites to developing complex web applications, always focusing on creating intuitive user experiences and robust functionality.",
+      "As a freelance developer, I've had the opportunity to work with diverse clients across fintech, e-commerce, and SaaS platforms. My expertise ranges from building responsive websites to developing complex web applications, always with a focus on creating intuitive user experiences and robust functionality that drives measurable ROI.",
     ],
   },
   interests: [
     {
-      type: "Beyond Coding",
+      type: "Professional Philosophy",
       items: [
-        "Playing & Watching Football",
-        "Reading Tech Blogs and Youtube",
-        "Watching Movies & TV Shows",
-        "Learning New Technologies",
-        "Exploring New Tech Trends",
+        "Collaboration over competition",
+        "Clear communication & transparency",
+        "Learning & Exploring new tech trends",
+        "Business value over technical complexity",
+        "User-centered design principles",
       ],
     },
     {
-      type: "What Drives Me",
+      type: "What Drives Results",
       items: [
-        "Building intuitive user experiences",
-        "Solving complex problems",
-        "Striving to be at the top",
-        "Continuous learning",
-        "Delivering client-focused solutions",
+        "Building scalable architectures",
+        "Optimizing for performance & user experience",
+        "Delivering ROI-focused solutions",
+        "Staying ahead of industry trends",
+        "Mentoring & knowledge sharing",
       ],
     },
   ],

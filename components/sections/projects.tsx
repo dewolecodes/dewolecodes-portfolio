@@ -3,14 +3,15 @@
 import { trackEvent } from "@/lib/services/analytics";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { SectionHeader } from "../ui/section-header";
+import { SectionHeader } from "@/components/ui/section-header";
 import { projectsData, projectsSection } from "@/lib/data";
 import { Code2, ChevronDown, ChevronUp } from "lucide-react";
-import TerminalInfo from "../ui/terminal-info";
-import OtherProjectCard from "../cards/other-project-card";
-import FeaturedProjectCard from "../cards/featured-project-card";
+import TerminalInfo from "@/components/ui/terminal-info";
+import OtherProjectCard from "@/components/cards/other-project-card";
+import FeaturedProjectCard from "@/components/cards/featured-project-card";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { fadeInUp, fadeIn } from "@/lib/animation-presets";
+import { useToggleWithScroll } from "@/hooks/use-toggle-with-scroll";
 
 export default function Projects() {
   // Lower threshold for projects section due to complex layout
@@ -18,7 +19,13 @@ export default function Projects() {
     mobileThreshold: 0.1,
     desktopThreshold: 0.3,
   });
-  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [showAllProjects] = useState(false);
+  const {
+    isExpanded: showAllFeatured,
+    toggle: toggleFeatured,
+    topRef: featuredTopRef,
+    firstExpandedRef: firstExpandedFeaturedRef,
+  } = useToggleWithScroll();
 
   // Track when someone views the projects section
   useEffect(() => {
@@ -35,9 +42,22 @@ export default function Projects() {
 
   const featuredProjects = projectsData.filter((p) => p.featured);
   const otherProjects = projectsData.filter((p) => !p.featured);
+  const initialVisibleFeatured = 3;
+  const hasHiddenFeatured = featuredProjects.length > initialVisibleFeatured;
+  const displayedFeaturedProjects = showAllFeatured
+    ? featuredProjects
+    : featuredProjects.slice(0, initialVisibleFeatured);
+  // Hook instance for other projects
+  const {
+    isExpanded: showAllOther,
+    toggle: toggleOther,
+    topRef: otherTopRef,
+    firstExpandedRef: firstExpandedOtherRef,
+  } = useToggleWithScroll();
+  const initialVisibleOther = 3;
   const displayedOtherProjects = showAllProjects
     ? otherProjects
-    : otherProjects.slice(0, 3);
+    : otherProjects.slice(0, initialVisibleOther);
 
   return (
     <section
@@ -62,10 +82,18 @@ export default function Projects() {
         </div>
 
         {/* Featured Projects */}
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredProjects.map((project) => (
+        <div
+          ref={featuredTopRef}
+          className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {displayedFeaturedProjects.map((project, idx) => (
             <div
               key={project.id}
+              ref={
+                showAllFeatured && idx === initialVisibleFeatured
+                  ? firstExpandedFeaturedRef
+                  : undefined
+              }
               onClick={() => handleProjectClick(project.title, "view")}
             >
               <FeaturedProjectCard
@@ -80,6 +108,33 @@ export default function Projects() {
             </div>
           ))}
         </div>
+
+        {/* Toggle Show More/Less for Featured */}
+        {hasHiddenFeatured && (
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            animate="visible"
+            className="mt-4 flex justify-center"
+          >
+            <button
+              onClick={toggleFeatured}
+              className="group flex items-center gap-2 rounded-lg border border-primary-base/40 bg-primary-base/5 px-4 py-2 text-sm text-primary-base transition-all hover:border-primary-base/80 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
+              aria-expanded={showAllFeatured}
+            >
+              <span>
+                {showAllFeatured
+                  ? "Show Less"
+                  : `Show ${featuredProjects.length - initialVisibleFeatured} More`}
+              </span>
+              {showAllFeatured ? (
+                <ChevronUp className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+              ) : (
+                <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+              )}
+            </button>
+          </motion.div>
+        )}
 
         {/* Other Projects Section */}
         <motion.div
@@ -103,10 +158,18 @@ export default function Projects() {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {displayedOtherProjects.map((project) => (
+          <div
+            ref={otherTopRef}
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {displayedOtherProjects.map((project, idx) => (
               <div
                 key={project.id}
+                ref={
+                  showAllOther && idx === initialVisibleOther
+                    ? firstExpandedOtherRef
+                    : undefined
+                }
                 onClick={() => handleProjectClick(project.title, "view")}
               >
                 <OtherProjectCard
@@ -131,11 +194,15 @@ export default function Projects() {
               className="mt-8 flex justify-center"
             >
               <button
-                onClick={() => setShowAllProjects(!showAllProjects)}
+                onClick={toggleOther}
                 className="group flex items-center gap-2 rounded-lg border border-primary-base/40 bg-primary-base/5 px-4 py-2 text-sm text-primary-base transition-all hover:border-primary-base/80 hover:bg-primary-base/10 dark:border-primary-base-dark/20 dark:bg-primary-base-dark/5 dark:text-primary-base-dark dark:hover:border-primary-base-dark/40 dark:hover:bg-primary-base-dark/10"
               >
-                <span>{showAllProjects ? "Show Less" : "Show More"}</span>
-                {showAllProjects ? (
+                <span>
+                  {showAllOther
+                    ? "Show Less"
+                    : `Show ${otherProjects.length - initialVisibleOther} More`}
+                </span>
+                {showAllOther ? (
                   <ChevronUp className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
                 ) : (
                   <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />

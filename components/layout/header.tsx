@@ -6,10 +6,10 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { easeInOut, motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ModeToggle } from "../ui/theme-toggle";
+import { ModeToggle } from "@/components/ui/theme-toggle";
 import { navigationItems } from "@/lib/data";
-import { NavLink } from "./nav-link";
-import { MobileMenu } from "./mobile-menu";
+import { NavLink } from "@/components/layout/nav-link";
+import { MobileMenu } from "@/components/layout/mobile-menu";
 import { ScrollBar } from "@/components/ui/scroll-bar";
 import { useSmartNavigation } from "@/hooks/use-smart-navigation";
 import type { NavItem } from "@/lib/types";
@@ -124,7 +124,7 @@ export function Header() {
           className={cn(
             "relative z-[60] mt-2 hidden w-full max-w-7xl flex-row items-center justify-between rounded-full bg-transparent px-4 transition-all duration-500 ease-in-out dark:bg-transparent lg:flex",
             isScrolled
-              ? "mx-auto mt-5 w-[900px] border border-primary-base/20 bg-background-base/80 py-2 shadow-nav backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/80"
+              ? "mx-auto mt-5 w-[950px] border border-primary-base/20 bg-background-base/80 py-2 shadow-nav backdrop-blur-md dark:border-primary-base-dark/20 dark:bg-background-base-dark/80"
               : "bg-transparent",
           )}
           role="navigation"

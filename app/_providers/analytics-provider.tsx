@@ -1,7 +1,7 @@
 "use client";
 
 import { Analytics } from "@vercel/analytics/react";
-import GoogleAnalytics from "../../components/integrations/google-analytics";
+import GoogleAnalytics from "@/components/integrations/google-analytics";
 
 interface AnalyticsProviderProps {
   children: React.ReactNode;

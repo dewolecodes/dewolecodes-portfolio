@@ -3,17 +3,20 @@
 import React from "react";
 import { Terminal } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface TerminalInfoProps {
   command?: string;
   flag?: string;
   content?: string;
+  className?: string;
 }
 
 const TerminalInfo: React.FC<TerminalInfoProps> = ({
   command,
   flag,
   content,
+  className,
 }) => {
   const containerVariants: Variants = {
     hidden: { opacity: 0, y: 10 },
@@ -48,7 +51,10 @@ const TerminalInfo: React.FC<TerminalInfoProps> = ({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className="mb-8 rounded-lg border border-primary-base/50 bg-background-base/50 p-4 backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/50"
+      className={cn(
+        "mb-8 rounded-lg border border-primary-base/50 bg-background-base/50 p-4 backdrop-blur-sm dark:border-primary-base-dark/20 dark:bg-background-base-dark/50",
+        className,
+      )}
     >
       {/* Compact layout for mobile */}
       <div className="flex flex-col gap-2 md:hidden">

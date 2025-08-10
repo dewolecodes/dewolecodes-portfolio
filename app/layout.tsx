@@ -6,7 +6,7 @@ import ActiveSectionContextProvider from "@/contexts/active-section-context";
 import { ToastProvider } from "@/contexts/toast-context";
 import { SparklesBackground } from "@/components/layout/sparkles-background";
 import { cn } from "@/lib/utils";
-import { AnalyticsProviders } from "./_providers";
+import { AnalyticsProviders } from "@/app/_providers";
 
 // Raleway for body text
 const raleway = Raleway({

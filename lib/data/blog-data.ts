@@ -1,4 +1,4 @@
-import { Author, BlogPost } from "../types/blog";
+import { Author, BlogPost } from "@/lib/types/blog";
 
 // Sample author data
 export const author: Author = {

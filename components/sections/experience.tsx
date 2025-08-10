@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ExperienceCard } from "../cards/experience-card";
-import { SectionHeader } from "../ui/section-header";
+import { ExperienceCard } from "@/components/cards/experience-card";
+import { SectionHeader } from "@/components/ui/section-header";
 import { experienceData } from "@/lib/data";
-import TerminalInfo from "../ui/terminal-info";
+import TerminalInfo from "@/components/ui/terminal-info";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { fadeInUp, getStaggerDelay } from "@/lib/animation-presets";
 
@@ -17,7 +17,7 @@ export default function Experience() {
   // Sort experiences so that:
   // 1. Current jobs ("Present") come first
   // 2. Then, sort by end date (most recent first)
-  const sortedExperienceData = experienceData.experiences.sort((a, b) => {
+  const sortedExperienceData = [...experienceData.experiences].sort((a, b) => {
     // If a is current and b is not, a comes first
     if (a.dates.end === "Present" && b.dates.end !== "Present") return -1;
     // If b is current and a is not, b comes first
@@ -78,7 +78,7 @@ export default function Experience() {
               <div className="h-[10px] w-[10px] rounded-full border-2 border-primary-base/30 bg-primary-base dark:border-primary-base-dark/30 dark:bg-primary-base-dark" />
             </div>
 
-            {/* Card - Alternating Layout */}
+            {/* Card - Alternating Layout (only on md+) */}
             <div
               className={index % 2 === 0 ? "md:col-start-1" : "md:col-start-2"}
             >

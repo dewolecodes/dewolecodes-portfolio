@@ -8,3 +8,4 @@ export { skillsContent } from "./skills";
 export { projectsSection, projectsData } from "./projects";
 export { experienceData } from "./experience";
 export { contactData } from "./contact";
+export { testimonialsContent } from "./testimonials";

@@ -1,4 +1,4 @@
-import { SectionName } from "./common";
+import { SectionName } from "@/lib/types/common";
 
 export type NavItem = {
   name: Capitalize<SectionName>;

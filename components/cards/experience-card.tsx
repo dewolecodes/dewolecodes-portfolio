@@ -30,7 +30,7 @@ export const ExperienceCard: React.FC<{
   experience: Experience;
   isRight: boolean;
 }> = ({ experience, isRight }) => (
-  <div className={`relative ${isRight ? "ml-auto" : ""}`}>
+  <div className={`relative ${isRight ? "md:ml-auto" : ""}`}>
     {/* Date display */}
     <motion.div
       initial={{ opacity: 0, y: -10 }}

@@ -16,7 +16,7 @@ import {
   SiHtml5,
   SiEjs,
 } from "react-icons/si";
-import { ProjectSection, ProjectData } from "../types";
+import { ProjectSection, ProjectData } from "@/lib/types";
 
 export const projectsSection: ProjectSection = {
   title: "Projects",
@@ -33,7 +33,7 @@ export const projectsData: ProjectData[] = [
     id: "project-1",
     title: "Abdamin International Limited",
     description:
-      "A responsive web application for Abdamin International Limited, a multi-sector company in Nigeria.",
+      "Enterprise web application for a multi-sector Nigerian company, featuring responsive design, optimized performance, and scalable architecture. Delivered improved user engagement and streamlined business operations.",
     featured: true,
     cover: {
       url: "/projects/abdamin.webp",
@@ -52,9 +52,9 @@ export const projectsData: ProjectData[] = [
   },
   {
     id: "project-2",
-    title: "Horizon - Crypto SaaS ",
+    title: "Horizon - Crypto SaaS Platform",
     description:
-      "Horizon is designed for AI-powered SaaS startups to explore real-time trends, decode user queries with precision, and make strategic decisions with foresight.",
+      "AI-powered SaaS platform for crypto startups, featuring real-time trend analysis, intelligent query processing, and strategic decision-making tools. Designed to help businesses make data-driven decisions in volatile markets.",
     featured: true,
     cover: {
       url: "/projects/horizon.webp",
@@ -75,7 +75,7 @@ export const projectsData: ProjectData[] = [
     id: "project-3",
     title: "Library Meta Bot System",
     description:
-      "An advanced library management system integrating AI-assisted cataloging, comprehensive classification tools, and robust metadata management.",
+      "Advanced library management system with AI-assisted cataloging, comprehensive classification tools, and robust metadata management. Streamlines library operations and improves resource discovery for users.",
     featured: true,
     cover: {
       url: "/projects/lib-meta-bot.webp",
@@ -175,7 +175,7 @@ export const projectsData: ProjectData[] = [
     id: "project-8",
     title: "CGPA Calculator V2",
     description:
-      "CGPA Calculator V2 – an enhanced version with goal planning, what-if analysis, and grade tracking. Works offline and empowers students to simulate future scenarios, set achievement targets, and visualize academic progress.",
+      "Enhanced academic planning platform with goal setting, scenario analysis, and progress visualization. Empowers students to make strategic academic decisions and track long-term performance trends.",
     featured: true,
     cover: {
       url: "/projects/cgpa-calculator.png",

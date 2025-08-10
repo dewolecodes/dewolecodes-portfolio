@@ -1,5 +1,5 @@
 import { LucideIcon } from "lucide-react";
-import { BaseSection, Icon, TerminalInfo } from "./common";
+import { BaseSection, Icon, TerminalInfo } from "@/lib/types/common";
 
 export type HeroContent = {
   intro: string;
@@ -63,4 +63,21 @@ export type ContactContent = BaseSection & {
   socials: {
     [key: string]: string;
   };
+};
+
+// Testimonials
+export type Testimonial = {
+  id: string;
+  quote: string;
+  author: {
+    name: string;
+    role?: string;
+    company?: string;
+    avatarUrl?: string;
+  };
+};
+
+export type TestimonialsContent = BaseSection & {
+  terminalInfo: TerminalInfo;
+  items: Testimonial[];
 };

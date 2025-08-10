@@ -1,4 +1,4 @@
-import { ContactContent } from "../types";
+import { ContactContent } from "@/lib/types";
 
 export const contactData: ContactContent = {
   title: "Get in Touch",

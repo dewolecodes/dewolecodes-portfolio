@@ -1,4 +1,4 @@
-import { ExperienceContent } from "../types";
+import { ExperienceContent } from "@/lib/types";
 
 export const experienceData: ExperienceContent = {
   title: "Experience",

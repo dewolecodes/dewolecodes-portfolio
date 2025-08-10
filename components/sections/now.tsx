@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { SectionHeader } from "../ui/section-header";
+import { SectionHeader } from "@/components/ui/section-header";
 import { Clock, Activity, Terminal } from "lucide-react";
 import { SiSpotify, SiGithub } from "react-icons/si";
 import Image from "next/image";

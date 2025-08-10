@@ -1,5 +1,5 @@
 import { IconType } from "react-icons";
-import { BaseSection } from "./common";
+import { BaseSection } from "@/lib/types/common";
 
 export type ProjectSection = BaseSection;
 

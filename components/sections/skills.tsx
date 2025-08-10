@@ -2,10 +2,10 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { SectionHeader } from "../ui/section-header";
+import { SectionHeader } from "@/components/ui/section-header";
 import { skillsContent } from "@/lib/data";
 import { Code2 } from "lucide-react";
-import TerminalInfo from "../ui/terminal-info";
+import TerminalInfo from "@/components/ui/terminal-info";
 import { useSectionInView } from "@/hooks/use-section-in-view";
 import { staggerContainer, fadeInUp } from "@/lib/animation-presets";
 

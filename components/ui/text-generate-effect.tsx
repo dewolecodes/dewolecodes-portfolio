@@ -28,7 +28,7 @@ export function TextGenerateEffect({
 
   return (
     <div className="relative">
-      <p className="text-pretty text-base leading-relaxed">
+      <p className="text-pretty text-sm leading-relaxed md:text-base">
         {displayText}
         <motion.span
           animate={{ opacity: [1, 0] }}

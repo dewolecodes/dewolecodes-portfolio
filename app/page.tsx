@@ -7,6 +7,7 @@ import Experience from "@/components/sections/experience";
 import Hero from "@/components/sections/hero";
 import Projects from "@/components/sections/projects";
 import Skills from "@/components/sections/skills";
+import Testimonials from "@/components/sections/testimonials";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -27,6 +28,7 @@ export default function Home() {
           <About />
           <Projects />
           <Skills />
+          <Testimonials />
           <Experience />
           <Contact />
         </main>

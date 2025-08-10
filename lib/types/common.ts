@@ -17,6 +17,7 @@ export type SectionName =
   | "about"
   | "projects"
   | "skills"
+  | "testimonials"
   | "experience"
   | "contact me"
   | "blog";

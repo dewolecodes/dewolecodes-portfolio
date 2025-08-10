@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BlogCard } from "./blog-card";
+import { BlogCard } from "@/components/blog/blog-card";
 import { BlogPost } from "@/lib/types/blog";
 
 interface BlogPostsGridProps {

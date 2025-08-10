@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User, Tag } from "lucide-react";
 import { BlogPost } from "@/lib/types/blog";
-import { BlogMarkdown } from "./blog-markdown";
+import { BlogMarkdown } from "@/components/blog/blog-markdown";
 
 interface BlogPostContentProps {
   post: BlogPost;

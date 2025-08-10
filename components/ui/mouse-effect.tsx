@@ -1,4 +1,3 @@
-// components/ui/mouse-effect.tsx
 "use client";
 
 import { useEffect, useState } from "react";

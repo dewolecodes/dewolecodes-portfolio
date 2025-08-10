@@ -21,7 +21,7 @@ import {
   SiCss3,
   SiPostman,
 } from "react-icons/si";
-import { SkillsContent } from "../types";
+import { SkillsContent } from "@/lib/types";
 
 export const skillsContent: SkillsContent = {
   title: "Skills",
