@@ -31,7 +31,7 @@ export const experienceData: ExperienceContent = {
     },
     {
       id: "exp-2",
-      role: "Full Stack Developer",
+      role: "Software Developer",
       company: "Mkel Networks Limited",
       companyUrl: "https://mkelnetworks.com",
       location: "Abuja, Nigeria",
