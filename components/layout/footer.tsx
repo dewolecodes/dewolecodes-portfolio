@@ -78,6 +78,7 @@ export function Footer() {
                   fill
                   sizes="(max-width: 30px) 100vw, 30px"
                   className="object-contain"
+                  priority
                 />
               </div>
             </Link>

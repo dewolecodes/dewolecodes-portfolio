@@ -63,7 +63,7 @@ export default function Projects() {
     <section
       ref={ref}
       id="projects"
-      className="scroll-mt-28 px-4 pb-10 sm:pb-12 lg:pb-16"
+      className="relative scroll-mt-28 px-4 pb-10 sm:pb-12 lg:pb-16"
     >
       <div className="relative">
         <SectionHeader
