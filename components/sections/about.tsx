@@ -28,7 +28,7 @@ const About = () => {
     <section
       ref={ref}
       id="about"
-      className="scroll-mt-12 px-4 py-10 sm:py-12 lg:py-16"
+      className="relative scroll-mt-12 px-4 py-10 sm:py-12 lg:py-16"
     >
       <SectionHeader
         title={aboutContent.title}
