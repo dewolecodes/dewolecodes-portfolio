@@ -18,7 +18,7 @@ const Skills = () => {
     <section
       ref={ref}
       id="skills"
-      className="relative scroll-mt-12 px-4 py-10 sm:py-12 lg:py-16"
+      className="relative scroll-mt-8 -mt-12 px-4 py-6 sm:py-8 lg:py-12"
     >
       <div className="relative overflow-hidden">
         {/* Background decorations */}

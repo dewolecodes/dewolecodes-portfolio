@@ -43,10 +43,10 @@ export const ContactFormEmail = ({
               {/* Logo Header */}
               <div className="mb-[32px] text-center">
                 <Img
-                  src="https://res.cloudinary.com/dy55vopm2/image/upload/v1743001924/nabeelhassan-logo_y0zjon.png"
+                  src="https://res.cloudinary.com/dqirwsjga/image/upload/v1758497849/dark-logo_-_Copy_gnnecl.png "
                   width="80"
                   height="80"
-                  alt="Nabeel Hassan Logo"
+                  alt="Akinbola Abdulrahmon logo"
                   className="mx-auto"
                 />
               </div>
@@ -120,15 +120,15 @@ export const ContactFormEmail = ({
                 <Text className="m-0 text-[14px] text-gray-400">
                   This email was sent from your contact form on{" "}
                   <Link
-                    href="https://nabeelhassan.dev"
+                    href="https://dewolecodes.dev"
                     className="text-[#71a295] underline"
                   >
-                    nabeelhassan.dev
+                    dewolecodes.dev
                   </Link>
                 </Text>
 
                 <Text className="mb-0 mt-[16px] text-[12px] text-gray-500">
-                  © {new Date().getFullYear()} Nabeel Hassan. All rights
+                  © {new Date().getFullYear()} Akinbola Abdulrahmon Adewole. All rights
                   reserved.
                 </Text>
               </div>

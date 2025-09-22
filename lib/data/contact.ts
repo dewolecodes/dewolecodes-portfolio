@@ -10,10 +10,10 @@ export const contactData: ContactContent = {
   },
   description:
     "Have a project in mind or want to discuss opportunities? Feel free to reach out!",
-  email: "hassanhauda@gmail.com",
+  email: "abdulrahmonakinbola@gmail.com",
   socials: {
-    github: "https://github.com/NabsCodes",
-    linkedin: "https://linkedin.com/in/hassan-umar-hassan",
-    twitter: "https://twitter.com/nabeelhassan_",
+    github: "https://github.com/dewolecodes",
+    linkedin: "https://www.linkedin.com/in/akinbola-abdulrahmon-0b7828274/",
+    twitter: "https://x.com/dewolecodes",
   },
 };

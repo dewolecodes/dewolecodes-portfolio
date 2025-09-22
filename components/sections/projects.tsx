@@ -145,7 +145,7 @@ export default function Projects() {
           className="relative mt-16"
         >
           {/* Section Divider with Text */}
-          <div className="relative mb-8 flex items-center justify-center">
+          {/* <div className="relative mb-8 flex items-center justify-center">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-primary-base/50 dark:border-primary-base-dark/30" />
             </div>
@@ -155,7 +155,7 @@ export default function Projects() {
                 More Projects
               </span>
             </div>
-          </div>
+          </div> */}
 
           {/* Projects Grid */}
           <div

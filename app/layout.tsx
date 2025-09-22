@@ -27,20 +27,21 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   // Basic
   title: {
-    default: "Nabeel Hassan | Web Developer",
-    template: "%s | Nabeel Hassan",
+    default: "Akinbola Abdulrahmon Adewole | Web Developer",
+    template: "%s | Akinbola Abdulrahmon",
   },
   description:
-    "Hey, I'm Nabeel! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript. Crafting responsive, user-centric solutions with clean code and optimal performance.",
+    "Hey, I'm Dewole! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript. Crafting responsive, user-centric solutions with clean code and optimal performance.",
   metadataBase: new URL("https://nabeelhassan.dev"),
-  applicationName: "Nabeel Hassan Portfolio",
+  applicationName: "Dewole Portfolio",
 
   // Keywords and Categories
   keywords: [
-    "Nabeel",
-    "Hassan",
-    "Nabeel Hassan",
-    "Hassan Umar Hassan",
+    "Dewole",
+    "Codes",
+    "Dewole Codes",
+    "Akinbola Abdulrahmon",
+    "Akinbola Abdulrahmon Adewole",
     "Web Developer",
     "Frontend Developer",
     "React Developer",

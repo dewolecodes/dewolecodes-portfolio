@@ -6,21 +6,23 @@ export const aboutContent: AboutContent = {
   terminalInfo: {
     command: "whoami",
     flag: "info",
-    content: "Software engineer delivering measurable business value",
+    content: "Software engineer building scalable, user-friendly applications.",
   },
   image: {
-    src: "/images/nabeel.webp",
-    alt: "Hassan Umar Hassan",
+    src: "/images/dewole.webp",
+    alt: "Akinbola Abdulrahmon Adewole",
   },
   description: {
     details: [
-      "Hello, I'm Hassan, though many know me as Nabeel. I architect and develop web applications that combine elegant design with robust functionality, ensuring they deliver measurable business value. What started as curiosity about how websites work has evolved into a passion for creating solutions that drive real results.",
+      "Hello, I’m Abdulrahman, though many know me as Dewole Codes. I design and develop software solutions that balance clean design with powerful functionality, turning ideas into practical solutions that solve real problems.",
 
-      "With experience delivering client projects and maintaining a 100% satisfaction rate, I specialize in transforming business challenges into scalable digital solutions. My approach focuses on clean, efficient code that not only works flawlessly but also provides the foundation for future growth and scalability.",
+      "With hands-on experience across both frontend and backend development, I specialize in building scalable, efficient, and user-friendly applications. My focus is always on writing clean, maintainable code that not only works seamlessly today but also provides a strong foundation for future growth.",
 
       // "As a freelance developer, I've had the opportunity to work with diverse clients, delivering tailored solutions that meet their specific needs. My experience ranges from building responsive websites to developing complex web applications, always focusing on creating intuitive user experiences and robust functionality.",
 
-      "As a freelance developer, I've had the opportunity to work with diverse clients across fintech, e-commerce, and SaaS platforms. My expertise ranges from building responsive websites to developing complex web applications, always with a focus on creating intuitive user experiences and robust functionality that drives measurable ROI.",
+      "My toolkit spans frontend frameworks (React, Next.js), backend development (Node.js, Express.js), and databases (PostgreSQL). I also use modern styling tools like Tailwind CSS and version control with Git/GitHub, enabling me to build and maintain scalable, production-ready applications.",
+
+      "Whether collaborating with teams or working independently, I bring creativity, problem-solving, and professionalism to every project I take on.",
     ],
   },
   interests: [

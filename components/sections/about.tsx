@@ -103,55 +103,28 @@ const About = () => {
             ))}
           </div>
 
-          {/* Professional Credentials */}
+          {/* Professional Credential — Single Highlight Card */}
           <motion.div
             variants={fadeInUp}
-            className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4"
+            className="mt-10 flex w-full items-center justify-center"
           >
-            <div className="flex items-center gap-3 rounded-lg border border-primary-base/30 bg-background-base/50 px-3 py-3 transition-colors duration-300 hover:border-primary-base/50 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50 dark:hover:border-primary-base-dark/30">
-              <Award className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-              <div>
-                <div className="font-space-grotesk text-sm font-medium text-primary-base-dark">
-                  15+ Projects
+            <div className="w-full max-w-md">
+              <div className="flex items-start gap-4 rounded-2xl border border-primary-base/20 bg-gradient-to-b from-background-base/60 to-background-base/40 px-6 py-5 shadow-md dark:border-primary-base-dark/20 dark:from-background-base-dark/60 dark:to-background-base-dark/40">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-base/10 text-primary-base dark:bg-primary-base-dark/10 dark:text-primary-base-dark">
+                  <Award className="h-6 w-6" />
                 </div>
-                <div className="text-xs text-default-base/60 dark:text-default-base-dark/60">
-                  Delivered
-                </div>
-              </div>
-            </div>
 
-            <div className="flex items-center gap-3 rounded-lg border border-primary-base/30 bg-background-base/50 px-3 py-3 transition-colors duration-300 hover:border-primary-base/50 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50 dark:hover:border-primary-base-dark/30">
-              <CheckCircle className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-              <div>
-                <div className="font-space-grotesk text-sm font-medium text-primary-base-dark">
-                  100% Satisfaction
-                </div>
-                <div className="text-xs text-default-base/60 dark:text-default-base-dark/60">
-                  Client feedback
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 rounded-lg border border-primary-base/30 bg-background-base/50 px-3 py-3 transition-colors duration-300 hover:border-primary-base/50 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50 dark:hover:border-primary-base-dark/30">
-              <Users className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-              <div>
-                <div className="font-space-grotesk text-sm font-medium text-primary-base-dark">
-                  5+ Industries
-                </div>
-                <div className="text-xs text-default-base/60 dark:text-default-base-dark/60">
-                  Experience across
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3 rounded-lg border border-primary-base/30 bg-background-base/50 px-3 py-3 transition-colors duration-300 hover:border-primary-base/50 dark:border-primary-base-dark/20 dark:bg-background-base-dark/50 dark:hover:border-primary-base-dark/30">
-              <Clock className="h-4 w-4 text-primary-base dark:text-primary-base-dark" />
-              <div>
-                <div className="font-space-grotesk text-sm font-medium text-primary-base-dark">
-                  3+ Years
-                </div>
-                <div className="text-xs text-default-base/60 dark:text-default-base-dark/60">
-                  Experience
+                <div className="flex-1">
+                  <div className="font-space-grotesk text-lg font-semibold text-primary-base-dark">
+                    5+ Projects
+                  </div>
+                  <div className="mt-2 text-sm text-default-base/70 dark:text-default-base-dark/70 space-y-1">
+                    <p>From responsive websites to full-stack apps</p>
+                    <p>Frontend Developer</p>
+                    <p>With skills across the stack</p>
+                    <p>Growth Mindset</p>
+                    <p>Committed to learning and building better</p>
+                  </div>
                 </div>
               </div>
             </div>

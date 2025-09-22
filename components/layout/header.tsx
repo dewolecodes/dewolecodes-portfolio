@@ -151,7 +151,7 @@ export function Header() {
                   style={{ willChange: "transform" }}
                 >
                   {/* Light mode logo */}
-                  <div className="relative h-[30px] w-[30px] dark:hidden">
+                  <div className="relative h-[40px] w-[40px] dark:hidden">
                     <Image
                       src="/images/light-logo.png"
                       alt="Personal logo"
@@ -162,12 +162,12 @@ export function Header() {
                     />
                   </div>
                   {/* Dark mode logo */}
-                  <div className="relative hidden h-[30px] w-[30px] dark:block">
+                  <div className="relative hidden h-[40px] w-[40px] dark:block">
                     <Image
                       src="/images/dark-logo.png"
                       alt="Personal logo"
                       fill
-                      sizes="(max-width: 30px) 100vw, 30px"
+                      sizes="(max-width: 40px) 100vw, 40px"
                       className="object-contain"
                       priority
                     />
@@ -186,10 +186,10 @@ export function Header() {
                       &lt;
                     </span>
                     <span className="text-text-base dark:text-text-base-dark">
-                      nabeel
+                      dewole
                     </span>
                     <span className="font-light text-primary-base dark:text-accent-base-dark">
-                      hassan
+                      codes
                     </span>
                     <span className="text-primary-base dark:text-primary-base-dark">
                       /&gt;
@@ -209,7 +209,7 @@ export function Header() {
                   style={{ willChange: "transform" }}
                 >
                   {/* Light mode logo */}
-                  <div className="relative h-[30px] w-[30px] dark:hidden">
+                    <div className="relative h-[40px] w-[40px] dark:hidden">
                     <Image
                       src="/images/light-logo.png"
                       alt="Personal logo"
@@ -220,12 +220,12 @@ export function Header() {
                     />
                   </div>
                   {/* Dark mode logo */}
-                  <div className="relative hidden h-[30px] w-[30px] dark:block">
+                    <div className="relative hidden h-[40px] w-[40px] dark:block">
                     <Image
                       src="/images/dark-logo.png"
                       alt="Personal logo"
                       fill
-                      sizes="(max-width: 30px) 100vw, 30px"
+                      sizes="(max-width: 40px) 100vw, 40px"
                       className="object-contain"
                       priority
                     />
@@ -244,7 +244,7 @@ export function Header() {
                       &lt;
                     </span>
                     <span className="text-text-base dark:text-text-base-dark">
-                      nabeel
+                      dewole
                     </span>
                     <span className="font-light text-primary-base dark:text-accent-base-dark">
                       blog
@@ -398,10 +398,10 @@ export function Header() {
                     &lt;
                   </span>
                   <span className="text-text-base dark:text-text-base-dark">
-                    nabeel
+                    dewole
                   </span>
                   <span className="font-light text-accent-base dark:text-accent-base-dark">
-                    hassan
+                    codes
                   </span>
                   <span className="text-primary-base dark:text-primary-base-dark">
                     /&gt;

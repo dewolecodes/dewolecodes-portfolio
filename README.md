@@ -1,6 +1,6 @@
 ## <p align="center"><img src="/app/icon.png" height="52" alt="Logo" /><br></p>
 
-### Nabeel Hassan's Portfolio
+### Akinbola Abdulrahmon Adewole
 
 My personal portfolio, built using Next.js, serves as a dynamic showcase for my web development skills. It's designed to give you a clear overview of my projects and the modern technologies I use.
 
@@ -33,7 +33,7 @@ Built with the latest technologies to ensure performance, responsiveness, and a 
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/NabsCodes/nabeels-portfolio.git
+   git clone https://github.com/NabsCodes/dewole-portfolio.git
    ```
 
 2. **Install dependencies**:

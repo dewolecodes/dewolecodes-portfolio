@@ -6,40 +6,40 @@ export const testimonialsContent: TestimonialsContent = {
   terminalInfo: {
     command: "say",
     flag: "testimonials",
-    content: "Feedback from clients and collaborators",
+    content: "Feedback from friends and collaborators",
   },
   items: [
     {
       id: "t1",
       quote:
-        "Hassan excels at working with teams and bringing people together to achieve shared goals. His ability to learn and adapt make him a valuable asset to any software project.",
+        "Dewole has a rare mix of discipline and creativity. Even outside tech, I’ve seen him take on complex challenges with patience and persistence. Those qualities make him reliable in any team setting.",
       author: {
-        name: "Baraatu Audu",
-        role: "Supervisor",
-        company: "MKEL Networks",
-        avatarUrl: "/images/bara.webp",
+        name: "Praise Oluwasakin",
+        role: "Frontend & Shopify Developer",
+        company: "Freelance",
+        // avatarUrl: "/images/dewole.webp",
       },
     },
     {
       id: "t2",
       quote:
-        "Hassan was with us for few months for the UI/UX design learning, but his key eye to details and his ability to help others is what made him stand out.",
+        "I was really impressed by the MadeIn9ja platform Abdulrahman built. The speed, responsiveness, and attention to detail made it feel like using a real-world news site. His dedication to getting things right shows in the final product.",
       author: {
-        name: "Perxcels UI/UX School",
-        role: "Mentor",
-        company: "Perxcels",
-        // avatarUrl: "/images/perxcels.webp",
+        name: "Akinbola Hadijat",
+        role: "Business Coach",
+        company: "Made In 9ja",
+        // avatarUrl: "/images/madein9ja-feedback.webp",
       },
     },
     {
       id: "t3",
       quote:
-        "Working with Hassan to translate designs into real applications was seamless. He's easy to work with and has a keen eye for design and user experience details.",
+        "I’ve watched Abdulrahman grow steadily as a developer. He’s always eager to learn, quick to share knowledge, and never shies away from helping others understand concepts better. His passion is genuine.",
       author: {
-        name: "Kolawole Olubummo",
+        name: "Aisha Opeyemi",
         role: "Product Designer",
         company: "MKEL Networks",
-        avatarUrl: "/images/kola.webp",
+        // avatarUrl: "/images/aisha.webp",
       },
     },
   ],

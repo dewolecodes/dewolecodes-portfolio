@@ -121,12 +121,12 @@ export function Footer() {
             <span className="text-default-base dark:text-default-base-dark">
               Design & Development by{" "}
               <Link
-                href="https://github.com/NabsCodes"
+                href="https://github.com/dewolecodes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-base-dark transition-colors hover:text-accent-base dark:hover:text-accent-base-dark"
               >
-                Hassan Umar Hassan
+                Akinbola Abdulrahmon Adewole
               </Link>
             </span>
           </motion.div>
