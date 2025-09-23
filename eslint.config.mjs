@@ -64,9 +64,7 @@ const eslintConfig = [
         typescript: {
           alwaysTryTypes: true,
         },
-        node: {
-          extensions: [".js", ".jsx", ".ts", ".tsx"],
-        },
+        node: {},
       },
     },
     rules: {

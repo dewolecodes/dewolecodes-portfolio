@@ -6,7 +6,7 @@ export type Experience = {
   company: string;
   companyUrl?: string;
   location: string;
-  type: "Full-time" | "Part-time" | "Contract" | "Freelance" | "Internship";
+  type: "Full-time" | "Part-time" | "Contract" | "Freelance" | "Internship" | "Learning";
   dates: {
     start: string;
     end: string | "Present";
