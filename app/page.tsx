@@ -35,5 +35,6 @@ export default function Home() {
       </TracingBeam>
       <Footer />
     </motion.div>
+    
   );
 }
