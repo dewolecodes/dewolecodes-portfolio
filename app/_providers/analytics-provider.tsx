@@ -8,7 +8,9 @@ interface AnalyticsProviderProps {
 }
 
 export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  // Use the environment variable if present; otherwise default to the
+  // measurement ID the user requested we install.
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-QGHB3FYZCK";
   // const posthogKey = process.env.NEXT_PUBLIC_POSTHOG_KEY; // For future PostHog integration
 
   return (

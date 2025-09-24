@@ -95,10 +95,10 @@ export const metadata: Metadata = {
   // OpenGraph
   openGraph: {
     type: "website",
-    siteName: "Nabeel Hassan Portfolio",
-    title: "Nabeel Hassan | Web Developer",
+    siteName: "Akinbola Abdulrahmon Portfolio",
+    title: "Akinbola Abdulrahmon | Web Developer",
     description:
-      "Hey, I'm Nabeel! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
+      "Hey, I'm Dewole Codes! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
     url: "https://dewolecodes-portfolio.vercel.app/",
     locale: "en_US",
   },
