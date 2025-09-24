@@ -27,7 +27,7 @@ export const heroContent: HeroContent = {
       href: "#projects",
     },
     secondary: {
-      href: "file:///C:/Users/USER/Downloads/Akinbola_Abdulrahmon_Resume%20(4).pdf",
+      href: "https://dewolecodes-portfolio.vercel.app/AKINBOLA_ABDULRAHMON_Resume.pdf",
     },
   },
   social: {

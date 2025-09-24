@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   description:
     "Hey, I'm Dewole! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript. Crafting responsive, user-centric solutions with clean code and optimal performance.",
-  metadataBase: new URL("https://nabeelhassan.dev"),
+  metadataBase: new URL("https://dewolecodes-portfolio.vercel.app/"),
   applicationName: "Dewole Portfolio",
 
   // Keywords and Categories
@@ -66,29 +66,29 @@ export const metadata: Metadata = {
   // Creator Info
   authors: [
     {
-      name: "Nabeel Hassan",
-      url: "https://nabeelhassan.dev",
+      name: "Akinbola Abdulrahmon",
+      url: "https://dewolecodes-portfolio.vercel.app/",
     },
   ],
-  creator: "Nabeel Hassan",
-  publisher: "Nabeel Hassan",
+  creator: "Akinbola Abdulrahmon",
+  publisher: "Akinbola Abdulrahmon",
 
   // Verification
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
     other: {
       me: [
-        "https://github.com/NabsCodes",
-        "https://linkedin.com/in/hassan-umar-hassan",
+        "https://github.com/dewolecodes",
+        "https://www.linkedin.com/in/akinbola-abdulrahmon-0b7828274/",
       ],
     },
   },
 
   // Alternate Languages/Versions
   alternates: {
-    canonical: "https://nabeelhassan.dev",
+    canonical: "https://dewolecodes-portfolio.vercel.app/",
     languages: {
-      "en-US": "https://nabeelhassan.dev",
+      "en-US": "https://dewolecodes-portfolio.vercel.app/",
     },
   },
 
@@ -99,18 +99,18 @@ export const metadata: Metadata = {
     title: "Nabeel Hassan | Web Developer",
     description:
       "Hey, I'm Nabeel! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
-    url: "https://nabeelhassan.dev",
+    url: "https://dewolecodes-portfolio.vercel.app/",
     locale: "en_US",
   },
 
   // Twitter
   twitter: {
     card: "summary_large_image",
-    title: "Nabeel Hassan | Web Developer",
+    title: "Akinbola Abdulrahmon | Web Developer",
     description:
       "Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
-    creator: "@nabeelhassan_",
-    site: "@nabeelhassan_",
+    creator: "@dewolecodes_",
+    site: "@dewolecodes_",
   },
 
   // Robots

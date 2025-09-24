@@ -120,7 +120,7 @@ export const ContactFormEmail = ({
                 <Text className="m-0 text-[14px] text-gray-400">
                   This email was sent from your contact form on{" "}
                   <Link
-                    href="https://dewolecodes.dev"
+                    href="https://dewolecodes-portfolio.vercel.app/"
                     className="text-[#71a295] underline"
                   >
                     dewolecodes.dev

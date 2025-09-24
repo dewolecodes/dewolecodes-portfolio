@@ -17,7 +17,7 @@ export const testimonialsContent: TestimonialsContent = {
         name: "Praise Oluwasakin",
         role: "Frontend & Shopify Developer",
         company: "Freelance",
-        // avatarUrl: "/images/dewole.webp",
+        avatarUrl: "/images/praise.webp",
       },
     },
     {
