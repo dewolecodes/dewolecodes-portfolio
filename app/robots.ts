@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/private/", "/api/"],
     },
-    sitemap: "https://nabeelhassan.dev/sitemap.xml",
+    sitemap: "https://dewolecodes-portfolio.vercel.app/",
   };
 }
