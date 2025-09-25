@@ -11,5 +11,15 @@ import React from "react";
 // in this file.
 
 export default function Head() {
-  return null;
+  // Provide an optional Facebook App ID via NEXT_PUBLIC_FB_APP_ID to satisfy
+  // Facebook's crawler warning. If you don't have an app id, leave it unset.
+  const fbAppId = process.env.NEXT_PUBLIC_FB_APP_ID ?? "";
+
+  return (
+    <>
+      {fbAppId ? <meta property="fb:app_id" content={fbAppId} /> : null}
+      {/* Ensure locale is using the canonical format expected by crawlers */}
+      <meta property="og:locale" content="en_US" />
+    </>
+  );
 }
