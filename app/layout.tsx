@@ -101,6 +101,15 @@ export const metadata: Metadata = {
       "Hey, I'm Dewole Codes! A Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
     url: "https://dewolecodes-portfolio.vercel.app/",
     locale: "en_US",
+    // Explicit images with a cache-busting query string so scrapers fetch fresh images
+    images: [
+      {
+        url: `/opengraph-image.png?v=${new Date().toISOString().replace(/[:.]/g, "-")}`,
+        width: 1200,
+        height: 630,
+        alt: "Portfolio and Resume of Akinbola Abdulrahmon Adewole",
+      },
+    ],
   },
 
   // Twitter
@@ -111,6 +120,9 @@ export const metadata: Metadata = {
       "Web Developer specialized in building modern web applications with React, Next.js, and TypeScript.",
     creator: "@dewolecodes_",
     site: "@dewolecodes_",
+    images: [
+      `/twitter-image.png?v=${new Date().toISOString().replace(/[:.]/g, "-")}`,
+    ],
   },
 
   // Robots
