@@ -79,7 +79,7 @@ export const metadata: Metadata = {
     other: {
       me: [
         "https://github.com/dewolecodes",
-        "https://www.linkedin.com/in/akinbola-abdulrahmon-0b7828274/",
+        "https://www.linkedin.com/in/dewolecodes/",
       ],
     },
   },

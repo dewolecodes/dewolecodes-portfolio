@@ -32,6 +32,6 @@ export const heroContent: HeroContent = {
   },
   social: {
     github: "https://github.com/dewolecodes",
-    linkedin: "https://www.linkedin.com/in/akinbola-abdulrahmon-0b7828274/",
+    linkedin: "https://www.linkedin.com/in/dewolecodes/",
   },
 };

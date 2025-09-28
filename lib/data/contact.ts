@@ -13,7 +13,7 @@ export const contactData: ContactContent = {
   email: "abdulrahmonakinbola@gmail.com",
   socials: {
     github: "https://github.com/dewolecodes",
-    linkedin: "https://www.linkedin.com/in/akinbola-abdulrahmon-0b7828274/",
+    linkedin: "https://www.linkedin.com/in/dewolecodes/",
     twitter: "https://x.com/dewolecodes",
   },
 };
