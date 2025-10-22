@@ -58,8 +58,32 @@ export const projectsData: ProjectData[] = [
       live: "https://madein9ja-sigma.vercel.app/",
     },
   },
-  {
+  
+ {
     id: "project-2",
+    title: "FarmTech",
+    description:
+      " A project about agriculture and technology. It shows how better tractors and farm machines can help farmers work faster and better.",
+    featured: true,
+    cover: {
+      url: "/projects/farm.webp",
+      alt: "FarmTech agriculture and technology ",
+    },
+    tech: [
+  { name: "React", icon: SiReact },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "React Router", icon: SiReactrouter },
+  { name: "Axios", icon: SiAxios },
+  { name: "Sass", icon: SiSass },
+  { name: "React Icons", icon: SiReact },
+    ],
+    links: {
+      github: "https://github.com/dewolecodes/farm-tech-project",
+      live: "https://farm-tech-green.vercel.app/",
+    },
+    },
+    {
+    id: "project-3",
     title: "Spendex",
     description:
       "AI-powered finance management platform that helps users track expenses, analyze spending habits, and gain intelligent financial insights for smarter money decisions.",
@@ -84,8 +108,8 @@ export const projectsData: ProjectData[] = [
       live: "https://spendex-project.vercel.app/",
     },
   },
-  {
-    id: "project-3",
+   {
+    id: "project-4",
     title: "Talents - Record Label",
     description:
      "Artist-centered music label website that highlights new releases, displays artist catalogs, and integrates an e-commerce shop for music, tickets, and merchandise.",
@@ -107,26 +131,9 @@ export const projectsData: ProjectData[] = [
       live: "https://talents-dusky.vercel.app/",
     },
   },
- // {
-  //   id: "project-4",
-  //   title: "Yara - eCommerce Landing Page",
-  //   description:
-  //     "A landing page built for eCommerce small businesses. Yara is a project crafted from my time at Perxcels UI/UX school.",
-  //   featured: false,
-  //   cover: {
-  //     url: "/projects/yara.webp",
-  //     alt: "Blog platform interface",
-  //   },
-  //   tech: [
-  //     { name: "React", icon: SiReact },
-  //     { name: "TypeScript", icon: SiTypescript },
-  //     { name: "Tailwind", icon: SiTailwindcss },
-  //   ],
-  //   links: {
-  //     github: "https://github.com/NabsCodes/yara",
-  //     live: "https://yara-seven.vercel.app/",
-  //   },
-  // },
+  
+ 
+  
   // {
   //   id: "project-5",
   //   title: "SMS Scheduler App",
