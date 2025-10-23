@@ -66,7 +66,7 @@ export const projectsData: ProjectData[] = [
       " A project about agriculture and technology. It shows how better tractors and farm machines can help farmers work faster and better.",
     featured: true,
     cover: {
-      url: "/projects/farm.webp",
+      url: "/projects/farmTech.webp",
       alt: "FarmTech agriculture and technology ",
     },
     tech: [
